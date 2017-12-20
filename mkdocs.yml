@@ -1,0 +1,16 @@
+site_name: Citrix NetScaler 12.0 NITRO API Documentation
+site_description: Citrix NetScaler 12.0 NITRO API Documentation
+theme_dir: citrix-sdk
+markdown_extensions:
+  - admonition
+  - codehilite(guess_lang=false)
+  - toc(permalink=true)
+  - footnotes
+  - meta
+
+pages:
+- Overview: index.md
+- Before you begin: before-you-begin.md
+- Performing Basic NetScaler Operations: performing-basic-netscaler-operations.md
+- Use cases: usecases.md
+- Error and Exception Handling: error-and-exception-handling.md
