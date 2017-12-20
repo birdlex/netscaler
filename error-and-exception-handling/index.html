@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Error and Exception Handling - Citrix NetScaler 12.0 NITRO API Documentation</title>
+     
+    <link rel="shortcut icon" href="
+https://www.citrix.com/etc/designs/citrix/icon-favicon.png"> 
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link rel="stylesheet" href="../css/override.css" type="text/css" />
+    <link rel="stylesheet" href="../css/font-awesome.css" type="text/css" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Error and Exception Handling";
+      var mkdocs_page_input_path = "error-and-exception-handling.md";
+      var mkdocs_page_url = "/error-and-exception-handling/";
+
+    </script>
+    
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/modernizr-2.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/highlight.pack.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/custom.js"></script>  
+  </head>
+
+  <body class="wy-body-for-nav" role="document">
+
+    <div class="header-top">
+
+        <div class="header-top-left">
+          <a href="http://developer-docs.citrix.com" class="logo-position"><img height="60" src="../img/citrixlogoblack.png" target="_blank" class="logo-citrix"><span style="color:#000;font-size: 20px;position: relative;top:4px;left:20px;">Developer Documentation</span></a>
+        </div>
+        <div class="header-top-right">
+          <ul>
+
+            <form id="rtd-search-form-alt" class="wy-form" action="../search.html" method="get">
+             <ul class="header-elements">
+              <li class="list-inline support">
+                <input name="q" id="txtName" type="text" placeholder="Search SDKs" class="searchdocs">
+                <a class="fa fa-search errspan"></a>
+<!---
+              </li>
+             <li> <a href="javascript:void(0);" style="font-size: 22px;position: relative;left: -10px;top: 3px"><i class="fa fa-globe"></i></a></li>
+             </ul>
+             --->
+            </form>
+
+          </ul>
+
+        </div>
+
+    </div>
+    <div class="body">
+      <div class="wy-grid-for-nav">
+
+        
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+          <div class="wy-side-nav-search">
+            <div role="search">
+  <form id ="rtd-search-form-alt" class="wy-form" action="../search.html" method="get">
+	<i class="fa fa-search"></i>
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+          </div>
+
+          <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+            <ul class="current">
+              
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="..">Overview</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../before-you-begin/">Before you begin</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../performing-basic-netscaler-operations/">Performing Basic NetScaler Operations</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../usecases/">Use cases</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 current">
+        <a class="toctree-l1-a current" href="./">Error and Exception Handling</a>
+		
+            <ul style="margin-left: 0px;padding-left:15px;border-left: 1px solid #b2b2b2;">
+            
+                <li class="toctree-l3"><a href="#error-and-exception-handling" style="padding:0px;position: relative;">&nbsp;Error and Exception Handling</a></li>
+                
+                    <li><a class="toctree-l4" href="#error-handling-for-nitro-apis" style="padding:0px;position: relative;">Error Handling for NITRO APIs</a></li>
+                
+                    <li><a class="toctree-l4" href="#exception-handling-support-for-sdks" style="padding:0px;position: relative;">Exception Handling Support for SDKs</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+			  
+            </ul>
+          </div>
+          &nbsp;
+        </nav>
+
+        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+           
+          <div class="wy-nav-content">
+            <div class="rst-content">
+              <!-- <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Error and Exception Handling</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div> -->
+              <div role="main">
+                <div class="section">
+                <div class="file-format">
+                 <div class="leftAlign" style="float: left;visibility: hidden;">
+                  </div>
+                  <div class="rightAlign" style="float: right;">
+                      <span>Download full document:</span>
+                      <ul class="file-types">
+                        <li><a style="border: 1px solid #EE3D24;padding: 5px;font-size: 11px;color: #EE3D24;border-radius: 5px;font-weight: 700">PDF</a></li>
+                        <li><a style="border: 1px solid #2A579A;padding: 5px;font-size: 11px;color: #2A579A;border-radius: 5px;font-weight: 700">DOCX</a></li>
+                        <li><a style="border: 1px solid #495164;padding: 5px;font-size: 11px;color: #495164;border-radius: 5px;font-weight: 700">EMAIL</a></li>
+                        <li><a style="border: 1px solid #495164;padding: 5px;font-size: 11px;color: #495164;border-radius: 5px;font-weight: 700">PRINT</a></li>
+                      </ul>
+                  </div>
+                  </div>
+                   <h1 id="error-and-exception-handling">Error and Exception Handling<a class="headerlink" href="#error-and-exception-handling" title="Permanent link">&para;</a></h1>
+<p>This section covers error handling support for NITRO APIs and exception handling support for SDKs.</p>
+<h2 id="error-handling-for-nitro-apis">Error Handling for NITRO APIs<a class="headerlink" href="#error-handling-for-nitro-apis" title="Permanent link">&para;</a></h2>
+<p>In case of a failed request, NITRO provides the required information through the HTTP status code and in the response header and response payload.
+<em> Error in a Single Resource Operation
+</em> Error in a Bulk Operations
+* Warnings</p>
+<p><strong>Error in a Single Resource Operation</strong></p>
+<p>The response of a single erroneous operation is as follows:</p>
+<p><strong>HTTP Status Code</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors)</p>
+<p><strong>Response Header</strong></p>
+<p>Content-Type:application/json</p>
+<p><strong>Response Payload</strong></p>
+<p>{ 
+    errorcode: \<Error code>, 
+    message: "\<Error message>", 
+    severity: "ERROR" 
+}</p>
+<p><strong>Error in a Bulk Operation</strong></p>
+<p>When there is a failure in one of the bulk operations, the response payload gives a combination of success and failure (depends on the value set for X-NITRO-ONERROR in the request header).</p>
+<p><strong>HTTP Status Code</strong></p>
+<p>207 Multi Status</p>
+<p><strong>Response Header</strong></p>
+<p>Content-Type:application/json</p>
+<p><strong>Response Payload when X-NITRO-ONERROR is set to continue</strong></p>
+<p>When the first operation fails, the request is not terminated. The response payload shows the error details of the failed operation and the success status of the other operations.</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;errorcode&quot;</span><span class="p">:</span> <span class="mi">1243</span><span class="p">,</span> 
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Bulk operation failed&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;severity&quot;</span><span class="p">:</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;response&quot;</span><span class="p">:</span> 
+    <span class="p">[</span> 
+        <span class="p">{</span> 
+            <span class="nt">&quot;errorcode&quot;</span><span class="p">:</span> <span class="mi">273</span><span class="p">,</span> 
+            <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Resource already exists&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;severity&quot;</span><span class="p">:</span> <span class="s2">&quot;ERROR&quot;</span> 
+        <span class="p">},</span> 
+        <span class="p">{</span> 
+            <span class="nt">&quot;errorcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+            <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Done&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;severity&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span> 
+        <span class="p">}</span> 
+    <span class="p">]</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response Payload when X-NITRO-ONERROR is set to exit</strong></p>
+<p>When the first operation fails, the request is terminated. The response payload only shows the error details of the failed operation.</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;errorcode&quot;</span><span class="p">:</span> <span class="mi">1243</span><span class="p">,</span> 
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Bulk operation failed&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;severity&quot;</span><span class="p">:</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;response&quot;</span><span class="p">:</span> 
+    <span class="p">[</span> 
+        <span class="p">{</span> 
+            <span class="nt">&quot;errorcode&quot;</span><span class="p">:</span> <span class="mi">273</span><span class="p">,</span> 
+            <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Resource already exists&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;severity&quot;</span><span class="p">:</span> <span class="s2">&quot;ERROR&quot;</span> 
+        <span class="p">}</span> 
+    <span class="p">]</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Warnings in NITRO Operations</strong></p>
+<p>Warnings can be captured by specifying the "warning" query parameter as "yes" when performing any NITRO operation. For example, to get warnings while connecting to the NetScaler appliance, the URL is as follows:</p>
+<p>http://\<netscaler-ip-address>/nitro/v1/config/llbvserver?warning=yes</p>
+<p>If there are any warnings, the response is as follows:</p>
+<p><strong>HTTP Status Code</strong></p>
+<p>209 X-NITRO-WARNING</p>
+<p><strong>Response Header</strong></p>
+<p>X-NITRO-WARNING →1067 - Feature(s) not enabled [LB]</p>
+<h2 id="exception-handling-support-for-sdks">Exception Handling Support for SDKs<a class="headerlink" href="#exception-handling-support-for-sdks" title="Permanent link">&para;</a></h2>
+<p>The status of a NITRO request is captured in the com.citrix.netscaler.nitro.exception.nitro_exception class. This class provides the following details of the exception:</p>
+<ul>
+<li>Session ID. The session in which the exception occurred.</li>
+<li>Severity. The severity of the exception: error or warning. By default, only errors are captured. To capture warnings, you must set the warning flag to true, while connecting to the appliance.</li>
+<li>Error code. The status of the NITRO request. An error code of 0 indicates that the NITRO request is successful. A non-zero error code indicates an error in processing the NITRO request.</li>
+<li>Error message. Provides a brief description of the exception.</li>
+</ul>
+<p>For a list of error codes, see the errorlisting.html file available in the \<NITRO_SDK_HOME>/doc/api_reference folder.</p> 
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+    <!--<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span class="prev"><a href="../usecases/"><i class="fa fa-angle-left"></i> Previous</a></span>
+      
+      
+    </span>
+	<div class="footer-right">
+		<ul class="social-links">
+			<li class="list-inline"><a href="https://twitter.com/citrix"><i class="fa fa-twitter"></i>@citrix</a></li>
+			<li class="list-inline"><a href="mailto:support@citrix.com"><i class="fa fa-envelope-o"></i>support@citrix.com</a></li>
+		</ul>
+		<ul class="inner-pages">
+			<li class="list-inline"><a href="http://citrix.com/about/legal">Privacy and Terms</li>
+		</ul>
+	</div>
+</div>-->
+
+  </body>
+
+</html>

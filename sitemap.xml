@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>/</loc>
+     <lastmod>2017-12-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/before-you-begin/</loc>
+     <lastmod>2017-12-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/performing-basic-netscaler-operations/</loc>
+     <lastmod>2017-12-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/usecases/</loc>
+     <lastmod>2017-12-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/error-and-exception-handling/</loc>
+     <lastmod>2017-12-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+</urlset>
