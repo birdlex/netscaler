@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Use cases - Citrix NetScaler 12.0 NITRO API Documentation</title>
+     
+    <link rel="shortcut icon" href="
+https://www.citrix.com/etc/designs/citrix/icon-favicon.png"> 
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link rel="stylesheet" href="../css/override.css" type="text/css" />
+    <link rel="stylesheet" href="../css/font-awesome.css" type="text/css" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Use cases";
+      var mkdocs_page_input_path = "usecases.md";
+      var mkdocs_page_url = "/usecases/";
+
+    </script>
+    
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/modernizr-2.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/highlight.pack.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/custom.js"></script>  
+  </head>
+
+  <body class="wy-body-for-nav" role="document">
+
+    <div class="header-top">
+
+        <div class="header-top-left">
+          <a href="http://developer-docs.citrix.com" class="logo-position"><img height="60" src="../img/citrixlogoblack.png" target="_blank" class="logo-citrix"><span style="color:#000;font-size: 20px;position: relative;top:4px;left:20px;">Developer Documentation</span></a>
+        </div>
+        <div class="header-top-right">
+          <ul>
+
+            <form id="rtd-search-form-alt" class="wy-form" action="../search.html" method="get">
+             <ul class="header-elements">
+              <li class="list-inline support">
+                <input name="q" id="txtName" type="text" placeholder="Search SDKs" class="searchdocs">
+                <a class="fa fa-search errspan"></a>
+<!---
+              </li>
+             <li> <a href="javascript:void(0);" style="font-size: 22px;position: relative;left: -10px;top: 3px"><i class="fa fa-globe"></i></a></li>
+             </ul>
+             --->
+            </form>
+
+          </ul>
+
+        </div>
+
+    </div>
+    <div class="body">
+      <div class="wy-grid-for-nav">
+
+        
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+          <div class="wy-side-nav-search">
+            <div role="search">
+  <form id ="rtd-search-form-alt" class="wy-form" action="../search.html" method="get">
+	<i class="fa fa-search"></i>
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+          </div>
+
+          <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+            <ul class="current">
+              
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="..">Overview</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../before-you-begin/">Before you begin</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../performing-basic-netscaler-operations/">Performing Basic NetScaler Operations</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 current">
+        <a class="toctree-l1-a current" href="./">Use cases</a>
+		
+            <ul style="margin-left: 0px;padding-left:15px;border-left: 1px solid #b2b2b2;">
+            
+                <li class="toctree-l3"><a href="#use-cases-and-samples" style="padding:0px;position: relative;">&nbsp;Use Cases and Samples</a></li>
+                
+                    <li><a class="toctree-l4" href="#managing-a-netscaler-cluster" style="padding:0px;position: relative;">Managing a NetScaler Cluster</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuring-admin-partitions" style="padding:0px;position: relative;">Configuring Admin Partitions</a></li>
+                
+                    <li><a class="toctree-l4" href="#managing-appexpert-applications" style="padding:0px;position: relative;">Managing AppExpert Applications</a></li>
+                
+                    <li><a class="toctree-l4" href="#automate-netscaler-upgrade-and-downgrade-with-a-single-api" style="padding:0px;position: relative;">Automate NetScaler Upgrade and Downgrade with a Single API</a></li>
+                
+                    <li><a class="toctree-l4" href="#handle-multiple-nitro-calls-in-a-single-request" style="padding:0px;position: relative;">Handle Multiple NITRO Calls in a Single Request</a></li>
+                
+                    <li><a class="toctree-l4" href="#simplify-management-operations-with-an-idempotent-api" style="padding:0px;position: relative;">Simplify Management Operations with an Idempotent API</a></li>
+                
+                    <li><a class="toctree-l4" href="#retrieve-bindings-in-bulk" style="padding:0px;position: relative;">Retrieve Bindings in Bulk</a></li>
+                
+                    <li><a class="toctree-l4" href="#view-individual-counter-information" style="padding:0px;position: relative;">View Individual Counter Information</a></li>
+                
+                    <li><a class="toctree-l4" href="#prevent-xss-and-csrf-attacks-by-disabling-basic-authentication" style="padding:0px;position: relative;">Prevent XSS and CSRF Attacks by Disabling Basic Authentication</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../error-and-exception-handling/">Error and Exception Handling</a>
+		
+    </li>
+
+			  
+            </ul>
+          </div>
+          &nbsp;
+        </nav>
+
+        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+           
+          <div class="wy-nav-content">
+            <div class="rst-content">
+              <!-- <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Use cases</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div> -->
+              <div role="main">
+                <div class="section">
+                <div class="file-format">
+                 <div class="leftAlign" style="float: left;visibility: hidden;">
+                  </div>
+                  <div class="rightAlign" style="float: right;">
+                      <span>Download full document:</span>
+                      <ul class="file-types">
+                        <li><a style="border: 1px solid #EE3D24;padding: 5px;font-size: 11px;color: #EE3D24;border-radius: 5px;font-weight: 700">PDF</a></li>
+                        <li><a style="border: 1px solid #2A579A;padding: 5px;font-size: 11px;color: #2A579A;border-radius: 5px;font-weight: 700">DOCX</a></li>
+                        <li><a style="border: 1px solid #495164;padding: 5px;font-size: 11px;color: #495164;border-radius: 5px;font-weight: 700">EMAIL</a></li>
+                        <li><a style="border: 1px solid #495164;padding: 5px;font-size: 11px;color: #495164;border-radius: 5px;font-weight: 700">PRINT</a></li>
+                      </ul>
+                  </div>
+                  </div>
+                   <h1 id="use-cases-and-samples">Use Cases and Samples<a class="headerlink" href="#use-cases-and-samples" title="Permanent link">&para;</a></h1>
+<p>This section covers some use case scenarios to certain resources and scenarios. More scenarios will be added in future updates to this section.</p>
+<h2 id="managing-a-netscaler-cluster">Managing a NetScaler Cluster<a class="headerlink" href="#managing-a-netscaler-cluster" title="Permanent link">&para;</a></h2>
+<p>For managing clusters, you can add or remove a cluster instance or an individual node and perform a few other instance or node operations such as viewing instance or node properties. You can also configure the cluster IP address. Other cluster-management tasks include joining a NetScaler appliance to the cluster and configuring a linkset. For detailed information and best practices, see Clustering.</p>
+<h3 id="cluster-instance-operations">Cluster Instance Operations<a class="headerlink" href="#cluster-instance-operations" title="Permanent link">&para;</a></h3>
+<p>This topic covers cluster instance operations by using REST APIs through HTTP or SDKs. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>All operations on a cluster instance must be performed on the clusterinstance object.</p>
+<p>For example, to create a cluster instance with ID 1, connect to the NetScaler appliance that you are first adding to the cluster.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/clusterinstance</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+    "clusterinstance": 
+    { 
+    "clid":1, 
+    "preemption":"ENABLED" 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The com.citrix.netscaler.nitro.resource.config.cluster.clusterinstance class provides APIs to manage a cluster instance.</p>
+<p>The following sample code creates a cluster instance with ID 1.</p>
+<p><strong>Java - Sample code to create a cluster instance</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">clusterinstance</span> <span class="n">new_cl_inst_obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">clusterinstance</span><span class="o">();</span> 
+
+<span class="c1">//Set the properties of the cluster instance locally </span>
+
+<span class="n">new_cl_inst_obj</span><span class="o">.</span><span class="na">set_clid</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span> 
+<span class="n">new_cl_inst_obj</span><span class="o">.</span><span class="na">set_preemption</span><span class="o">(</span><span class="s">&quot;ENABLED&quot;</span><span class="o">);</span> 
+
+<span class="c1">//Upload the cluster instance </span>
+
+<span class="n">clusterinstance</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">new_cl_inst_obj</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to create a cluster instance</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">clusterinstance</span> <span class="n">new_cl_inst_obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">clusterinstance</span><span class="p">();</span> 
+
+<span class="c1">//Set the properties of the cluster instance locally </span>
+
+<span class="n">new_cl_inst_obj</span><span class="p">.</span><span class="n">clid</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> 
+
+<span class="n">new_cl_inst_obj</span><span class="p">.</span><span class="n">preemption</span> <span class="p">=</span> <span class="s">&quot;ENABLED&quot;</span><span class="p">;</span> 
+
+
+
+<span class="c1">//Upload the cluster instance </span>
+
+<span class="n">clusterinstance</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">new_cl_inst_obj</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to create a cluster instance</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">new_cl_inst_obj</span> <span class="o">=</span> <span class="n">clusterinstance</span><span class="p">()</span> 
+
+
+
+<span class="c1">#Set the properties of the cluster instance locally </span>
+
+<span class="n">new_cl_inst_obj</span><span class="o">.</span><span class="n">clid</span> <span class="o">=</span> <span class="mi">1</span> 
+
+
+
+<span class="c1">#Upload the cluster instance </span>
+
+<span class="n">clusterinstance</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">new_cl_inst_obj</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="cluster-node-operations">Cluster Node Operations<a class="headerlink" href="#cluster-node-operations" title="Permanent link">&para;</a></h3>
+<p>This topic covers cluster node operations by using REST APIs through HTTP or SDKs. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>All operations on a cluster node must be performed on the clusternode object. For example, to add a NetScaler appliance with NSIP address 10.102.29.60 to the cluster.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/clusternode</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+"clusternode": 
+    { 
+    "nodeid":1, 
+    "ipaddress":"10.102.29.60", 
+    "state":"ACTIVE", 
+    "backplane":"1/1/2" 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The com.citrix.netscaler.nitro.resource.config.cluster.clusternode class provides APIs to manage cluster nodes.</p>
+<p>The following sample code adds a cluster node with NSIP address 10.102.29.60.</p>
+<p><strong>Java - Sample code to add a cluster node</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">clusternode</span> <span class="n">new_cl_node_obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">clusternode</span><span class="o">();</span> 
+
+<span class="c1">//Set the properties of the cluster node locally </span>
+
+<span class="n">new_cl_node_obj</span><span class="o">.</span><span class="na">set_nodeid</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> 
+
+<span class="n">new_cl_node_obj</span><span class="o">.</span><span class="na">set_ipaddress</span><span class="o">(</span><span class="s">&quot;10.102.29.60&quot;</span><span class="o">);</span> 
+
+<span class="n">new_cl_node_obj</span><span class="o">.</span><span class="na">set_state</span><span class="o">(</span><span class="s">&quot;ACTIVE&quot;</span><span class="o">);</span> 
+
+<span class="n">new_cl_node_obj</span><span class="o">.</span><span class="na">set_backplane</span><span class="o">(</span><span class="s">&quot;0/1/1&quot;</span><span class="o">);</span> 
+
+
+
+<span class="c1">//Upload the cluster node </span>
+
+<span class="n">clusternode</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">new_cl_node_obj</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to add a cluster node</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">clusternode</span> <span class="n">new_cl_node_obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">clusternode</span><span class="p">();</span> 
+
+<span class="c1">//Set the properties of the cluster node locally </span>
+
+<span class="n">new_cl_node_obj</span><span class="p">.</span><span class="n">nodeid</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> 
+
+<span class="n">new_cl_node_obj</span><span class="p">.</span><span class="n">ipaddress</span> <span class="p">=</span> <span class="s">&quot;10.102.29.60&quot;</span><span class="p">;</span> 
+
+<span class="n">new_cl_node_obj</span><span class="p">.</span><span class="n">state</span> <span class="p">=</span> <span class="s">&quot;ACTIVE&quot;</span><span class="p">;</span> 
+
+<span class="n">new_cl_node_obj</span><span class="p">.</span><span class="n">backplane</span> <span class="p">=</span> <span class="s">&quot;0/1/1&quot;</span><span class="p">;</span> 
+
+
+
+<span class="c1">//Upload the cluster node </span>
+
+<span class="n">clusternode</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">new_cl_node_obj</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to add a cluster node</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">new_cl_node_obj</span> <span class="o">=</span> <span class="n">clusternode</span><span class="p">()</span> 
+
+
+<span class="c1">#Set the properties of the cluster node locally </span>
+
+<span class="n">new_cl_node_obj</span><span class="o">.</span><span class="n">nodeid</span> <span class="o">=</span> <span class="mi">0</span> 
+
+<span class="n">new_cl_node_obj</span><span class="o">.</span><span class="n">ipaddress</span> <span class="o">=</span> <span class="s2">&quot;10.102.29.60&quot;</span> 
+
+<span class="n">new_cl_node_obj</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="s2">&quot;ACTIVE&quot;</span> 
+
+<span class="n">new_cl_node_obj</span><span class="o">.</span><span class="n">backplane</span> <span class="o">=</span> <span class="s2">&quot;0/1/1&quot;</span> 
+
+
+<span class="c1">#Upload the cluster node </span>
+
+<span class="n">clusternode</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">new_cl_node_obj</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="add-a-cluster-ip-address">Add a Cluster IP Address<a class="headerlink" href="#add-a-cluster-ip-address" title="Permanent link">&para;</a></h3>
+<p>This topic covers adding a cluster IP address by using REST APIs through HTTP or SDKs. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To define a cluster IP address, specify the required parameters in the nsip object. For example, to configure a cluster IP address.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/nsip</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+"nsip": 
+    { 
+    "ipaddress":"10.102.29.61",  
+    "netmask":"255.255.255.255", 
+    "type":"CLIP" 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The com.citrix.netscaler.nitro.resource.config.ns.nsip class provides the add() API to configure an IP address. To configure the IP address as a cluster IP address, you must specify the type as CLIP.</p>
+<p>The following sample code configures a cluster IP address on NetScaler appliance with IP address 10.102.29.60.</p>
+<p><strong>Java - Sample code to add a cluster IP address</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nsip</span> <span class="n">new_nsip_obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">nsip</span><span class="o">();</span> 
+
+<span class="c1">//Set the properties locally </span>
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="na">set_ipaddress</span><span class="o">(</span><span class="s">&quot;10.102.29.61&quot;</span><span class="o">);</span> 
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="na">set_netmask</span><span class="o">(</span><span class="s">&quot;255.255.255.255&quot;</span><span class="o">);</span> 
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="na">set_type</span><span class="o">(</span><span class="s">&quot;CLIP&quot;</span><span class="o">);</span> 
+
+
+
+<span class="c1">//Upload the cluster node </span>
+
+<span class="n">nsip</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">new_nsip_obj</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to add a cluster IP address</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nsip</span> <span class="n">new_nsip_obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">nsip</span><span class="p">();</span> 
+
+<span class="c1">//Set the properties locally </span>
+
+<span class="n">new_nsip_obj</span><span class="p">.</span><span class="n">ipaddress</span> <span class="p">=</span> <span class="s">&quot;10.102.29.61&quot;</span><span class="p">;</span> 
+
+<span class="n">new_nsip_obj</span><span class="p">.</span><span class="n">netmask</span> <span class="p">=</span> <span class="s">&quot;255.255.255.255&quot;</span><span class="p">;</span> 
+
+<span class="n">new_nsip_obj</span><span class="p">.</span><span class="n">type</span> <span class="p">=</span> <span class="s">&quot;CLIP&quot;</span><span class="p">;</span> 
+
+
+
+<span class="c1">//Upload the cluster node </span>
+
+<span class="n">nsip</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">new_nsip_obj</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to add a cluster IP address</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">new_nsip_obj</span> <span class="o">=</span> <span class="n">nsip</span><span class="p">()</span> 
+
+
+<span class="c1">#Set the properties locally </span>
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="n">ipaddress</span> <span class="o">=</span> <span class="s2">&quot;10.102.29.61&quot;</span> 
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="n">netmask</span> <span class="o">=</span> <span class="s2">&quot;255.255.255.255&quot;</span> 
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="s2">&quot;CLIP&quot;</span> 
+
+
+<span class="c1">#Upload the cluster node </span>
+
+<span class="n">nsip</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">new_nsip_obj</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="add-a-spotted-ip-address">Add a Spotted IP Address<a class="headerlink" href="#add-a-spotted-ip-address" title="Permanent link">&para;</a></h3>
+<p>This topic covers adding a spotted IP address by using REST APIs through HTTP or SDKs. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To configure an IP address as spotted, specify the required parameters in the nsip object. This configuration must be done on the cluster IP address.</p>
+<p>For example, to configure a spotted SNIP address on a node with ID 1.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<cluster-ip-address>/nitro/v1/config/nsip</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+"nsip": 
+    { 
+    "ipaddress":"10.102.29.77",  
+    "netmask":"255.255.255.0", 
+    "type":"SNIP", 
+    "ownernode":1 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The com.citrix.netscaler.nitro.resource.config.ns.nsip class provides the add() API to configure an IP address. To configure the IP address as spotted, you must specify the ID of the node that must own the IP address. This configuration must be done on the cluster IP address.</p>
+<p>The following sample code configures a spotted SNIP address on a node with ID 1.</p>
+<p><strong>Java - Sample code to configure a spotted IP address</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nsip</span> <span class="n">new_nsip_obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">nsip</span><span class="o">();</span>
+
+<span class="c1">//Set the properties locally</span>
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="na">set_ipaddress</span><span class="o">(</span><span class="s">&quot;10.102.29.77&quot;</span><span class="o">);</span>
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="na">set_netmask</span><span class="o">(</span><span class="s">&quot;255.255.255.0&quot;</span><span class="o">);</span>
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="na">set_type</span><span class="o">(</span><span class="s">&quot;SNIP&quot;</span><span class="o">);</span>
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="na">set_ownernode</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+
+<span class="c1">//Upload the cluster node</span>
+
+<span class="n">nsip</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">new_nsip_obj</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to configure a spotted IP address</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nsip</span> <span class="n">new_nsip_obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">nsip</span><span class="p">();</span> 
+
+<span class="c1">//Set the properties locally </span>
+
+<span class="n">new_nsip_obj</span><span class="p">.</span><span class="n">ipaddress</span> <span class="p">=</span> <span class="s">&quot;10.102.29.77&quot;</span><span class="p">;</span> 
+
+<span class="n">new_nsip_obj</span><span class="p">.</span><span class="n">netmask</span> <span class="p">=</span> <span class="s">&quot;255.255.255.0&quot;</span><span class="p">;</span> 
+
+<span class="n">new_nsip_obj</span><span class="p">.</span><span class="n">type</span> <span class="p">=</span> <span class="s">&quot;SNIP&quot;</span><span class="p">;</span> 
+
+<span class="n">new_nsip_obj</span><span class="p">.</span><span class="n">ownernode</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> 
+
+
+
+<span class="c1">//Upload the cluster node </span>
+
+<span class="n">nsip</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">new_nsip_obj</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to configure a spotted IP address</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">#Add a spotted IP address</span>
+
+<span class="n">new_nsip_obj</span> <span class="o">=</span> <span class="n">nsip</span><span class="p">()</span>
+
+
+<span class="c1">#Set the properties locally</span>
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="n">ipaddress</span> <span class="o">=</span> <span class="s2">&quot;10.102.29.77&quot;</span>
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="n">netmask</span> <span class="o">=</span> <span class="s2">&quot;255.255.255.0&quot;</span>
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="s2">&quot;SNIP&quot;</span>
+
+<span class="n">new_nsip_obj</span><span class="o">.</span><span class="n">ownernode</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="c1">#Upload the cluster node</span>
+
+<span class="n">nsip</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">new_nsip_obj</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="join-netscaler-appliance-to-cluster">Join NetScaler Appliance to Cluster<a class="headerlink" href="#join-netscaler-appliance-to-cluster" title="Permanent link">&para;</a></h3>
+<p>This topic covers adding a NetScaler appliance to a cluster by using REST APIs through HTTP or SDKs. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To join an appliance to a cluster, specify the required parameters in the cluster object. For example, to join a NetScaler appliance to a cluster.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/cluster</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+"cluster": 
+    { 
+    "clip":"10.102.29.61", 
+    "password":"verysecret" 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The com.citrix.netscaler.nitro.resource.config.cluster.cluster class provides the join() API to join a NetScaler appliance to the cluster. You must specify the cluster IP address and the nsroot password of the configuration coordinator.</p>
+<p>The following sample code joins a NetScaler appliance to a cluster.</p>
+<p><strong>Java - Sample code to join an appliance to a cluster</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">cluster</span> <span class="n">new_cl_obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">cluster</span><span class="o">();</span> 
+
+<span class="c1">//Set the properties of the cluster  locally </span>
+
+<span class="n">new_cl_obj</span><span class="o">.</span><span class="na">set_clip</span><span class="o">(</span><span class="s">&quot;10.102.29.61&quot;</span><span class="o">);</span> 
+
+<span class="n">new_cl_obj</span><span class="o">.</span><span class="na">set_password</span><span class="o">(</span><span class="s">&quot;verysecret&quot;</span><span class="o">);</span> 
+
+
+
+<span class="c1">//Upload the cluster </span>
+
+<span class="n">cluster</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">new_cl_obj</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to join an appliance to a cluster</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">cluster</span> <span class="n">new_cl_obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">cluster</span><span class="p">();</span> 
+
+<span class="c1">//Set the properties of the cluster locally </span>
+
+<span class="n">new_cl_obj</span><span class="p">.</span><span class="n">clip</span> <span class="p">=</span> <span class="s">&quot;10.102.29.61&quot;</span><span class="p">;</span> 
+
+<span class="n">new_cl_obj</span><span class="p">.</span><span class="n">password</span> <span class="p">=</span> <span class="s">&quot;verysecret&quot;</span><span class="p">;</span> 
+
+
+<span class="c1">//Upload the cluster node </span>
+
+<span class="n">cluster</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">new_cl_node_obj</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to join an appliance to a cluster</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">new_cl_obj</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">()</span>
+
+
+<span class="c1">#Set the properties of the cluster locally</span>
+
+<span class="n">new_cl_obj</span><span class="o">.</span><span class="n">clip</span> <span class="o">=</span> <span class="s2">&quot;10.102.29.61&quot;</span>
+
+<span class="n">new_cl_obj</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;verysecret&quot;</span>
+
+
+<span class="c1">#Upload the cluster</span>
+<span class="n">cluster</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">new_cl_obj</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="linkset-operations">Linkset Operations<a class="headerlink" href="#linkset-operations" title="Permanent link">&para;</a></h3>
+<p>This topic covers some linkset operations by using REST APIs through HTTP or SDKs. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To configure a linkset, do the following:</p>
+<ol>
+<li>
+<p>Create a linkset by specifying the required parameters in the linkset object. For example, to add a linkset LS/1:</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<cluster-ip-address>/nitro/v1/config/linkset</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+"linkset": 
+    { 
+    "id":"LS/1" 
+} 
+}</code></p>
+</li>
+<li>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Bind the required interfaces to the linkset by specifying the interfaces in the linkset_interface_binding object.For example, to bind interfaces 1/1/2 and 2/1/2 to linkset LS/1.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> PUT</p>
+<p><strong>URL</strong> http://\<cluster-ip-address>/nitro/v1/config/linkset_interface_binding/LS%2F1?action=bind
+<strong>Note.</strong> The linkset name (LS/1), must be URL encoded as LS%2F1.</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+"linkset_interface_binding": 
+    { 
+    "id":"LS/1", 
+    "ifnum":"1/1/2 2/1/2" 
+    } 
+}</code></p>
+</li>
+<li>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 200 Ok</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The com.citrix.netscaler.nitro.resource.config.network.linkset class provides the APIs to manage linksets.</p>
+<p>To configure a linkset, do the following:</p>
+<ol>
+<li>Add a linkset by invoking the add() method of the linkset class.</li>
+<li>Bind the interfaces to the linkset using the add() method of the linkset_interface_binding class.</li>
+</ol>
+<p>The following sample code creates a linkset LS/1 and bind interfaces 1/1/2 and 2/1/2 to it.</p>
+<p><strong>Java - Sample code to configure linksets</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">linkset</span> <span class="n">new_linkset_obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">linkset</span><span class="o">();</span> 
+
+<span class="n">new_linkset_obj</span><span class="o">.</span><span class="na">set_id</span><span class="o">(</span><span class="s">&quot;LS/1&quot;</span><span class="o">);</span> 
+
+<span class="n">linkset</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">new_linkset_obj</span><span class="o">);</span> 
+
+
+
+<span class="c1">//Bind the interfaces to the linkset </span>
+
+<span class="n">linkset_interface_binding</span> <span class="n">new_linkif_obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">linkset_interface_binding</span><span class="o">();</span> 
+
+<span class="n">new_linkif_obj</span><span class="o">.</span><span class="na">set_id</span><span class="o">(</span><span class="s">&quot;LS/1&quot;</span><span class="o">);</span> 
+
+<span class="n">new_linkif_obj</span><span class="o">.</span><span class="na">set_ifnum</span><span class="o">(</span><span class="s">&quot;1/1/2 2/1/2&quot;</span><span class="o">);</span> 
+
+<span class="n">linkset_interface_binding</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">new_linkif_obj</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to configure linksets</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">linkset</span> <span class="n">new_linkset_obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">linkset</span><span class="p">();</span> 
+
+<span class="n">new_linkset_obj</span><span class="p">.</span><span class="n">id</span> <span class="p">=</span> <span class="s">&quot;LS/1&quot;</span><span class="p">;</span> 
+
+<span class="n">linkset</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">new_linkset_obj</span><span class="p">);</span> 
+
+
+
+<span class="c1">//Bind the interfaces to the linkset </span>
+
+<span class="n">linkset_interface_binding</span> <span class="n">new_linkif_obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">linkset_interface_binding</span><span class="p">();</span> 
+
+<span class="n">new_linkif_obj</span><span class="p">.</span><span class="n">id</span> <span class="p">=</span> <span class="s">&quot;LS/1&quot;</span><span class="p">;</span> 
+
+<span class="n">new_linkif_obj</span><span class="p">.</span><span class="n">ifnum</span> <span class="p">=</span> <span class="s">&quot;1/1/2 2/1/2&quot;</span><span class="p">;</span> 
+
+<span class="n">linkset_interface_binding</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">new_linkif_obj</span><span class="p">);</span> 
+</pre></div>
+
+
+<p><strong>Python - Sample code to configure linksets</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">#Create a new linkset</span>
+
+<span class="n">new_linkset_obj</span> <span class="o">=</span> <span class="n">linkset</span><span class="p">()</span>
+
+<span class="n">new_linkset_obj</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;LS/1&quot;</span>
+
+<span class="n">linkset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">new_linkset_obj</span><span class="p">)</span>
+
+
+
+<span class="c1">#Bind the interfaces to the linkset</span>
+
+<span class="n">new_linkif_obj</span> <span class="o">=</span> <span class="n">linkset_interface_binding</span><span class="p">()</span>
+
+<span class="n">new_linkif_obj</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;LS/1&quot;</span>
+
+<span class="n">new_linkif_obj</span><span class="o">.</span><span class="n">ifnum</span> <span class="o">=</span> <span class="s2">&quot;1/1/2 2/1/2&quot;</span>
+
+<span class="n">linkset_interface_binding</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">new_linkif_obj</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="configuring-admin-partitions">Configuring Admin Partitions<a class="headerlink" href="#configuring-admin-partitions" title="Permanent link">&para;</a></h2>
+<p>To create an admin partition, you must perform a set of operations on the default partition. To understand this procedure, let us consider a company that has two departments each of which has an application that requires the NetScaler functionality. The NetScaler admin wants to have a different partition for each department so that there is isolation of users and configurations. For detailed information and best practices, see Admin Partitions.</p>
+<h3 id="creating-an-admin-partition">Creating an Admin Partition<a class="headerlink" href="#creating-an-admin-partition" title="Permanent link">&para;</a></h3>
+<p>While creating an admin partition, you must also specify the system resources that must be allocated to that partition.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>The following example creates an admin partition named partition-dept1.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/nspartition</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+    "nspartition": 
+    { 
+        "partitionname":"partition-dept1", 
+        "maxbandwidth":"10240",  
+        "minbandwidth":"10240", 
+        "maxconn":"1024", 
+        "maxmemlimit":"10" 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The following sample code creates an admin partition named partition-dept1.</p>
+<p><strong>Java - Sample code to create an admin partition</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nspartition</span> <span class="n">nspartitionObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">nspartition</span><span class="o">();</span> 
+
+<span class="n">nspartitionObject</span><span class="o">.</span><span class="na">set_partitionname</span><span class="o">(</span><span class="s">&quot;partition-dept1&quot;</span><span class="o">);</span> 
+
+<span class="n">nspartitionObject</span><span class="o">.</span><span class="na">set_maxbandwidth</span><span class="o">(</span><span class="mi">10240</span><span class="o">);</span> 
+
+<span class="n">nspartitionObject</span><span class="o">.</span><span class="na">set_maxconn</span><span class="o">(</span><span class="mi">1024</span><span class="o">);</span> 
+
+<span class="n">nspartitionObject</span><span class="o">.</span><span class="na">set_maxmemlimit</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span> 
+
+<span class="n">nspartitionObject</span><span class="o">.</span><span class="na">set_minbandwidth</span><span class="o">(</span><span class="mi">1240</span><span class="o">);</span> 
+
+<span class="n">base_response</span> <span class="n">result</span> <span class="o">=</span> <span class="n">nspartition</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nitroService</span><span class="o">,</span> <span class="n">nspartitionObject</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to create an admin partition</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nspartition</span> <span class="n">nspartitionObject</span> <span class="p">=</span> <span class="k">new</span> <span class="n">nspartition</span><span class="p">();</span> 
+
+<span class="n">nspartitionObject</span><span class="p">.</span><span class="n">partitionname</span> <span class="p">=</span> <span class="s">&quot;partition-dept1&quot;</span><span class="p">;</span> 
+
+<span class="n">nspartitionObject</span><span class="p">.</span><span class="n">maxbandwidth</span> <span class="p">=</span> <span class="m">10240</span><span class="p">;</span> 
+
+<span class="n">nspartitionObject</span><span class="p">.</span><span class="n">maxconn</span> <span class="p">=</span> <span class="m">1024</span><span class="p">;</span> 
+
+<span class="n">nspartitionObject</span><span class="p">.</span><span class="n">maxmemlimit</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span> 
+
+<span class="n">nspartitionObject</span><span class="p">.</span><span class="n">minbandwidth</span> <span class="p">=</span> <span class="m">1240</span><span class="p">;</span> 
+
+<span class="n">base_response</span> <span class="n">result</span> <span class="p">=</span> <span class="n">nspartition</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">nitroService</span><span class="p">,</span> <span class="n">nspartitionObject</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to create an admin partition</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nspartitionObject</span> <span class="o">=</span> <span class="n">nspartition</span><span class="p">()</span>
+
+<span class="n">nspartitionObject</span><span class="o">.</span><span class="n">partitionname</span> <span class="o">=</span> <span class="s2">&quot;partition-dept1&quot;</span>
+
+<span class="n">nspartitionObject</span><span class="o">.</span><span class="n">maxbandwidth</span> <span class="o">=</span> <span class="mi">10240</span>
+
+<span class="n">nspartitionObject</span><span class="o">.</span><span class="n">maxconn</span> <span class="o">=</span> <span class="mi">1024</span>
+
+<span class="n">nspartitionObject</span><span class="o">.</span><span class="n">maxmemlimit</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">nspartitionObject</span><span class="o">.</span><span class="n">minbandwidth</span> <span class="o">=</span> <span class="mi">1240</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">nspartition</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nitroService</span><span class="p">,</span> <span class="n">nspartitionObject</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="associating-users-with-partitions">Associating Users with Partitions<a class="headerlink" href="#associating-users-with-partitions" title="Permanent link">&para;</a></h3>
+<p>Associate the appropriate users with the partition.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>The following example associates user1 to a partition named partition-dept1.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> PUT</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address >/nitro/v1/config/systemuser_nspartition_binding/user1</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+    "systemuser_nspartition_binding": 
+    { 
+    "username":"user1",  
+    "partitionname":"partition-dept1" 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The following sample code associates "user1" to a partition named "partition-dept1".</p>
+<p><strong>Java - Sample code for associating user with partition</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">systemuser_nspartition_binding</span> <span class="n">systemuser_nspartition_binding_object</span> <span class="o">=</span> <span class="k">new</span> <span class="n">systemuser_nspartition_binding</span><span class="o">();</span> 
+
+<span class="n">systemuser_nspartition_binding_object</span><span class="o">.</span><span class="na">set_partitionname</span><span class="o">(</span><span class="s">&quot;partition-dept1&quot;</span><span class="o">);</span> 
+
+<span class="n">systemuser_nspartition_binding_object</span><span class="o">.</span><span class="na">set_username</span><span class="o">(</span><span class="s">&quot;user1&quot;</span><span class="o">);</span> 
+
+<span class="n">base_response</span> <span class="n">result</span> <span class="o">=</span> <span class="n">systemuser_nspartition_binding</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nitroService</span><span class="o">,</span> <span class="n">systemuser_nspartition_binding_object</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code for associating user with partition</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">systemuser_nspartition_binding</span> <span class="n">systemuser_nspartition_binding_object</span> <span class="p">=</span> <span class="k">new</span> <span class="n">systemuser_nspartition_binding</span><span class="p">();</span> 
+
+<span class="n">systemuser_nspartition_binding_object</span><span class="p">.</span><span class="n">partitionname</span> <span class="p">=</span> <span class="s">&quot;partition-dept1&quot;</span><span class="p">;</span> 
+
+<span class="n">systemuser_nspartition_binding_object</span><span class="p">.</span><span class="n">username</span> <span class="p">=</span> <span class="s">&quot;user1&quot;</span><span class="p">;</span> 
+
+<span class="n">base_response</span> <span class="n">result</span> <span class="p">=</span> <span class="n">systemuser_nspartition_binding</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">nitroService</span><span class="p">,</span> <span class="n">systemuser_nspartition_binding_object</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code for associating user with partition</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">systemuser_nspartition_binding_object</span> <span class="o">=</span>  <span class="n">systemuser_nspartition_binding</span><span class="p">()</span>
+
+<span class="n">systemuser_nspartition_binding_object</span><span class="o">.</span><span class="n">partitionname</span> <span class="o">=</span> <span class="s2">&quot;partition-dept1&quot;</span>
+
+<span class="n">systemuser_nspartition_binding_object</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;user1&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">systemuser_nspartition_binding</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nitroService</span><span class="p">,</span> <span class="n">systemuser_nspartition_binding_object</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="specifying-command-policy-for-partition-users">Specifying Command Policy for Partition Users<a class="headerlink" href="#specifying-command-policy-for-partition-users" title="Permanent link">&para;</a></h3>
+<p>Associate an appropriate command policy to the admin partition user.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>The following example associates the command policy partition-admin to user1.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> PUT</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/systemuser_systemcmdpolicy_binding/user1</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+    "systemuser_systemcmdpolicy_binding": 
+    { 
+    "username":"user1",  
+    "policyname":"partition-admin", 
+    "priority":"1" 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The following sample code associates the command policy "partition-admin" to "user1".</p>
+<p><strong>Java - Sample code to specify command policy for partition user</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">systemuser_systemcmdpolicy_binding</span> <span class="n">binding_object</span> <span class="o">=</span> <span class="k">new</span> <span class="n">systemuser_systemcmdpolicy_binding</span><span class="o">();</span>
+
+<span class="n">binding_object</span><span class="o">.</span><span class="na">set_username</span><span class="o">(</span><span class="s">&quot;user1&quot;</span><span class="o">);</span>
+
+<span class="n">binding_object</span><span class="o">.</span><span class="na">set_policyname</span><span class="o">(</span><span class="s">&quot;partition-admin&quot;</span><span class="o">);</span>
+
+<span class="n">binding_object</span><span class="o">.</span><span class="na">set_priority</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+<span class="n">base_response</span> <span class="n">result</span> <span class="o">=</span> <span class="n">systemuser_systemcmdpolicy_binding</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nitroService</span><span class="o">,</span><span class="n">binding_object</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to specify command policy for partition user</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">systemuser_systemcmdpolicy_binding</span> <span class="n">binding_object</span> <span class="p">=</span> <span class="k">new</span> <span class="n">systemuser_systemcmdpolicy_binding</span><span class="p">();</span>
+
+<span class="n">binding_object</span><span class="p">.</span><span class="n">username</span> <span class="p">=</span> <span class="s">&quot;user1&quot;</span><span class="p">;</span>
+
+<span class="n">binding_object</span><span class="p">.</span><span class="n">policyname</span> <span class="p">=</span> <span class="s">&quot;partition-admin&quot;</span><span class="p">;</span>
+
+<span class="n">binding_object</span><span class="p">.</span><span class="n">priority</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+
+<span class="n">base_response</span> <span class="n">result</span> <span class="p">=</span> <span class="n">systemuser_systemcmdpolicy_binding</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">nitroService</span><span class="p">,</span><span class="n">binding_object</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to specify command policy for partition user</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">binding_object</span> <span class="o">=</span> <span class="n">systemuser_systemcmdpolicy_binding</span><span class="p">()</span>
+
+<span class="n">binding_object</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;user1&quot;</span>
+
+<span class="n">binding_object</span><span class="o">.</span><span class="n">policyname</span> <span class="o">=</span> <span class="s2">&quot;partition-admin&quot;</span>
+
+<span class="n">binding_object</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">systemuser_systemcmdpolicy_binding</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nitroService</span><span class="p">,</span><span class="n">binding_object</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="specifying-the-admin-partition-vlan-or-bridgegroup">Specifying the Admin Partition VLAN or Bridgegroup<a class="headerlink" href="#specifying-the-admin-partition-vlan-or-bridgegroup" title="Permanent link">&para;</a></h3>
+<p>Specify the VLANs or bridgegroups to be associated with the partition. This step ensures network isolation of the traffic. Traffic received on the interfaces of the VLAN or bridgegroup is isolated from the traffic of other partitions.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>The following example specifies a VLAN for an admin partition.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> PUT</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/nspartition_vlan_binding/partition-dept1</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+    "nspartition_vlan_binding": 
+    { 
+    "partitionname":"partition-dept1", 
+    "vlan":"2" 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The following sample code specifies a VLAN for an admin partition.</p>
+<p><strong>Java - Sample Code to specify the VLAN</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nspartition_vlan_binding</span> <span class="n">nspartition_vlan_binding_object</span> <span class="o">=</span> <span class="k">new</span> <span class="n">nspartition_vlan_binding</span><span class="o">();</span>
+
+<span class="n">nspartition_vlan_binding_object</span><span class="o">.</span><span class="na">set_vlan</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+
+<span class="n">nspartition_vlan_binding_object</span><span class="o">.</span><span class="na">set_partitionname</span><span class="o">(</span><span class="s">&quot;partition-dept1&quot;</span><span class="o">);</span>
+
+<span class="n">base_response</span> <span class="n">result</span> <span class="o">=</span> <span class="n">nspartition_vlan_binding</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nitroService</span><span class="o">,</span> <span class="n">nspartition_vlan_binding_object</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to specify the VLAN</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nspartition_vlan_binding</span> <span class="n">nspartition_vlan_binding_object</span> <span class="p">=</span> <span class="k">new</span> <span class="n">nspartition_vlan_binding</span><span class="p">();</span>
+
+<span class="n">nspartition_vlan_binding_object</span><span class="p">.</span><span class="n">vlan</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+
+<span class="n">nspartition_vlan_binding_object</span><span class="p">.</span><span class="n">partitionname</span> <span class="p">=</span> <span class="s">&quot;partition-dept1&quot;</span><span class="p">;</span>
+
+<span class="n">base_response</span> <span class="n">result</span> <span class="p">=</span> <span class="n">nspartition_vlan_binding</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">nitroService</span><span class="p">,</span> <span class="n">nspartition_vlan_binding_object</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to specify the VLAN</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nspartition_vlan_binding_object</span> <span class="o">=</span> <span class="n">nspartition_vlan_binding</span><span class="p">()</span>
+
+<span class="n">nspartition_vlan_binding_object</span><span class="o">.</span><span class="n">vlan</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">nspartition_vlan_binding_object</span><span class="o">.</span><span class="n">partitionname</span> <span class="o">=</span> <span class="s2">&quot;partition-dept1&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">nspartition_vlan_binding</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nitroService</span><span class="p">,</span> <span class="n">nspartition_vlan_binding_object</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="switching-partitions">Switching Partitions<a class="headerlink" href="#switching-partitions" title="Permanent link">&para;</a></h3>
+<p>If you are associated with multiple admin partitions, you can switch to the required partition.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>The following  example shows how to switch from current partition to a partition named partition-dept2.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/nspartition?action=Switch</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+    "nspartition": 
+    { 
+    "partitionname":"partition-dept2" 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The following sample code switches from current partition to a partition named "partition-dept2".</p>
+<p><strong>Java - Sample code to switch partitions</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nspartition</span> <span class="n">nspartitionObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">nspartition</span><span class="o">();</span> 
+
+<span class="n">vnspartitionObject</span><span class="o">.</span><span class="na">set_partitionname</span><span class="o">(</span><span class="s">&quot;partition-dept2&quot;</span><span class="o">);</span> 
+
+<span class="n">base_response</span> <span class="n">result</span> <span class="o">=</span> <span class="n">nspartition</span><span class="o">.</span><span class="na">Switch</span><span class="o">(</span><span class="n">nitroService</span><span class="o">,</span> <span class="n">nspartitionObject</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to switch partitions</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nspartition</span> <span class="n">nspartitionObject</span> <span class="p">=</span> <span class="k">new</span> <span class="n">nspartition</span><span class="p">();</span> 
+
+<span class="n">nspartitionObject</span><span class="p">.</span><span class="n">partitionname</span> <span class="p">=</span> <span class="s">&quot;partition-dept2&quot;</span><span class="p">;</span> 
+
+<span class="n">base_response</span> <span class="n">result</span> <span class="p">=</span> <span class="n">nspartition</span><span class="p">.</span><span class="n">Switch</span><span class="p">(</span><span class="n">nitroService</span><span class="p">,</span> <span class="n">nspartitionObject</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to switch partitions</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nspartitionObject</span> <span class="o">=</span> <span class="n">nspartition</span><span class="p">()</span>
+
+<span class="n">nspartitionObject</span><span class="o">.</span><span class="n">partitionname</span> <span class="o">=</span> <span class="s2">&quot;partition-dept2&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">nspartition</span><span class="o">.</span><span class="n">Switch</span><span class="p">(</span><span class="n">nitroService</span><span class="p">,</span> <span class="n">nspartitionObject</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="managing-appexpert-applications">Managing AppExpert Applications<a class="headerlink" href="#managing-appexpert-applications" title="Permanent link">&para;</a></h2>
+<p>The following sections talks about exporting and importing an AppExpert application using NITRO APIs.</p>
+<h3 id="exporting-an-appexpert-application">Exporting an AppExpert Application<a class="headerlink" href="#exporting-an-appexpert-application" title="Permanent link">&para;</a></h3>
+<p>This topic covers exporting an AppExpert application by using REST APIs through HTTP or SDKs. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To export an AppExpert application, specify the parameters needed for the export operation in the apptemplateinfo object. Optionally, you can specify basic information about the AppExpert application template, such as the author of the configuration, a summary of the template functionality, and the template version number, in the template_info object. This information is stored as part of the template file that is created.</p>
+<p>For example, to export an AppExpert application named MyApp1.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=export</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+    "apptemplateinfo": 
+    { 
+        "appname":"MyApp1", 
+        "apptemplatefilename":"BizAp.xml", 
+        "template_info": 
+        { 
+            "templateversion_major":"2", 
+            "templateversion_minor":"1", 
+            "author":"XYZ", 
+            "introduction":"Intro", 
+            "summary":"Summary" 
+        } 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>To export an AppExpert application, you must do the following:</p>
+<ol>
+<li>
+<p>Instantiate the com.citrix.netscaler.nitro.resource.config.app.application class.</p>
+<p><strong>Note.</strong> For the python SDK, the package path is of the form nssrc.com.citrix.netscaler......</p>
+</li>
+<li>
+<p>Configure the properties of the AppExpert locally.</p>
+</li>
+<li>Export the AppExpert application.</li>
+</ol>
+<p>The following samples export an AppExpert application named MyApp1.</p>
+<p><strong>JAVA - sample code to export an AppExpert application</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">application</span> <span class="n">myapp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">application</span><span class="o">();</span> 
+<span class="n">myapp</span><span class="o">.</span><span class="na">set_appname</span><span class="o">(</span><span class="s">&quot;MyApp1&quot;</span><span class="o">);</span> 
+<span class="n">myapp</span><span class="o">.</span><span class="na">set_apptemplatefilename</span><span class="o">(</span><span class="s">&quot;myapp_template&quot;</span><span class="o">);</span> 
+<span class="n">application</span><span class="o">.</span><span class="na">export</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">myapp</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - sample code to export an AppExpert application</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">application</span> <span class="n">myapp</span> <span class="p">=</span> <span class="k">new</span> <span class="n">application</span><span class="p">();</span> 
+<span class="n">myapp</span><span class="p">.</span><span class="n">appname</span> <span class="p">=</span> <span class="s">&quot;MyApp1&quot;</span><span class="p">;</span> 
+<span class="n">myapp</span><span class="p">.</span><span class="n">apptemplatefilename</span> <span class="p">=</span> <span class="s">&quot;myapp_template&quot;</span><span class="p">;</span> 
+<span class="n">application</span><span class="p">.</span><span class="n">export</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">myapp</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - sample code to export an AppExpert application</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">myapp</span> <span class="o">=</span> <span class="n">application</span><span class="p">()</span>
+<span class="n">myapp</span><span class="o">.</span><span class="n">appname</span> <span class="o">=</span> <span class="s2">&quot;MyApp1&quot;</span>
+<span class="n">myapp</span><span class="o">.</span><span class="n">apptemplatefilename</span> <span class="o">=</span> <span class="s2">&quot;myapp_template&quot;</span>
+<span class="n">application</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">myapp</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="importing-an-appexpert-application">Importing an AppExpert Application<a class="headerlink" href="#importing-an-appexpert-application" title="Permanent link">&para;</a></h3>
+<p>This topic covers importing an AppExpert application by using REST APIs through HTTP or SDKs.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To import an AppExpert application, specify the parameters needed for the import operation in the apptemplateinfo object.</p>
+<p>For example, to import an AppExpert application named MyApp1.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=import</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+"apptemplateinfo": 
+{ 
+    "apptemplatefilename":"BizAp.xml", 
+    "deploymentfilename":"BizAp_deployment.xml", 
+    "appname":"MyApp1" 
+} 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p>To import an AppExpert application by specifying different deployment settings.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=import</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+<code>json
+{ 
+    "apptemplateinfo": 
+    { 
+    "apptemplatefilename":"BizAp.xml", 
+    "appname":"Myapp2", 
+    "deploymentinfo": 
+    { 
+        "appendpoint": 
+        [ 
+            { 
+                "ipv46":"11.2.3.8", 
+                "port":80, 
+                "servicetype":"HTTP" 
+            } 
+        ], 
+        "service": 
+        [ 
+            { 
+                "ip":"12.3.3.15",   
+                "port":80, 
+                "servicetype":"SSL" 
+            }, 
+            { 
+                "ip":"14.5.5.16",   
+                "port":443, 
+                "servicetype":"SSL" 
+            } 
+        ] 
+    } 
+    } 
+}</code>
+* <strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>To import an AppExpert application, you must do the following:</p>
+<ol>
+<li>
+<p>Instantiate the com.citrix.netscaler.nitro.resource.config.app.application class.</p>
+<p><strong>Note</strong>. For the python SDK, the package path is of the form nssrc.com.citrix.netscaler......</p>
+</li>
+<li>
+<p>Configure the properties of the AppExpert locally.</p>
+</li>
+<li>Import the AppExpert application.</li>
+</ol>
+<p>The following samples import an AppExpert application named MyApp1.</p>
+<p><strong>Java - sample code to import an AppExpert application</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">application</span> <span class="n">myapp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">application</span><span class="o">();</span>
+<span class="n">myapp</span><span class="o">.</span><span class="na">set_appname</span><span class="o">(</span><span class="s">&quot;MyApp1&quot;</span><span class="o">);</span>
+<span class="n">myapp</span><span class="o">.</span><span class="na">set_apptemplatefilename</span><span class="o">(</span><span class="s">&quot;myapp_template&quot;</span><span class="o">);</span>
+<span class="n">application</span><span class="o">.</span><span class="na">Import</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">myapp</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - sample code to import an AppExpert application</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">application</span> <span class="n">myapp</span> <span class="p">=</span> <span class="k">new</span> <span class="n">application</span><span class="p">();</span> 
+<span class="n">myapp</span><span class="p">.</span><span class="n">appname</span> <span class="p">=</span> <span class="s">&quot;MyApp1&quot;</span><span class="p">;</span> 
+<span class="n">myapp</span><span class="p">.</span><span class="n">apptemplatefilename</span> <span class="p">=</span> <span class="s">&quot;myapp_template&quot;</span><span class="p">;</span> 
+<span class="n">application</span><span class="p">.</span><span class="n">Import</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">myapp</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - sample code to import an AppExpert application</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">myapp</span> <span class="o">=</span> <span class="n">application</span><span class="p">()</span>
+<span class="n">myapp</span><span class="o">.</span><span class="n">appname</span> <span class="o">=</span> <span class="s2">&quot;MyApp1&quot;</span>
+<span class="n">myapp</span><span class="o">.</span><span class="n">apptemplatefilename</span> <span class="o">=</span> <span class="s2">&quot;myapp_template&quot;</span>
+<span class="n">application</span><span class="o">.</span><span class="n">Import</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">myapp</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="automate-netscaler-upgrade-and-downgrade-with-a-single-api">Automate NetScaler Upgrade and Downgrade with a Single API<a class="headerlink" href="#automate-netscaler-upgrade-and-downgrade-with-a-single-api" title="Permanent link">&para;</a></h2>
+<p>You can use the "install" API to automate not just installation, but also an upgrade or a downgrade of the build on a NetScaler appliance. You can specify a local or remote location for the build file.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>For example, the following information describes a downgrade to NetScaler release 10.5 build 46, using a local  build file:</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<NSIP>/nitro/v1/config/install</p>
+<p><strong>Request Headers</strong> </p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue ></p>
+<p>Content-Type: application/json</p>
+<p><strong>Request Payload</strong></p>
+<p>```json
+{</p>
+</li>
+</ul>
+<p>“install”:</p>
+<div class="codehilite"><pre><span></span>{
+
+     “url”: “file:///var/tagma/build_tagma_46_nc.tgz”
+
+
+  }
+
+}     
+```
+</pre></div>
+
+
+<ul>
+<li>
+<p><strong>Response</strong></p>
+<p><strong>HTTP status Code on Success</strong></p>
+<p>201 Created</p>
+<p>209 Netscaler specific warning</p>
+<p><strong>Note.</strong> when “y” option is not specified and warning is enabled, API returns “1120 - The configuration must be saved and the system rebooted for these settings to take effect” message in X-NITRO-WARNING.</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>599 Netscaler specific error</p>
+</li>
+</ul>
+<p><strong>Additional parameters available in the install API request payload</strong></p>
+<ul>
+<li>
+<p>“y”:“true” -  This option enables reboot on successful loading of kernel.</p>
+</li>
+<li>
+<p>“L”:“true” -  This option enables the callhome feature.</p>
+</li>
+</ul>
+<p><strong>Supported formats for the "url" parameter (specifies the location of the tar.gz file for the build)</strong></p>
+<ul>
+<li>http://[user]:[password]@host/path/to/file</li>
+<li>https://[user]:[password]@host/path/to/file</li>
+<li>sftp://[user]:[password]@host/path/to/file</li>
+<li>scp://[user]:[password]@host/path/to/file</li>
+<li>ftp://[user]:[password]@host/path/to/file</li>
+<li>file://path/to/file</li>
+</ul>
+<p><strong>Possible errors</strong></p>
+<ul>
+<li>Installation failed. [No space on file system. Please check the log file /var/tmp/install​]</li>
+<li>Installation failed. [File transfer failed]</li>
+<li>Installation failed. [File does not exist]</li>
+<li>Installation failed. [Failed to copy file to /var/tmp]</li>
+<li>Installation failed. [Extraction failed, invalid tar archive?​]</li>
+<li>Installation failed. [Invalid file transfer protocol]</li>
+<li>Installation failed. [Unable to create temporary directory]</li>
+<li>Installation failed. [Please check the log file /var/tmp/install for more information]</li>
+</ul>
+<h2 id="handle-multiple-nitro-calls-in-a-single-request">Handle Multiple NITRO Calls in a Single Request<a class="headerlink" href="#handle-multiple-nitro-calls-in-a-single-request" title="Permanent link">&para;</a></h2>
+<p>You can use the "macroapi" API to create, update, and delete multiple resources simultaneously, and thereby minimize network traffic. For example, multiple load-balancing virtual servers can be added in a single API.</p>
+<p>To account for the failure of some operations within the bulk operation, NITRO allows configuring one of the following behaviors.</p>
+<ul>
+<li><strong>EXIT</strong>. When the first error is encountered, execution stops. The commands that were executed before the error are committed.</li>
+<li><strong>ROLLBACK</strong>. When the first error is encountered, execution stops. The commands that were executed before the error are rolled back. Rollback is supported for add and bind commands only.</li>
+<li><strong>CONTINUE</strong>. All the commands in the request are executed even if some commands fail.</li>
+</ul>
+<p>You must specify the behavior of the bulk operation in the request header, by using the X-NITRO-ONERROR parameter.</p>
+<p><strong>Advantages</strong></p>
+<p>Heterogeneous resources can be configured with a single API. For example, multiple load balancing virtual servers and multiple services can be created, and services can be bound to load balancing virtual servers in a single API.</p>
+<p><strong>Limitations</strong></p>
+<p>Only homogenous operation is supported in this API. For example, multiple load balancing virtual servers can be created but cannot be updated or deleted in the same API.
+“rollback” is supported only on “add” and “bind” operations.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To add multiple load balancing resources in a single request:
+* <strong>Request</strong></p>
+<div class="codehilite"><pre><span></span>**HTTP Method** POST
+
+**URL** http://\&lt;NSIP&gt;/nitro/v1/config/macroapi
+
+**Request Headers**
+
+Content-Type: application/json
+
+Cookie: NITRO_AUTH_TOKEN=\&lt;tokenvalue&gt;
+
+X-NITRO-ONERROR: exit
+
+
+**Request Payload**
+
+```json
+{
+
+&quot;lbvserver&quot;:[
+
+                     {&quot;name&quot;:&quot;lbv1&quot;,&quot;servicetype&quot;:&quot;http&quot;},
+
+                     {&quot;name&quot;:&quot;lbv2&quot;,&quot;servicetype&quot;:&quot;http&quot;}
+
+       ],
+
+&quot;serviceGroup&quot;: [
+
+                  { &quot;servicegroupname&quot;: &quot;sg1&quot;, &quot;servicetype&quot;: &quot;HTTP&quot; },
+
+                     { &quot;servicegroupname&quot;: &quot;sg2&quot;, &quot;servicetype&quot;: &quot;HTTP&quot; }
+
+                ],
+
+&quot;lbvserver_servicegroup_binding&quot;:[
+
+                 { &quot;name&quot;:&quot;lbv1&quot;, &quot;servicegroupname&quot;:&quot;sg1&quot; },
+
+                   { &quot;name&quot;:&quot;lbv2&quot;, &quot;servicegroupname&quot;:&quot;sg2&quot; }
+
+                        ]
+
+}
+```
+</pre></div>
+
+
+<ul>
+<li>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong>
+     201 Created for the add operation and 200 OK for the update operation.</p>
+<p><strong>HTTP Status Code on Failure</strong>
+     207 Multi Status with error details in the response payload. For more information, see Error Handling.</p>
+</li>
+</ul>
+<p>For deleting multiple resources using macroapi, use POST HTTP method with query parameter “action=remove” in the URI.</p>
+<h2 id="simplify-management-operations-with-an-idempotent-api">Simplify Management Operations with an Idempotent API<a class="headerlink" href="#simplify-management-operations-with-an-idempotent-api" title="Permanent link">&para;</a></h2>
+<p>You can add or update NetScaler resources seamlessly, with a single API. Previously, an attempt to add a resource that was already configured, or to update a resource that was not yet configured, caused an error.</p>
+<p>If you enable the “idempotent” query parameter (“idempotent=yes”) in any POST request, NITRO executes the request in an idempotent manner. An idempotent HTTP method is an HTTP method that can be called many times without different results, and POST is desinged as a non-idempotent method.</p>
+<p><strong>Note.</strong> Use POST request with “idempotent” option if you are unsure whether the resource in the request exists on NetScaler or not.</p>
+<p>This API  hides the inconsistencies between parameter lists of POST and PUT operations. For some NITRO resources, certain parameters are accepted only on PUT not in POST, or vice versa. By using this idempotent API, you can overcome such challenges.</p>
+<p><strong>Limitations</strong></p>
+<p>If a resource is already configured and you try to add the same resource again, the resource is  "updated," but the arguments already present are not unset. For example, if a  load balancing virtual server named  "V1" is configured to use the round robin load balancing method, and you try to ADD an lbvserver named "V1" without specifying a value for "lbmethod" in the request, the NetScaler appliance does not  unset "lbmethod" to its default value of "leastconnection."</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>In the following example, “preferredntpserver” is allowed only in PUT, but when given in POST request with idempotent=yes, NITRO internally adds the ntpserver and updates it with given properties.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> POST</p>
+<p><strong>URL</strong> http://\<NSIP>/nitro/v1/config/ntpserver?idempotent=yes</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p>Content-Type: application/json</p>
+<p><strong>Request Payload</strong>
+```json
+{</p>
+<p>“ntpserver”:{“servername”:“ntp1”,“minpoll”:“4,  “preferredntpserver”: “yes”}</p>
+<p>}
+```</p>
+</li>
+<li>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+</li>
+</ul>
+<h2 id="retrieve-bindings-in-bulk">Retrieve Bindings in Bulk<a class="headerlink" href="#retrieve-bindings-in-bulk" title="Permanent link">&para;</a></h2>
+<p>This topic covers retrieving bindings information in bulk by using REST APIs through HTTP.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>You can use a bulk GET API to fetch bindings of all the entities of a given entity type.</p>
+<p>For example, you can fetch bindings of all the load balancing virtual servers in one call instead of by using multiple GET by "name" calls. In the examples below, the NetScaler appliance has the following configuration.</p>
+<ul>
+<li>add lb vserver lbv1 http</li>
+<li>add lb vserver lbv2 http</li>
+<li>add service svc1 10.20.30.40 http 80</li>
+<li>add servicegroup sg1 http</li>
+<li>bind lb vserver lbv1 svc1</li>
+<li>bind lb vserver lbv1 sg1</li>
+<li>bind lb vserver lbv2 svc1</li>
+<li>bind lb vserver lbv2 sg1</li>
+</ul>
+<p><strong>Example. To fetch bindings of all lbvservers, in a single NITRO API</strong></p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> GET</p>
+<p><strong>URL</strong> http://\<NSIP>/nitro/v1/config/lbvserver_binding?bulkbindings=yes</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue ></p>
+<p>Accept: application/json</p>
+</li>
+<li>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Response Header</strong> Content-Type:application/json</p>
+<p><strong>Response Payload</strong></p>
+<p>```json
+{</p>
+</li>
+</ul>
+<p>"errorcode":0,</p>
+<p>"message":"Done",</p>
+<p>"severity":"NONE",</p>
+<p>"lbvserver_binding":[</p>
+<div class="codehilite"><pre><span></span>{
+
+     &quot;name&quot;:&quot;lbv1&quot;,
+
+     &quot;lbvserver_service_binding&quot;:[
+
+        {
+
+           &quot;name&quot;:&quot;lbv1&quot;,
+
+           &quot;servicename&quot;:&quot;svc1&quot;,
+
+           &quot;stateflag&quot;:&quot;536936451&quot;,
+
+           &quot;ipv46&quot;:&quot;10.20.30.40&quot;,
+
+           &quot;port&quot;:80,
+
+           &quot;servicetype&quot;:&quot;HTTP&quot;,
+
+           &quot;curstate&quot;:&quot;DOWN&quot;,
+
+           &quot;weight&quot;:&quot;1&quot;,
+
+           &quot;dynamicweight&quot;:&quot;0&quot;,
+
+           &quot;cookieipport&quot;:&quot;&quot;,
+
+           &quot;vserverid&quot;:&quot;mcw1&quot;,
+
+           &quot;vsvrbindsvcip&quot;:&quot;10.20.30.40&quot;,
+
+           &quot;vsvrbindsvcport&quot;:80,
+
+           &quot;preferredlocation&quot;:&quot;&quot;
+
+        }
+
+     ],
+
+     &quot;lbvserver_servicegroup_binding&quot;:[
+
+        {
+
+           &quot;name&quot;:&quot;lbv1&quot;,
+
+           &quot;servicegroupname&quot;:&quot;sg1&quot;,
+
+           &quot;stateflag&quot;:&quot;536936464&quot;,
+
+           &quot;servicename&quot;:&quot;sg1&quot;
+
+        }
+
+     ]
+
+  },
+
+  {
+
+     &quot;name&quot;:&quot;lbv2&quot;,
+
+     &quot;lbvserver_service_binding&quot;:[
+
+        {
+
+           &quot;name&quot;:&quot;lbv2&quot;,
+
+           &quot;servicename&quot;:&quot;svc1&quot;,
+
+           &quot;stateflag&quot;:&quot;536936451&quot;,
+
+           &quot;ipv46&quot;:&quot;10.20.30.40&quot;,
+
+           &quot;port&quot;:80,
+
+           &quot;servicetype&quot;:&quot;HTTP&quot;,
+
+           &quot;curstate&quot;:&quot;DOWN&quot;,
+
+           &quot;weight&quot;:&quot;1&quot;,
+
+           &quot;dynamicweight&quot;:&quot;0&quot;,
+
+           &quot;cookieipport&quot;:&quot;&quot;,
+
+           &quot;vserverid&quot;:&quot;mcw2&quot;,
+
+           &quot;vsvrbindsvcip&quot;:&quot;10.20.30.40&quot;,
+
+           &quot;vsvrbindsvcport&quot;:80,
+
+           &quot;preferredlocation&quot;:&quot;&quot;
+
+        }
+
+
+       ],
+
+     &quot;lbvserver_servicegroup_binding&quot;:[
+
+        {
+
+           &quot;name&quot;:&quot;lbv2&quot;,
+
+           &quot;servicegroupname&quot;:&quot;sg1&quot;,
+
+           &quot;stateflag&quot;:&quot;536936464&quot;,
+
+           &quot;servicename&quot;:&quot;sg1&quot;
+
+        }
+
+
+       ]
+
+  }
+</pre></div>
+
+
+<p>]</p>
+<div class="codehilite"><pre><span></span>}
+```
+</pre></div>
+
+
+<p><strong>Example. To fetch only “service” bindings of all lbvservers</strong></p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> GET</p>
+<p><strong>URL</strong> http://\<NSIP>/nitro/v1/config/lbvserver_service_binding?bulkbindings=yes</p>
+<p><strong>Request Header</strong> Content-Type:application/json</p>
+</li>
+<li>
+<p><strong>Response</strong></p>
+<p><strong>Response Payload</strong></p>
+<p>```json
+{ </p>
+<p>"errorcode":0,</p>
+<p>"message":"Done",</p>
+<p>"severity":"NONE",</p>
+<p>"lbvserver_service_binding":[ </p>
+<p>{ </p>
+<div class="codehilite"><pre><span></span>  &quot;name&quot;:&quot;lbv1&quot;,
+
+  &quot;servicename&quot;:&quot;svc1&quot;,
+
+  &quot;stateflag&quot;:&quot;536936451&quot;,
+
+  &quot;ipv46&quot;:&quot;10.20.30.40&quot;,
+
+  &quot;port&quot;:80,
+
+  &quot;servicetype&quot;:&quot;HTTP&quot;,
+
+  &quot;curstate&quot;:&quot;DOWN&quot;,
+
+  &quot;weight&quot;:&quot;1&quot;,
+
+  &quot;dynamicweight&quot;:&quot;0&quot;,
+
+  &quot;cookieipport&quot;:&quot;&quot;,
+
+  &quot;vserverid&quot;:&quot;mcw1&quot;,
+
+  &quot;vsvrbindsvcip&quot;:&quot;10.20.30.40&quot;,
+
+  &quot;vsvrbindsvcport&quot;:80,
+
+  &quot;preferredlocation&quot;:&quot;&quot;
+</pre></div>
+
+
+<p>},</p>
+<p>{ </p>
+<div class="codehilite"><pre><span></span>  &quot;name&quot;:&quot;lbv2&quot;,
+
+  &quot;servicename&quot;:&quot;svc1&quot;,
+
+  &quot;stateflag&quot;:&quot;536936451&quot;,
+
+  &quot;ipv46&quot;:&quot;10.20.30.40&quot;,
+
+  &quot;port&quot;:80,
+
+  &quot;servicetype&quot;:&quot;HTTP&quot;,
+
+  &quot;curstate&quot;:&quot;DOWN&quot;,
+
+  &quot;weight&quot;:&quot;1&quot;,
+
+  &quot;dynamicweight&quot;:&quot;0&quot;,
+
+  &quot;cookieipport&quot;:&quot;&quot;,
+
+  &quot;vserverid&quot;:&quot;mcw2&quot;,
+
+  &quot;vsvrbindsvcip&quot;:&quot;10.20.30.40&quot;,
+
+  &quot;vsvrbindsvcport&quot;:80,
+
+  &quot;preferredlocation&quot;:&quot;&quot;
+</pre></div>
+
+
+<p>}   </p>
+<p>]</p>
+<p>}
+```</p>
+</li>
+</ul>
+<h2 id="view-individual-counter-information">View Individual Counter Information<a class="headerlink" href="#view-individual-counter-information" title="Permanent link">&para;</a></h2>
+<p>This topic viewing individual counter information by using REST APIs through HTTP. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To view global counters that are not otherwise shown by the NetScaler CLI or the GUI, you can now use the following URL format.</p>
+<p>URL: http://\<NSIP>/nitro/v1/stat/nsglobalcntr?args=counters:\<counter1>;\<counter2></p>
+<p>Previously, these counter values could be viewed only through the “nsconmsg” Shell command.</p>
+<p><strong>Note.</strong> You can view only global counters of type ULONG and only up to 12 counters in a single request.</p>
+<p><strong>Example</strong></p>
+<p>This example shows how to view the individual counters http_tot_Requests and http_tot_Responses. Enter the details in the system or tool that you are using to generate HTTP or HTTPS requests.</p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method</strong> GET</p>
+<p><strong>URL</strong> http://\<NSIP>/nitro/v1/stat/nsglobalcntr?args=counters:http_tot_Requests;http_tot_Responses</p>
+</li>
+<li>
+<p><strong>Response</strong>
+    ```json
+    {
+    "errorcode": 0,</p>
+<p>"message": "Done",</p>
+<p>"severity": "NONE",</p>
+<p>"nsglobalcntr": 
+    {
+    "http_tot_Requests": "5783",
+    "http_tot_Responses": "5783"
+    }
+}
+```</p>
+</li>
+</ul>
+<h2 id="prevent-xss-and-csrf-attacks-by-disabling-basic-authentication">Prevent XSS and CSRF Attacks by Disabling Basic Authentication<a class="headerlink" href="#prevent-xss-and-csrf-attacks-by-disabling-basic-authentication" title="Permanent link">&para;</a></h2>
+<p>As an administrator or a root user, you can now prevent users from making API calls after using basic authentication (such as one-time credentials) to log on. You can use this feature to prevent Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), and other types of attacks.</p>
+<p><strong>Procedure for Disabling Basic Authentication</strong></p>
+<p>Use the following formats to enter the details in the system or tool that you are using to generate HTTP or HTTPS requests.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<ul>
+<li>
+<p><strong>Request</strong></p>
+<p><strong>URL</strong> http://\<netscaler-ip-address >/nitro/v1/config/systemparameter</p>
+<p><strong>HTTP Method</strong> PUT</p>
+<p><strong>Request Headers</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload</strong>
+```json
+{
+    "systemparameter":{ "basicauth":"disabled",}</p>
+<p>}
+```</p>
+</li>
+<li>
+<p><strong>Response</strong>
+    <strong>HTTP Status Code on Success</strong> 200 OK</p>
+<p>After you disable the basic authentication, access to NetScaler through the one-time password is denied and an error message is displayed.</p>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>This example shows what happens if you make any API call after basic authentication has been disabled. </p>
+<ul>
+<li>
+<p><strong>Request</strong>
+    <strong>URL</strong> http://10.102.201.159/nitro/v1/config/lbvserver</p>
+<p><strong>HTTP Method</strong> GET</p>
+<p>After you make a GET call, the a logon screen appears. If you click <strong>Log In</strong> after entering the logon credentials, then you get the following response, which shows an error message. </p>
+</li>
+<li>
+<p><strong>Response</strong></p>
+<p><code>json
+{"errorcode": 1244,"message": "Authentication Failed: Use of Basic Authentication is Disabled.","severity": "ERROR"
+}</code></p>
+</li>
+</ul> 
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+    <!--<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span class="prev"><a href="../performing-basic-netscaler-operations/"><i class="fa fa-angle-left"></i> Previous</a></span>
+      
+      
+        <span class="next"><a href="../error-and-exception-handling/">Next <i class="fa fa-angle-right"></i></a></span>
+      
+    </span>
+	<div class="footer-right">
+		<ul class="social-links">
+			<li class="list-inline"><a href="https://twitter.com/citrix"><i class="fa fa-twitter"></i>@citrix</a></li>
+			<li class="list-inline"><a href="mailto:support@citrix.com"><i class="fa fa-envelope-o"></i>support@citrix.com</a></li>
+		</ul>
+		<ul class="inner-pages">
+			<li class="list-inline"><a href="http://citrix.com/about/legal">Privacy and Terms</li>
+		</ul>
+	</div>
+</div>-->
+
+  </body>
+
+</html>
