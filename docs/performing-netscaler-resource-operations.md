@@ -17,36 +17,35 @@ To create a new resource (for example, an lbvserver) on the appliance, specify t
 
 For example, to create an load balancing virtual server named MyFirstLbVServer:
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+    "lbvserver": 
     { 
-        "lbvserver": 
-        { 
-        "name":"MyFirstLbVServer", 
-        "servicetype":"http" 
-        } 
-    }
-    ```
+    "name":"MyFirstLbVServer", 
+    "servicetype":"http" 
+    } 
+}
+```
 
-* **Response**
+**Response**
 
-    **HTTP Status Code on Success** 201 Created
+**HTTP Status Code on Success:** 201 Created
 
-    **HTTP Status Code on Failure**
-
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
@@ -55,6 +54,7 @@ To create a new resource, instantiate the resource class, configure the resource
 The following sample code creates a load balancing virtual server.
 
 **Java - Sample code to add a NetScaler resource**
+
 ```java
 //Create an instance of the lbvserver class 
 
@@ -74,6 +74,7 @@ lbvserver.add(ns_session,new_lbvserver_obj);
 ```
 
 **.NET - Sample code to add a NetScaler resource**
+
 ```csharp
 //Create an instance of the lbvserver class 
 
@@ -93,6 +94,7 @@ lbvserver.add(ns_session,new_lbvserver_obj);
 ```
 
 **Python - Sample code to add a NetScaler resource**
+
 ```python
 #Create an instance of the lbvserver class
 
@@ -121,34 +123,36 @@ To enable a resource on the NetScaler appliance, specify the action as "enable" 
 
 For example, to enable a load balancing virtual server named MyFirstLbVServer.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
-    
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?action=enable
-    
-    **Request Headers**
-    
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
-    
-    Content-Type:application/json
-    
-    **Request Payload**
-    ```json
+**HTTP Method:** POST
+
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?action=enable
+
+**Request Headers:**
+
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+
+Content-Type:application/json
+
+**Request Payload:**
+
+```json
+{ 
+    "lbvserver": 
     { 
-        "lbvserver": 
-        { 
-        "name":"MyFirstLbVServer" 
-        } 
-    }
-    ```
-* **Response**
+    "name":"MyFirstLbVServer" 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 200 OK
-    
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**Response**
+
+**HTTP Status Code on Success:** 200 OK
+
+**HTTP Status Code on Failure:**
+
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
     
 **Using REST APIs through SDKs**
 
@@ -157,6 +161,7 @@ To enable a resource, invoke the enable() method and to disable, invoke the disa
 The following sample code enables a load balancing virtual server named lb_vip.
 
 **Java - Sample code to enable a NetScaler resource**
+
 ```java
 lbvserver obj = new lbvserver();
 
@@ -166,6 +171,7 @@ lbvserver.enable(ns_session, obj);
 ```
 
 **.NET - Sample code to enable a NetScaler resource**
+
 ```csharp
 lbvserver obj = new lbvserver(); 
 
@@ -175,6 +181,7 @@ lbvserver.enable(ns_session, obj);
 ```
 
 **Python - Sample code to enable a NetScaler resource**
+
 ```python
 obj = lbvserver()
 
@@ -182,6 +189,7 @@ obj.name = "lb_vip"
 
 lbvserver.enable(ns_session, obj)
 ```
+
 ## Retrieving Properties of NetScaler Resources
 
 This topic covers retrieving properties of a NetScaler resource by using REST APIs through HTTP or SDKs. 
@@ -252,44 +260,46 @@ NITRO provides multiple approaches using which you can retrieve resources and th
 
 For example, to retrieve only the name and load balancing method of all load balancing virtual servers on a NetScaler.
 
-* **Request**
+**Request**
     
-    **HTTP Method** GET
+**HTTP Method:** GET
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?attrs=name,lbmethod
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?attrs=name,lbmethod
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Accept:application/json
+Accept:application/json
 
-* **Response**
+**Response**
 
-    **HTTP Status Code on Success** 200 OK
+**HTTP Status Code on Success:** 200 OK
 
-    **HTTP Status Code on Failure**
+**HTTP Status Code on Failure:**
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
-    **Response Header**
+**Response Header:**
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Response Payload**
-    ```json
+**Response Payload:**
+
+```json
+{ 
+    lbvserver: 
     { 
-        lbvserver: 
-        { 
-            name: "test", 
-            lbmethod: "LEASTCONNECTION" 
-        } 
-        { 
-            name: "test1", 
-            lbmethod: "LEASTCONNECTION" 
-        } 
-    }
-    ```
+        name: "test", 
+        lbmethod: "LEASTCONNECTION" 
+    } 
+    { 
+        name: "test1", 
+        lbmethod: "LEASTCONNECTION" 
+    } 
+}
+```
+
 **Using REST APIs through SDKs**
 
 To retrieve the properties of a resource, you retrieve the resource object from the NetScaler appliance. Once the object is retrieved, you can extract the required properties of the resource locally, without further network traffic.
@@ -297,6 +307,7 @@ To retrieve the properties of a resource, you retrieve the resource object from 
 The following sample code retrieves the details of a load balancing virtual server.
 
 **Java - Sample code to get details of resource**
+
 ```java
 //Retrieve the resource object from the NetScaler 
 
@@ -309,6 +320,7 @@ System.out.println(new_lbvserver_obj.get_servicetype());
 ```
 
 **.NET - Sample code to get details of resource**
+
 ```csharp
 //Retrieve the resource object from the NetScaler 
 
@@ -321,6 +333,7 @@ Console.WriteLine(new_lbvserver_obj.servicetype);
 ```
 
 **Python - Sample code to get details of resource**
+
 ```python
 #Retrieve the resource object from the NetScaler
 
@@ -343,6 +356,7 @@ You can also retrieve resources by specifying a filter on the value of their pro
 For example, you can retrieve all the load balancing virtual servers that have their port set to 80 and servicetype to HTTP.
 
 **Java - Sample code to get filtered results**
+
 ```java
 filtervalue[] filter = new filtervalue[2];
 filter[0] = new filtervalue("port","80");
@@ -351,6 +365,7 @@ lbvserver[] result = lbvserver.get_filtered(ns_session,filter);
 ```
 
 **.NET - Sample code to get filtered results**
+
 ```csharp
 filtervalue[] filter = new filtervalue[2]; 
 filter[0] = new filtervalue("port","80"); 
@@ -359,6 +374,7 @@ lbvserver[] result = lbvserver.get_filtered(ns_session,filter);
 ```
 
 **Python - Sample code to get filtered results**
+
 ```python
 filter_params = []
 
@@ -382,142 +398,144 @@ To get statistics of a resource, the URL format must be: http://\<netscaler-ip-a
 
 To get statistics of the services and service groups that are bound to a load balancing virtual server, the URL format must be: http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/\<name>?statbindings=yes*.
 
-* **Request**
+**Request**
     
-    **HTTP Method** GET
+**HTTP Method:** GET
+
+**URL:** http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer
+
+**Request Headers:**
+
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+
+Accept:application/json
+
+
+**Response**
     
-    **URL** http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer
+**HTTP Status Code on Success:** 200 OK
 
-    **Request Headers**
-    
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+**HTTP Status Code on Failure:**
 
-    Accept:application/json
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
+**Response Payload:**
 
-* **Response**
-    
-    **HTTP Status Code on Success** 200 OK
-    
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+```json
+{
 
-    **Response Payload**
-    ```json
-    {
+    "lbvserver":
 
-        "lbvserver":
+    [
 
-        [
+        {
 
-            {
+            "name":"MyFirstLbVServer",
 
-                "name":"MyFirstLbVServer",
+            "establishedconn":0,
 
-                "establishedconn":0,
+            "vslbhealth":0,
 
-                "vslbhealth":0,
+            "primaryipaddress":"0.0.0.0",
 
-                "primaryipaddress":"0.0.0.0",
+            ...
 
-                ...
+        }
 
-            }
+    ]
 
-        ]
-
-    }
-    ```
+}
+```
 
 To get statistics of the bound entities, use statbindings=yes.
 For example, to get the statistics of the services that are bound to a load balancing virtual server named MyFirstLbVServer.
 
-* **Request**
+**Request**
     
-    **HTTP Method** GET
+**HTTP Method:** GET
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer?statbindings=yes
+**URL:** http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer?statbindings=yes
 
-    **Request Headers**
+**Request Headers:**
+
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+
+Accept:application/json
+
+
+**Response**
     
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+**HTTP Status code on success:** 200 OK  
 
-    Accept:application/json
+**HTTP Status code on failure:**
 
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.   
 
-* **Response**
-    
-    **HTTP Status code on success** 200 OK  
+**Response Header:**
 
-    **HTTP Status code on failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.   
+Content-Type:application/json
 
-    **Response Header**
-    
-    Content-Type:application/json
+**Response Payload:**
 
-    **Response Payload**
-    ```json
-    {
+```json
+{
 
 
-    "lbvserver": [{
+"lbvserver": [{
 
 
-        "name": "MyFirstLbVServer",
+    "name": "MyFirstLbVServer",
 
 
-        "sortorder": "descending",
+    "sortorder": "descending",
 
 
-        "vsvrsurgecount": "0",
+    "vsvrsurgecount": "0",
 
 
-        "establishedconn": "0",
+    "establishedconn": "0",
 
-        ...
+    ...
 
-        "service": [{
-
-
-            "name": "s1",
+    "service": [{
 
 
-            "throughput": "0",
+        "name": "s1",
 
 
-            "throughputrate": 0,
+        "throughput": "0",
 
 
-            "avgsvrttfb": "0",  
+        "throughputrate": 0,
 
 
-            "primaryipaddress": "1.2.3.5",
+        "avgsvrttfb": "0",  
 
 
-            "primaryport": 80,
+        "primaryipaddress": "1.2.3.5",
 
 
-            "servicetype": "HTTP",
+        "primaryport": 80,
 
 
-            "state": "DOWN",
+        "servicetype": "HTTP",
 
 
-                "totalrequests": "0",
+        "state": "DOWN",
 
 
-                "requestsrate": 0,
+            "totalrequests": "0",
 
-                ...
 
-                }]
-        }]
+            "requestsrate": 0,
 
-    }
-    ```
+            ...
+
+            }]
+    }]
+
+}
+```
 
 **Using REST APIs through SDKs**
 
@@ -533,6 +551,7 @@ com.citrix.netscaler.nitro.resource.stat.lb.
 The following sample code retrieves the statistics of a load balancing virtual server and displays some of the statistics returned.
 
 **Java - Sample code to get feature statistics**
+
 ```java
 lbvserver_stats stats = lbvserver_stats.get(ns_session,"MyFirstLbVServer"); 
 
@@ -542,6 +561,7 @@ System.out.println(stats.get_deferredreqrate());
 ```
 
 **.NET - Sample code to get feature statistics**
+
 ```csharp
 lbvserver_stats stats = lbvserver_stats.get(ns_session,"MyFirstLbVServer");
 
@@ -551,6 +571,7 @@ Console.WriteLine(stats.deferredreqrate);
 ```
 
 **Python - Sample code to get feature statistics**
+
 ```python
 stats = lbvserver_stats.get(ns_session,"MyFirstLbVServer")
 
@@ -570,142 +591,144 @@ To get statistics of a resource, the URL format must be: http://\<netscaler-ip-a
 
 To get statistics of the services and service groups that are bound to a load balancing virtual server, the URL format must be: http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/\<name>?statbindings=yes*.
 
-* **Request**
+**Request**
     
-    **HTTP Method** GET
+**HTTP Method:** GET
+
+**URL:** http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer
+
+**Request Headers:**
+
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+
+Accept:application/json
+
+
+**Response**
     
-    **URL** http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer
+**HTTP Status Code on Success:** 200 OK
 
-    **Request Headers**
-    
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+**HTTP Status Code on Failure:**
 
-    Accept:application/json
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
+**Response Payload:**
 
-* **Response**
-    
-    **HTTP Status Code on Success** 200 OK
-    
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+```json
+{
 
-    **Response Payload**
-    ```json
-    {
+    "lbvserver":
 
-        "lbvserver":
+    [
 
-        [
+        {
 
-            {
+            "name":"MyFirstLbVServer",
 
-                "name":"MyFirstLbVServer",
+            "establishedconn":0,
 
-                "establishedconn":0,
+            "vslbhealth":0,
 
-                "vslbhealth":0,
+            "primaryipaddress":"0.0.0.0",
 
-                "primaryipaddress":"0.0.0.0",
+            ...
 
-                ...
+        }
 
-            }
+    ]
 
-        ]
-
-    }
-    ```
+}
+```
 
 To get statistics of the bound entities, use statbindings=yes.
 For example, to get the statistics of the services that are bound to a load balancing virtual server named MyFirstLbVServer.
 
-* **Request**
+**Request**
     
-    **HTTP Method** GET
+**HTTP Method:** GET
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer?statbindings=yes
+**URL:** http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer?statbindings=yes
 
-    **Request Headers**
+**Request Headers:**
+
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+
+Accept:application/json
+
+
+**Response**
     
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+**HTTP Status code on success:** 200 OK  
 
-    Accept:application/json
+**HTTP Status code on failure:**
 
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.   
 
-* **Response**
-    
-    **HTTP Status code on success** 200 OK  
+**Response Header:**
 
-    **HTTP Status code on failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.   
+Content-Type:application/json
 
-    **Response Header**
-    
-    Content-Type:application/json
+**Response Payload:**
 
-    **Response Payload**
-    ```json
-    {
+```json
+{
 
 
-    "lbvserver": [{
+"lbvserver": [{
 
 
-        "name": "MyFirstLbVServer",
+    "name": "MyFirstLbVServer",
 
 
-        "sortorder": "descending",
+    "sortorder": "descending",
 
 
-        "vsvrsurgecount": "0",
+    "vsvrsurgecount": "0",
 
 
-        "establishedconn": "0",
+    "establishedconn": "0",
 
-        ...
+    ...
 
-        "service": [{
-
-
-            "name": "s1",
+    "service": [{
 
 
-            "throughput": "0",
+        "name": "s1",
 
 
-            "throughputrate": 0,
+        "throughput": "0",
 
 
-            "avgsvrttfb": "0",  
+        "throughputrate": 0,
 
 
-            "primaryipaddress": "1.2.3.5",
+        "avgsvrttfb": "0",  
 
 
-            "primaryport": 80,
+        "primaryipaddress": "1.2.3.5",
 
 
-            "servicetype": "HTTP",
+        "primaryport": 80,
 
 
-            "state": "DOWN",
+        "servicetype": "HTTP",
 
 
-                "totalrequests": "0",
+        "state": "DOWN",
 
 
-                "requestsrate": 0,
+            "totalrequests": "0",
 
-                ...
 
-                }]
-        }]
+            "requestsrate": 0,
 
-    }
-    ```
+            ...
+
+            }]
+    }]
+
+}
+```
 
 **Using REST APIs through SDKs**
 
@@ -714,13 +737,14 @@ The NetScaler appliance collects statistics about the usage of its features and 
 For example, the API to retrieve statistics of the load balancing virtual server are available in 
 com.citrix.netscaler.nitro.resource.stat.lb.
 
-**Note.**
+**Note:**
 * For the python SDK, the package path is of the form nssrc.com.citrix.netscaler......
 * Not all NetScaler features and resources have statistic objects associated with them.
 
 The following sample code retrieves the statistics of a load balancing virtual server and displays some of the statistics returned.
 
 **Java - Sample code to get feature statistics**
+
 ```java
 lbvserver_stats stats = lbvserver_stats.get(ns_session,"MyFirstLbVServer"); 
 
@@ -730,6 +754,7 @@ System.out.println(stats.get_deferredreqrate());
 ```
 
 **.NET - Sample code to get feature statistics**
+
 ```csharp
 lbvserver_stats stats = lbvserver_stats.get(ns_session,"MyFirstLbVServer");
 
@@ -739,6 +764,7 @@ Console.WriteLine(stats.deferredreqrate);
 ```
 
 **Python - Sample code to get feature statistics**
+
 ```python
 stats = lbvserver_stats.get(ns_session,"MyFirstLbVServer")
 
@@ -758,36 +784,38 @@ To update the details of an existing resource on the NetScaler appliance, specif
 
 For example, to change the load balancing method to ROUNDROBIN and update the comment property for a load balancing virtual server named MyFirstLbVServer:
 
-* **Request**
+**Request**
 
-    **HTTP Method** PUT
-    
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver/MyFirstLbVServer
-    
-    **Request Headers**
-    
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
-    
-    Content-Type:application/json
-    
-    **Request Payload**
-    ```json
+**HTTP Method:** PUT
+
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver/MyFirstLbVServer
+
+**Request Headers:**
+
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+
+Content-Type:application/json
+
+**Request Payload:**
+
+```json
+{ 
+    "lbvserver": 
     { 
-        "lbvserver": 
-        { 
-            "name":"MyFirstLbVServer", 
-            "lbmethod":"ROUNDROBIN", 
-            "comment":"Updated comments" 
-        } 
-    }
-    ```
-* **Response**
+        "name":"MyFirstLbVServer", 
+        "lbmethod":"ROUNDROBIN", 
+        "comment":"Updated comments" 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 200 OK
-    
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**Response**
+
+**HTTP Status Code on Success:** 200 OK
+
+**HTTP Status Code on Failure:**
+
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
@@ -796,6 +824,7 @@ To update the properties of a resource, instantiate the resource class, specify 
 The following sample code updates the service type and load balancing method of a load balancing virtual server.
 
 **Java - Sample code to update a NetScaler resource**
+
 ```java
 //Create an instance of the lbvserver class 
 
@@ -816,6 +845,7 @@ lbvserver.update(ns_session,update_lb);
 ```
 
 **.NET - Sample code to update a NetScaler resource**
+
 ```csharp
 //Create an instance of the lbvserver class 
 
@@ -836,6 +866,7 @@ lbvserver.update(ns_session, update_lb);
 ```
 
 **Python - Sample code to update a NetScaler resource**
+
 ```python
 #Create an instance of the lbvserver class
 
@@ -869,91 +900,90 @@ To unbind a resource, use the DELETE method and specify an "args" query string p
 
 The following example binds a service named svc_prod to a load balancing virtual server named MyFirstLbVServer and specify a weight for the binding.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL**
+**URL:** http://\<netscaler-ip-address >/nitro/v1/config/lbvserver_service_binding
 
-    http://\<netscaler-ip-address >/nitro/v1/config/lbvserver_service_binding
+**Request Headers:**
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Content-Type:application/json
 
-    **Request Headers**
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
-    Content-Type:application/json
-    
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+"lbvserver_service_binding": 
     { 
-    "lbvserver_service_binding": 
-        { 
-        "servicename":"svc_prod", 
-        "weight":"20", 
-        "name":"MyFirstLbVServer" 
-        } 
-    }
-    ```
-* **Response**
+    "servicename":"svc_prod", 
+    "weight":"20", 
+    "name":"MyFirstLbVServer" 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 201 Created
+**Response**
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string > (for general HTTP errors) or 5xx \<string > (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:**  4xx \<string > (for general HTTP errors) or 5xx \<string > (for NetScaler-specific errors). The response payload provides details of the error.
 
 The following example binds a policy to a policy label.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
-    **URL**
-    
-    http://\<netscaler-ip-address >/nitro/v1/config/authenticationpolicylabel_authenticationpolicy_binding
-    
-    **Request Headers**
-    
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
-    
-    Content-Type:application/json
-    
-    **Request Payload**
-    ```json
+**HTTP Method:** POST
+
+**URL:** http://\<netscaler-ip-address >/nitro/v1/config/authenticationpolicylabel_authenticationpolicy_binding
+
+**Request Headers:**
+
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+
+Content-Type:application/json
+
+**Request Payload:**
+
+```json
+{ 
+"authenticationpolicylabel_authenticationpolicy_binding": 
     { 
-    "authenticationpolicylabel_authenticationpolicy_binding": 
-        { 
-        "policyname":"p1", 
-        "priority":"100", 
-        "gotopriorityexpression":"END", 
-        "labelname":"pl1" 
-        } 
-    }
-    ```
-* **Response**
+    "policyname":"p1", 
+    "priority":"100", 
+    "gotopriorityexpression":"END", 
+    "labelname":"pl1" 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 201 Created
-    
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**Response**
+
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:**
+
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 The following example unbinds the service svc_prod from the load balancing virtual server MyFirstLbVServer.
 
-* **Request**
+**Request**
 
-    **HTTP Method** DELETE
-    
-    **URL** - http://\<netscaler-ip-address>/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer?args=servicename:svc_prod
+**HTTP Method:** DELETE
 
-    **Request Header**
-    
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer?args=servicename:svc_prod
 
-* **Response**
+**Request Header:**
 
-    **HTTP Status Code on Success** 200 OK
-    
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+
+**Response**
+
+**HTTP Status Code on Success:** 200 OK
+
+**HTTP Status Code on Failure:**
+
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
@@ -964,6 +994,7 @@ To unbind a resource from another, invoke the delete() method from the resource 
 The following sample code binds a service to a load balancing virtual server, by specifying a certain weight for the binding.
 
 **Java - Sample code for binding** 
+
 ```java
 lbvserver_service_binding bindObj = new lbvserver_service_binding(); 
 bindObj.set_name("MyFirstLbVServer"); 
@@ -973,6 +1004,7 @@ lbvserver_service_binding.add(ns_session,bindObj);
 ```
 
 **.NET - Sample code for binding**
+
 ```csharp
 lbvserver_service_binding bindObj = new lbvserver_service_binding(); 
 bindObj.name = "MyFirstLbVServer"; 
@@ -980,7 +1012,9 @@ bindObj.servicename = "svc_prod";
 bindObj.weight = 20; 
 lbvserver_service_binding.add(ns_session,bindObj);
 ```
+
 **Python - Sample code for binding**
+
 ```python
 bindObj = lbvserver_service_binding()
 bindObj.name = "MyFirstLbVServer"
@@ -992,6 +1026,7 @@ lbvserver_service_binding.add(ns_session, bindObj)
 The following code sample unbinds a service from a server.
 
 **Java - Sample Code for unbinding**
+
 ```java
 lbvserver_service_binding bindObj = new lbvserver_service_binding(); 
 bindObj.set_name("MyFirstLbVServer"); 
@@ -1000,6 +1035,7 @@ lbvserver_service_binding.delete(ns_session,bindObj);
 ```
 
 **.NET - Sample code for unbinding**
+
 ```csharp
 lbvserver_service_binding bindObj = new lbvserver_service_binding(); 
 bindObj.name("MyFirstLbVServer"); 
@@ -1007,7 +1043,8 @@ bindObj.servicename("svc_prod");
 lbvserver_service_binding.delete(ns_session,bindObj);
 ```
 
-**Python - Sample code for unbinding COPY**
+**Python - Sample code for unbinding**
+
 ```python
 bindObj = lbvserver_service_binding()
 bindObj.name = "MyFirstLbVServer"
@@ -1025,65 +1062,68 @@ The names of NITRO resources that can be used to bind resources globally have th
 
 The following example binds the policy named preautpol1 globally at priority 200.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
-    
-    **URL** 
-    
-    http://\<netscaler-ip-address >/nitro/v1/config/aaaglobal_aaapreauthenticationpolicy_binding/preautpol1
+**HTTP Method:** POST
 
-    **Request Headers**
+**URL:** 
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+http://\<netscaler-ip-address >/nitro/v1/config/aaaglobal_aaapreauthenticationpolicy_binding/preautpol1
 
-    Content-Type:application/json
-    
-    **Request Payload**
-    ```json
+**Request Headers:**
+
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+
+Content-Type:application/json
+
+**Request Payload:**
+
+```json
+{ 
+"aaaglobal_aaapreauthenticationpolicy_binding": 
     { 
-    "aaaglobal_aaapreauthenticationpolicy_binding": 
-        { 
-        "policy":"preautpol1", 
-        "priority":"200" 
-        } 
-    }
-    ```
-* **Response**
+    "policy":"preautpol1", 
+    "priority":"200" 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 200 OK
-    
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**Response**
+
+**HTTP Status Code on Success:** 200 OK
+
+**HTTP Status Code on Failure:**
+
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 The following example unbinds the policy named preautpol1.
 
-* **Request**
+**Request**
 
-    **HTTP Method** DELETE
+**HTTP Method:** DELETE
 
-    **URL** 
-    
-    http://\<netscaler-ip-address >/nitro/v1/config/aaaglobal_aaapreauthenticationpolicy_binding?args=policy:preautpol1
+**URL:** 
 
-    **Request Header**
-    
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
-    
-    **Response**
+http://\<netscaler-ip-address >/nitro/v1/config/aaaglobal_aaapreauthenticationpolicy_binding?args=policy:preautpol1
 
-    **HTTP Status Code on Success** 200 OK
+**Request Header:**
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+
+**Response**
+
+**HTTP Status Code on Success:** 200 OK
+
+**HTTP Status Code on Failure:**
+
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
 The following sample code creates a preauthentication action and a preauthentication policy that uses that action, and then binds the policy globally at priority 200.
 
 **Java - Sample code**
+
 ```java
 aaapreauthenticationaction preauth_act1; 
 
@@ -1099,8 +1139,6 @@ preauth_act1.set_preauthenticationaction("ALLOW");
 
 aaapreauthenticationaction.add(ns_session,preauth_act1); 
 
- 
-
 preauth_pol1 = new aaapreauthenticationpolicy(); 
 
 preauth_pol1.set_name("preauth_pol1"); 
@@ -1112,8 +1150,7 @@ preauth_pol1.set_reqaction("preauth_act1");
 aaapreauthenticationpolicy.add(ns_session,preauth_pol1); 
 
  
-
-glob_binding = new aaaglobal_aaapreauthenticationpolicy_binding(); 
+ glob_binding = new aaaglobal_aaapreauthenticationpolicy_binding(); 
 
 glob_binding.set_policy("preauth_pol1"); 
 
@@ -1124,6 +1161,7 @@ aaaglobal_aaapreauthenticationpolicy_binding.add(ns_session,glob_binding);
 
 
 **.NET - Sample code**
+
 ```csharp
 aaapreauthenticationaction preauth_act1; 
 
@@ -1164,6 +1202,7 @@ aaaglobal_aaapreauthenticationpolicy_binding.add(ns_session,glob_binding);
 
 
 **Python - Sample code**
+
 ```python
 preauth_act1 = aaapreauthenticationaction()
 
@@ -1204,41 +1243,41 @@ Deleting Resource with Multiple UIDs. To delete a NetScaler resource that is ide
 
 The following example deletes a load balancing virtual server named MyFirstLbVServer.
 
-* **Request**
+**Request**
 
-    **HTTP Method** DELETE
+**HTTP Method:** DELETE
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver/MyFirstLbVServer
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver/MyFirstLbVServer
 
-    **Request Header** Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+**Request Header:** Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
 
-* **Response**
+**Response**
 
-    **HTTP Status Code on Success** 200 OK
+**HTTP Status Code on Success:** 200 OK
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Failure:**
+
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 The following example deletes a resource with multiple UIDs. Consider a SNIP (10.102.29.71) that belongs to two traffic domains (TDs) 123 and 110. To delete the SNIP from one of the traffic domains, specify the IP address and the relevant TD in the URL as follows:
 
-* **Request**
+**Request**
 
-    **HTTP Method** DELETE
+**HTTP Method:** DELETE
 
-    **URL** 
-    
-    http://\<netscaler-ip-address>/nitro/v1/config/nsip?args=ipaddress:10.102.29.71,td:123
+**URL:** 
 
-    **Request Header** Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+http://\<netscaler-ip-address>/nitro/v1/config/nsip?args=ipaddress:10.102.29.71,td:123
 
-* **Response**
+**Request Header:** Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
 
-    **HTTP Status Code on Success** 200 OK
+**Response**
 
-    **HTTP Status Code on Failure**
+**HTTP Status Code on Success:** 200 OK
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Failure:**
+
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
@@ -1247,6 +1286,7 @@ To delete an existing resource, invoke the static method delete() on the resourc
 The following sample code deletes a load balancing virtual server with name MyFirstLbVServer.
 
 **Java - Sample code to delete a NetScaler resource**
+
 ```java
 lbvserver remove_lb = new lbvserver(); 
 remove_lb.set_name("MyFirstLbVServer"); 
@@ -1254,6 +1294,7 @@ lbvserver.delete(ns_session, remove_lb);
 ```
 
 **.NET - Sample code to delete a NetScaler resource**
+
 ```csharp
 lbvserver remove_lb = new lbvserver(); 
 remove_lb.name("MyFirstLbVServer"); 
@@ -1261,6 +1302,7 @@ lbvserver.delete(ns_session, remove_lb);
 ```
 
 **Python - Sample code to delete a NetScaler resource**
+
 ```python
 remove_lb = lbvserver()
 remove_lb.name = "MyFirstLbVServer"
@@ -1282,78 +1324,81 @@ To perform a bulk operation, specify the required parameters in the same request
 
 The following example adds two load balancing virtual servers in one operation. The operation continues even if one of the add operation fails.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
-    
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver
-    
-    **Request Headers**
-    
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
-    
-    Content-Type:application/json
+**HTTP Method:** POST
 
-    **Request Payload**
-    ```json
-    { 
-        "lbvserver": 
-        [ 
-            { 
-            "name":"new_lbvserver1", 
-            "servicetype":"http" 
-            }, 
- 
-            { 
-            "name":"new_lbvserver2", 
-            "servicetype":"http" 
-            } 
-        ] 
-    }
-    ```
-* **Response**
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver
 
-    **HTTP Status Code on Success**
-    201 Created for the add operation and 200 OK for the update operation.
-    
-    **HTTP Status Code on Failure**
-    207 Multi Status with error details in the response payload.
+**Request Headers:**
+
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+
+Content-Type:application/json
+
+**Request Payload:**
+
+```json
+{ 
+    "lbvserver": 
+    [ 
+        { 
+        "name":"new_lbvserver1", 
+        "servicetype":"http" 
+        }, 
+
+        { 
+        "name":"new_lbvserver2", 
+        "servicetype":"http" 
+        } 
+    ] 
+}
+```
+
+**Response**
+
+**HTTP Status Code on Success:**
+201 Created for the add operation and 200 OK for the update operation.
+
+**HTTP Status Code on Failure:**
+207 Multi Status with error details in the response payload.
 
 The following example enables multiple load balancing virtual servers in the same operation.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?action=enable
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?action=enable
 
-    **Request Headers**
-    
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
-    
-    Content-Type:application/json
-    
-    **Request Payload**
-    ```json
-    {
-                "lbvserver":
-        [
-            {
-                "name":"v1",
-            },
+**Request Headers:**
 
-            {
-                "name":"v2",
-            }
-        ]
-    }
-    ```
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
 
-* **Response**
+Content-Type:application/json
 
-    **HTTP Status Code on Success** 201 Created for the add operation and 200 OK for the update operation.
+**Request Payload:**
 
-    **HTTP Status Code on Failure** 207 Multi Status with error details in the response payload. 
+```json
+{
+            "lbvserver":
+    [
+        {
+            "name":"v1",
+        },
+
+        {
+            "name":"v2",
+        }
+    ]
+}
+```
+
+**Response**
+
+**HTTP Status Code on Success:** 201 Created for the add operation and 200 OK for the update operation.
+
+**HTTP Status Code on Failure:** 207 Multi Status with error details in the response payload. 
 
 **Using REST APIs through SDKs**
 
@@ -1362,6 +1407,7 @@ To perform a bulk operation, you instantiate an array of the resource class, con
 The following sample code specifies bulk operation behavior.
 
 **Java - Sample code to specify bulk operation behavior**
+
 ```java
 nitro_service ns_session = new nitro_service("10.102.29.60","http"); 
 ns_session.set_onerror(OnerrorEnum.CONTINUE); 
@@ -1369,6 +1415,7 @@ ns_session.login("admin","verysecret");
 ```
 
 **.NET - Sample code to specify bulk operation behavior**
+
 ```csharp
 nitro_service ns_session = new nitro_service("10.102.29.60","http"); 
 ns_session.onerror = OnerrorEnum.CONTINUE; 
@@ -1376,6 +1423,7 @@ ns_session.login("admin","verysecret");
 ```
 
 **Python - Sample code to specify bulk operation behavior**
+
 ```python
 ns_session = nitro_service("10.102.29.60","http")
 ns_session.onerror = OnerrorEnum.CONTINUE
@@ -1385,6 +1433,7 @@ ns_session.login("admin","verysecret")
 The following sample code creates two load balancing virtual servers.
 
 **Java - Sample code for bulk creation**
+
 ```java
 //Create an array of lbvserver instances 
 
@@ -1412,6 +1461,7 @@ lbvserver.add(ns_session,lbs);
 ```
 
 **.NET - Sample code for bulk creation**
+
 ```csharp
 //Create an array of lbvserver instances 
 lbvserver[] lbs = new lbvserver[2]; 
@@ -1438,6 +1488,7 @@ lbvserver.add(ns_session,lbs);
 ```
 
 **Python - Sample code for bulk creation**
+
 ```python
 #Create an array of lbvserver instances
 
@@ -1475,41 +1526,42 @@ To get a count of a specific resource type, in the URL specify the count query p
 
 For example, to get a count of all the load balancing virtual servers.
 
-* **Request**
+**Request**
 
-    **HTTP Method** GET
+**HTTP Method:** GET
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?count=yes
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?count=yes
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Accept:application/json
+Accept:application/json
 
-* **Response**
+**Response**
 
-    **HTTP Status Code on Success** 200 OK
+**HTTP Status Code on Success:** 200 OK
 
-    **HTTP Status Code on Failure**
+**HTTP Status Code on Failure:**
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
-    **Response Header**
+**Response Header:**
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Response Payload**
-    ```json
-    { 
-        "lbvserver": 
-        [ 
-            { 
-                "__count": 4 
-            } 
-        ] 
-    }
-    ```
+**Response Payload:**
+
+```json
+{ 
+    "lbvserver": 
+    [ 
+        { 
+            "__count": 4 
+        } 
+    ] 
+}
+```
 
 
 ## Renaming a NetScaler Resource
@@ -1522,35 +1574,37 @@ To change the name of an existing resource, specify the action as "rename" in th
 
 For example, to change the name of a load balancing virtual server from MyFirstLbVServer to MyServer:
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address >/nitro/v1/config/lbvserver?action=rename
+**URL:** http://\<netscaler-ip-address >/nitro/v1/config/lbvserver?action=rename
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+    "lbvserver": 
     { 
-        "lbvserver": 
-        { 
-            "name":"MyFirstLbVServer", 
-            "newname":"MyServer" 
-        } 
-    }
-    ```
-* **Response**
+        "name":"MyFirstLbVServer", 
+        "newname":"MyServer" 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 200 OK
+**Response**
 
-    **HTTP Status Code on Failure**
+**HTTP Status Code on Success:** 200 OK
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Failure:**
+
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
     
 ## Performing File Operations
 
@@ -1574,37 +1628,39 @@ To upload a file to the NetScaler, specify a name for the file, the location whe
 
 For example, to upload a file named cert1.crt in the /nsconfig/ssl/ directory:
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
-    
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/systemfile
+**HTTP Method:** POST
 
-    **Request Headers**
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/systemfile
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+**Request Headers:**
 
-    Content-Type:application/json
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    **Request Payload**
-    ```json
-    { 
-            "systemfile": 
-            { 
-                "filename": "cert1.crt", 
-                "filelocation": "/nsconfig/ssl/",        
-                "filecontent":"VGhpcyBpcyBteSBmaWxl", 
-                "fileencoding": "BASE64" 
-            } 
-    }
-    ```
-* **Response**
+Content-Type:application/json
 
-    **HTTP Status Code on Success** 200 OK
+**Request Payload:**
 
-    **HTTP Status Code on Failure**
+```json
+{ 
+        "systemfile": 
+        { 
+            "filename": "cert1.crt", 
+            "filelocation": "/nsconfig/ssl/",        
+            "filecontent":"VGhpcyBpcyBteSBmaWxl", 
+            "fileencoding": "BASE64" 
+        } 
+}
+```
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**Response**
+
+**HTTP Status Code on Success:** 200 OK
+
+**HTTP Status Code on Failure:**
+
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 ### Retrieving the Files
 
@@ -1614,52 +1670,54 @@ To retrieve the files from a specific NetScaler directory, specify the directory
 
 For example, to retrieve the files from the /nsconfig/ssl directory.
 
-* **Request**
+**Request**
 
-    **HTTP Method** GET
+**HTTP Method:** GET
 
-    **URL**
+**URL:**
 
-    http://\<netscaler-ip-address>/nitro/v1/config/systemfile?args=filelocation:%2Fnsconfig%2Fssl
+http://\<netscaler-ip-address>/nitro/v1/config/systemfile?args=filelocation:%2Fnsconfig%2Fssl
 
-    **Request Header**
+**Request Header:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
 
-    Accept:application/json
+Accept:application/json
 
-* **Response**
+**Response**
 
-    **HTTP Status Code on Success** 200 OK
+**HTTP Status Code on Success:** 200 OK
 
-    **HTTP Status Code on Failure**
+**HTTP Status Code on Failure:**
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
-    **Response Header**
+**Response Header:**
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Response Payload**
-    ```json
-    { 
-        "systemfile":  
-        [  
-                "filename": "ns-root.key",  
-                "filelocation": "/nsconfig/ssl",  
-                "fileaccesstime": "Tue Jan 14 19:27:01 2014",  
-                "filemodifiedtime": "Tue Nov  5 17:16:00 2013" 
-            },  
-            { 
-            {  
-                "filename": "ns-root.req",  
-                "filelocation": "/nsconfig/ssl",  
-                "fileaccesstime": "Tue Jan 14 19:27:01 2014",  
-                "filemodifiedtime": "Tue Nov  5 17:16:00 2013"  
-            } 
-        ] 
-    } 
-    ```
+**Response Payload:**
+
+```json
+{ 
+    "systemfile":  
+    [  
+            "filename": "ns-root.key",  
+            "filelocation": "/nsconfig/ssl",  
+            "fileaccesstime": "Tue Jan 14 19:27:01 2014",  
+            "filemodifiedtime": "Tue Nov  5 17:16:00 2013" 
+        },  
+        { 
+        {  
+            "filename": "ns-root.req",  
+            "filelocation": "/nsconfig/ssl",  
+            "fileaccesstime": "Tue Jan 14 19:27:01 2014",  
+            "filemodifiedtime": "Tue Nov  5 17:16:00 2013"  
+        } 
+    ] 
+} 
+```
+
 ### Retrieving Contents of a Specific File
 
 To retrieve the contents of a file, specify the filename and its directory path in the URL.
@@ -1668,51 +1726,51 @@ To retrieve the contents of a file, specify the filename and its directory path 
 
 For example, to retrieve the contents of the ns-root.key file from the /nsconfig/ssl directory.
 
-* **Request**
+**Request**
 
-    **HTTP Method** GET
+**HTTP Method:** GET
 
-    **URL**
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/systemfile/ns-root.key?args=filelocation:%2Fnsconfig%2Fssl
 
-    http://\<netscaler-ip-address>/nitro/v1/config/systemfile/ns-root.key?args=filelocation:%2Fnsconfig%2Fssl
+**Request Header:**
 
-    **Request Header**
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+Accept:application/json
 
-    Accept:application/json
+**Response**
 
-* **Response**
+**HTTP Status Code on Success:**
 
-    **HTTP Status Code on Success**
+200 OK
 
-    200 OK
+**HTTP Status Code on Failure:**
 
-    **HTTP Status Code on Failure**
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for 
+NetScaler-specific errors). The response payload provides details of the error.
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for 
-    NetScaler-specific errors). The response payload provides details of the error.
+**Response Header:**
 
-    **Response Header**
+Content-Type:application/json
 
-    Content-Type:application/json
+**Response Payload:**
 
-    **Response Payload**
-    ```json
-    { 
-        "systemfile":  
-        [  
-            {  
-                "filename": "ns-root.key",  
-                "filelocation": "/nsconfig/ssl",  
-                "filecontent": "LS0tLS1CRUdJTiBSU0EgUFJJVkFU0tLQo=",  
-                "fileencoding": "BASE64",  
-                "fileaccesstime": "Tue Jan 14 19:27:01 2014",  
-                "filemodifiedtime": "Tue Nov  5 17:16:00 2013"  
-            }  
-        ]  
-    }
-    ```
+```json
+{ 
+    "systemfile":  
+    [  
+        {  
+            "filename": "ns-root.key",  
+            "filelocation": "/nsconfig/ssl",  
+            "filecontent": "LS0tLS1CRUdJTiBSU0EgUFJJVkFU0tLQo=",  
+            "fileencoding": "BASE64",  
+            "fileaccesstime": "Tue Jan 14 19:27:01 2014",  
+            "filemodifiedtime": "Tue Nov  5 17:16:00 2013"  
+        }  
+    ]  
+}
+```
+
 ### Deleting a File
 
 To delete a file from the NetScaler appliance, specify the filename and the directory path in the URL.
@@ -1721,23 +1779,20 @@ To delete a file from the NetScaler appliance, specify the filename and the dire
 
 For example, to delete the ns-root.key file from the /nsconfig/ssl directory.
 
-* **Request**
+**Request:**
 
-    **HTTP Method** DELETE
+**HTTP Method:** DELETE
 
-    **URL**
+**URL:** https://\<netscaler-ip-address>/nitro/v1/config/systemfile/ns-root.key?args=filelocation:%2Fnsconfig%2Fssl
 
-    https://\<netscaler-ip-address>/nitro/v1/config/systemfile/ns-root.key?args=filelocation:%2Fnsconfig%2Fssl
+**Request Header:**
 
-    **Request Header**
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+**Response**
 
-* **Response**
+**HTTP Status Code on Success:** 200 OK
 
-    **HTTP Status Code on Success** 200 OK
+**HTTP Status Code on Failure:** 
 
-    **HTTP Status Code on Failure** 
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
-
+4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.

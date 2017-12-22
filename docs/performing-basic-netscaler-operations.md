@@ -30,43 +30,44 @@ You must specify the username and password in the login object. The session ID t
 
 For example, to connect and create a session with a NetScaler appliance with NSIP address 10.102.29.60 by using the HTTP protocol:
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
     
-    **URL** http://10.102.29.60/nitro/v1/config/login
+**URL:** http://10.102.29.60/nitro/v1/config/login
     
-    **Request Headers** Content-Type:application/json
+**Request Headers:** Content-Type:application/json
     
-    **Request Payload**
-    ```json  
+**Request Payload:**
+    
+```json  
+{ 
+    "login": 
     { 
-        "login": 
-        { 
-        "username":"admin", 
-        "password":"verysecret" 
-        } 
+    "username":"admin", 
+    "password":"verysecret"     
     } 
-    ```
+}     
+```    
 
-* **Response**
+**Response**
 
-    **HTTP Status Code on Success** 201 Created
+**HTTP Status Code on Success:** 201 Created
 
-    **HTTP Status Code on Failure** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
-    **Response Header**
-    ```
-    Set-Cookie: 
-    NITRO_AUTH_TOKEN=\<tokenvalue>;  
-    path=/nitro/v1   
-    ```
+**Response Header:**
+   
+```json
+Set-Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>;  
+path=/nitro/v1   
+```    
 
 **Using REST APIs through SDKs**
 
 You must create an object of the com.citrix.netscaler.nitro.service.nitro_service class by specifying the NetScaler IP (NSIP) address and the protocol to connect to the appliance (HTTP or HTTPS). You then use this object and log on to the appliance by specifying the user name and the password of the NetScaler administrator.
 
-**Note.**
+**Note:**
 
 * For the python SDK, the package path is of the form nssrc.com.citrix.netscaler...
 * You must have a user account on that appliance. The configuration operations that you perform are limited by the administrative roles assigned to your account.
@@ -82,7 +83,9 @@ nitro_service ns_session = new nitro_service("10.102.29.60","https");
 //Specify the login credentials
 ns_session.login("admin","verysecret",3600);
 ```
+
 **.NET - Sample code to establish session**
+
 ```csharp
 //Specify the NetScaler appliance IP address and protocol
 nitro_service ns_session = new nitro_service("10.102.29.60","https");
@@ -90,6 +93,7 @@ nitro_service ns_session = new nitro_service("10.102.29.60","https");
 //Specify the login credentials
 ns_session.login("admin","verysecret",3600);
 ```
+
 **Python - Sample code to establish session**
 
 ```python
@@ -99,6 +103,7 @@ ns_session = nitro_service("10.102.29.60","https")
 #Specify the login credentials
 ns_session.login("admin","verysecret",3600)
 ```
+
 ### Disable SSL Checks
 
 When using HTTPS, you must make sure that the root CA is added to the truststore. By default, NITRO validates the SSL certificate and verifies the hostname. 
@@ -108,16 +113,16 @@ When using HTTPS, you must make sure that the root CA is added to the truststore
 Disable these validations as shown in the following sample codes.
 
 **Java - Sample code for disabling SSL checks**
+
 ```java
 ns_session.set_certvalidation(false); 
-
 ns_session.set_hostnameverification(false);
 ```
 
 **.NET - Sample code for disabling SSL checks**
+
 ```csharp
 ns_session.certvalidation = false; 
-
 ns_session.hostnameverification = false;
 ```
 
@@ -125,7 +130,6 @@ ns_session.hostnameverification = false;
 
 ```python
 ns_session.certvalidation = false 
-
 ns_session.hostnameverification = false
 ```
 
@@ -133,177 +137,183 @@ ns_session.hostnameverification = false
 
 Some NetScaler features and modes are disabled by default and therefore must be enabled before they can be configured. To enable a NetScaler feature or mode, specify the action as "enable" in the URL query string, and in the request payload, specify the feature or mode to be enabled.
 
+**Using REST APIs through HTTP**
+
 To disable a feature or mode, in the URL query string, specify the action as "disable".
 
 For example, to enable the load balancing and content switching features:
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/nsfeature?action=enable
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/nsfeature?action=enable
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json    
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+    "nsfeature":  
     { 
-            "nsfeature":  
-            { 
-                "feature":  
-                [ 
-                    "LB", 
-                    "CS" 
-                ] 
-            } 
-    }
-    ```
-* **Response**
+        "feature":  
+        [ 
+            "LB", 
+            "CS" 
+        ] 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 200 OK
+**Response**
 
-    **HTTP Status Code on Failure**
+**HTTP Status Code on Success:** 200 OK
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
-For example, to enable the L2 and fast ramp modes.
+To enable the L2 and fast ramp modes:
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/nsmode?action=enable
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/nsmode?action=enable
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+    "nsmode": 
     { 
-            "nsmode": 
-            { 
-                "mode": 
-                [ 
-                    "L2", 
-                    "FR" 
-                ] 
-            } 
-    }
-    ```
-* **Response**
+        "mode": 
+        [ 
+            "L2", 
+            "FR" 
+        ] 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 200 OK
+**Response**
 
-    **HTTP Status Code on Failure**
+**HTTP Status Code on Success:** 200 OK
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
     
 ## Saving NetScaler Configurations
 To make sure that the configurations persist on rebooting the appliance, you must save the NetScaler configurations. To save the configurations, specify the action as "save" in the URL query string.
 
-To save the configurations.
+**Using REST APIs through HTTP**
 
-* **Request**
+To save the configurations:
 
-    **HTTP Method** POST
+**Request**
 
-    **URL**
+**HTTP Method:** POST
 
-    http://\<netscaler-ip-address>/nitro/v1/config/nsconfig?action=save
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/nsconfig?action=save
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
-    { 
-        "nsconfig": 
-        {} 
-    }
-    ```
-* **Response**
+**Request Payload:**
 
-    **HTTP Status Code on Success** 200 OK
+```json
+{ 
+    "nsconfig": 
+    {} 
+}
+```
 
-    **HTTP Status Code on Failure**
+**Response**
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 200 OK
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 ## Killing a System Session
 
 A NetScaler administrator can kill any system session by specifying the action as "kill" in the URL query string and by specifying the required system session ID in the request payload.
 
-For example, to kill a system session that has ID as 311.
+**Using REST APIs through HTTP**
 
-* **Request**
+For example, to kill a system session that has ID as 311:
 
-    **HTTP Method** POST
+**Request**
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/systemsession?action=kill
+**HTTP Method:** POST
 
-    **Request Headers**
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/systemsession?action=kill
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+**Request Headers:**
 
-    Content-Type:application/json
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    **Request Payload**
-    ```json
+Content-Type:application/json
+
+**Request Payload:**
+
+```json
+{ 
+    "systemsession": 
     { 
-        "systemsession": 
-            { 
-            "sid":"311" 
-            } 
-    }
-    ```
-* **Response**
+    "sid":"311" 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 200 OK
+**Response**
 
-    **HTTP Status Code on Failure**
+**HTTP Status Code on Success:** 200 OK
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error. 
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error. 
     
 ## Disconnecting from the NetScaler Appliance
 
 Before disconnecting (logging out) from the NetScaler appliance, make sure that you have saved the NetScaler configurations.
 
+**Using REST APIs through HTTP**
+
 To logout of the NetScaler appliance:
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/logout
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/logout
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
-    { 
-        "logout":{} 
-    }
-    ```
-* **Response**
+**Request Payload:**
 
-    **HTTP Status Code on Success** 200 OK
+```json
+{ 
+    "logout":{} 
+}
+```
 
-    **HTTP Status Code on Failure**
+**Response**
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 200 OK
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
     
 

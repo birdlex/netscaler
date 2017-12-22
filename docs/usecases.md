@@ -14,35 +14,34 @@ All operations on a cluster instance must be performed on the clusterinstance ob
 
 For example, to create a cluster instance with ID 1, connect to the NetScaler appliance that you are first adding to the cluster.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/clusterinstance
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/clusterinstance
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+```json
+{ 
+    "clusterinstance": 
     { 
-        "clusterinstance": 
-        { 
-        "clid":1, 
-        "preemption":"ENABLED" 
-        } 
+    "clid":1, 
+    "preemption":"ENABLED" 
     } 
-    ```
-* **Response**
+} 
+```
 
-    **HTTP Status Code on Success** 201 Created
+**Response**
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
@@ -51,6 +50,7 @@ The com.citrix.netscaler.nitro.resource.config.cluster.clusterinstance class pro
 The following sample code creates a cluster instance with ID 1.
 
 **Java - Sample code to create a cluster instance**
+
 ```java
 clusterinstance new_cl_inst_obj = new clusterinstance(); 
 
@@ -66,6 +66,7 @@ clusterinstance.add(ns_session,new_cl_inst_obj);
 
 
 **.NET - Sample code to create a cluster instance**
+
 ```csharp
 clusterinstance new_cl_inst_obj = new clusterinstance(); 
 
@@ -80,10 +81,12 @@ new_cl_inst_obj.preemption = "ENABLED";
 //Upload the cluster instance 
 
 clusterinstance.add(ns_session,new_cl_inst_obj);
+
 ```
 
 
 **Python - Sample code to create a cluster instance**
+
 ```python
 new_cl_inst_obj = clusterinstance() 
 
@@ -108,37 +111,37 @@ This topic covers cluster node operations by using REST APIs through HTTP or SDK
 
 All operations on a cluster node must be performed on the clusternode object. For example, to add a NetScaler appliance with NSIP address 10.102.29.60 to the cluster.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/clusternode
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/clusternode
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+"clusternode": 
     { 
-    "clusternode": 
-        { 
-        "nodeid":1, 
-        "ipaddress":"10.102.29.60", 
-        "state":"ACTIVE", 
-        "backplane":"1/1/2" 
-        } 
+    "nodeid":1, 
+    "ipaddress":"10.102.29.60", 
+    "state":"ACTIVE", 
+    "backplane":"1/1/2" 
     } 
-    ```
-* **Response**
+} 
+```
 
-    **HTTP Status Code on Success** 201 Created
+**Response**
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
@@ -148,6 +151,7 @@ The com.citrix.netscaler.nitro.resource.config.cluster.clusternode class provide
 The following sample code adds a cluster node with NSIP address 10.102.29.60.
 
 **Java - Sample code to add a cluster node**
+
 ```java
 clusternode new_cl_node_obj = new clusternode(); 
 
@@ -170,6 +174,7 @@ clusternode.add(ns_session,new_cl_node_obj);
 
 
 **.NET - Sample code to add a cluster node**
+
 ```csharp
 clusternode new_cl_node_obj = new clusternode(); 
 
@@ -192,6 +197,7 @@ clusternode.add(ns_session,new_cl_node_obj);
 
 
 **Python - Sample code to add a cluster node**
+
 ```python
 new_cl_node_obj = clusternode() 
 
@@ -220,37 +226,37 @@ This topic covers adding a cluster IP address by using REST APIs through HTTP or
 
 To define a cluster IP address, specify the required parameters in the nsip object. For example, to configure a cluster IP address.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/nsip
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/nsip
 
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+"nsip": 
     { 
-    "nsip": 
-        { 
-        "ipaddress":"10.102.29.61",  
-        "netmask":"255.255.255.255", 
-        "type":"CLIP" 
-        } 
+    "ipaddress":"10.102.29.61",  
+    "netmask":"255.255.255.255", 
+    "type":"CLIP" 
     } 
-    ```
-* **Response**
+} 
+```
 
-    **HTTP Status Code on Success** 201 Created
+**Response**
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
@@ -259,6 +265,7 @@ The com.citrix.netscaler.nitro.resource.config.ns.nsip class provides the add() 
 The following sample code configures a cluster IP address on NetScaler appliance with IP address 10.102.29.60.
 
 **Java - Sample code to add a cluster IP address**
+
 ```java
 nsip new_nsip_obj = new nsip(); 
 
@@ -279,6 +286,7 @@ nsip.add(ns_session,new_nsip_obj);
 
 
 **.NET - Sample code to add a cluster IP address**
+
 ```csharp
 nsip new_nsip_obj = new nsip(); 
 
@@ -299,6 +307,7 @@ nsip.add(ns_session,new_nsip_obj);
 
 
 **Python - Sample code to add a cluster IP address**
+
 ```python
 new_nsip_obj = nsip() 
 
@@ -328,38 +337,38 @@ To configure an IP address as spotted, specify the required parameters in the ns
 
 For example, to configure a spotted SNIP address on a node with ID 1.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<cluster-ip-address>/nitro/v1/config/nsip
+**URL:** http://\<cluster-ip-address>/nitro/v1/config/nsip
 
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+"nsip": 
     { 
-    "nsip": 
-        { 
-        "ipaddress":"10.102.29.77",  
-        "netmask":"255.255.255.0", 
-        "type":"SNIP", 
-        "ownernode":1 
-        } 
+    "ipaddress":"10.102.29.77",  
+    "netmask":"255.255.255.0", 
+    "type":"SNIP", 
+    "ownernode":1 
     } 
-    ```
-* **Response**
+} 
+```
 
-    **HTTP Status Code on Success** 201 Created
+**Response**
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
@@ -368,6 +377,7 @@ The com.citrix.netscaler.nitro.resource.config.ns.nsip class provides the add() 
 The following sample code configures a spotted SNIP address on a node with ID 1.
 
 **Java - Sample code to configure a spotted IP address**
+
 ```java
 nsip new_nsip_obj = new nsip();
 
@@ -389,6 +399,7 @@ nsip.add(ns_session,new_nsip_obj);
 
 
 **.NET - Sample code to configure a spotted IP address**
+
 ```csharp
 nsip new_nsip_obj = new nsip(); 
 
@@ -411,6 +422,7 @@ nsip.add(ns_session,new_nsip_obj);
 
 
 **Python - Sample code to configure a spotted IP address**
+
 ```python
 #Add a spotted IP address
 
@@ -441,35 +453,35 @@ This topic covers adding a NetScaler appliance to a cluster by using REST APIs t
 
 To join an appliance to a cluster, specify the required parameters in the cluster object. For example, to join a NetScaler appliance to a cluster.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/cluster
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/cluster
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+"cluster": 
     { 
-    "cluster": 
-        { 
-        "clip":"10.102.29.61", 
-        "password":"verysecret" 
-        } 
+    "clip":"10.102.29.61", 
+    "password":"verysecret" 
     } 
-    ```
-* **Response**
+} 
+```
 
-    **HTTP Status Code on Success** 201 Created
+**Response**
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
@@ -478,6 +490,7 @@ The com.citrix.netscaler.nitro.resource.config.cluster.cluster class provides th
 The following sample code joins a NetScaler appliance to a cluster.
 
 **Java - Sample code to join an appliance to a cluster**
+
 ```java
 cluster new_cl_obj = new cluster(); 
 
@@ -496,6 +509,7 @@ cluster.add(ns_session,new_cl_obj);
 
 
 **.NET - Sample code to join an appliance to a cluster**
+
 ```csharp
 cluster new_cl_obj = new cluster(); 
 
@@ -513,6 +527,7 @@ cluster.add(ns_session,new_cl_node_obj);
 
 
 **Python - Sample code to join an appliance to a cluster**
+
 ```python
 new_cl_obj = cluster()
 
@@ -536,71 +551,70 @@ This topic covers some linkset operations by using REST APIs through HTTP or SDK
 
 To configure a linkset, do the following:
 
-1. Create a linkset by specifying the required parameters in the linkset object. For example, to add a linkset LS/1:
-    * **Request**
+Create a linkset by specifying the required parameters in the linkset object. For example, to add a linkset LS/1:
 
-        **HTTP Method** POST
+**Request:**
 
-        **URL** http://\<cluster-ip-address>/nitro/v1/config/linkset
+**HTTP Method:** POST
+
+**URL:** http://\<cluster-ip-address>/nitro/v1/config/linkset
 
 
-        **Request Headers**
+**Request Headers:**
 
-        Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-        Content-Type:application/json
+Content-Type:application/json
 
-        **Request Payload**
-        ```json
-        { 
-        "linkset": 
-            { 
-            "id":"LS/1" 
-        } 
-        } 
-        ```
+**Request Payload**
 
-    * **Response**
+```json
+{ 
+"linkset": 
+    { 
+    "id":"LS/1" 
+} 
+} 
+```
 
-        **HTTP Status Code on Success** 201 Created
+**Response**
 
-        **HTTP Status Code on Failure**
-        
-        4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 201 Created
 
-2. Bind the required interfaces to the linkset by specifying the interfaces in the linkset_interface_binding object.For example, to bind interfaces 1/1/2 and 2/1/2 to linkset LS/1.
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+
+Bind the required interfaces to the linkset by specifying the interfaces in the linkset_interface_binding object.For example, to bind interfaces 1/1/2 and 2/1/2 to linkset LS/1.
     
-    * **Request**
+**Request**
 
-        **HTTP Method** PUT
+**HTTP Method:** PUT
 
-        **URL** http://\<cluster-ip-address>/nitro/v1/config/linkset_interface_binding/LS%2F1?action=bind
-        **Note.** The linkset name (LS/1), must be URL encoded as LS%2F1.
+**URL:** http://\<cluster-ip-address>/nitro/v1/config/linkset_interface_binding/LS%2F1?action=bind
+**Note.** The linkset name (LS/1), must be URL encoded as LS%2F1.
 
-        **Request Headers**
+**Request Headers:**
 
-        Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-        Content-Type:application/json
+Content-Type:application/json
 
-        **Request Payload**
-        ```json
-        { 
-        "linkset_interface_binding": 
-            { 
-            "id":"LS/1", 
-            "ifnum":"1/1/2 2/1/2" 
-            } 
-        } 
-        ```
-        
-    * **Response**
+**Request Payload:**
 
-        **HTTP Status Code on Success** 200 Ok
+```json
+{ 
+"linkset_interface_binding": 
+    { 
+    "id":"LS/1", 
+    "ifnum":"1/1/2 2/1/2" 
+    } 
+} 
+```
 
-        **HTTP Status Code on Failure**
-        
-        4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**Response**
+
+**HTTP Status Code on Success:** 200 Ok
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
@@ -614,6 +628,7 @@ To configure a linkset, do the following:
 The following sample code creates a linkset LS/1 and bind interfaces 1/1/2 and 2/1/2 to it.
 
 **Java - Sample code to configure linksets**
+
 ```java
 linkset new_linkset_obj = new linkset(); 
 
@@ -634,9 +649,8 @@ new_linkif_obj.set_ifnum("1/1/2 2/1/2");
 linkset_interface_binding.add(ns_session,new_linkif_obj);
 ```
 
-
-
 **.NET - Sample code to configure linksets**
+
 ```csharp
 linkset new_linkset_obj = new linkset(); 
 
@@ -644,7 +658,6 @@ new_linkset_obj.id = "LS/1";
 
 linkset.add(ns_session,new_linkset_obj); 
 
- 
 
 //Bind the interfaces to the linkset 
 
@@ -657,8 +670,8 @@ new_linkif_obj.ifnum = "1/1/2 2/1/2";
 linkset_interface_binding.add(ns_session,new_linkif_obj); 
 ```
 
-
 **Python - Sample code to configure linksets**
+
 ```python
 #Create a new linkset
 
@@ -693,44 +706,45 @@ While creating an admin partition, you must also specify the system resources th
 
 The following example creates an admin partition named partition-dept1.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/nspartition
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/nspartition
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
-    { 
-        "nspartition": 
-        { 
-            "partitionname":"partition-dept1", 
-            "maxbandwidth":"10240",  
-            "minbandwidth":"10240", 
-            "maxconn":"1024", 
-            "maxmemlimit":"10" 
-        } 
-    }
-    ```
-* **Response**
+**Request Payload:**
 
-    **HTTP Status Code on Success** 201 Created
+```json
+{ 
+"nspartition": 
+{ 
+    "partitionname":"partition-dept1", 
+    "maxbandwidth":"10240",  
+    "minbandwidth":"10240", 
+    "maxconn":"1024", 
+    "maxmemlimit":"10" 
+} 
+}
+```
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**Response**
+
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
 The following sample code creates an admin partition named partition-dept1.
 
 **Java - Sample code to create an admin partition**
+
 ```java
 nspartition nspartitionObject = new nspartition(); 
 
@@ -748,6 +762,7 @@ base_response result = nspartition.add(nitroService, nspartitionObject);
 ```
 
 **.NET - Sample code to create an admin partition**
+
 ```csharp
 nspartition nspartitionObject = new nspartition(); 
 
@@ -766,6 +781,7 @@ base_response result = nspartition.add(nitroService, nspartitionObject);
 
 
 **Python - Sample code to create an admin partition**
+
 ```python
 nspartitionObject = nspartition()
 
@@ -790,41 +806,42 @@ Associate the appropriate users with the partition.
 
 The following example associates user1 to a partition named partition-dept1.
 
-* **Request**
+**Request**
 
-    **HTTP Method** PUT
+**HTTP Method:** PUT
 
-    **URL** http://\<netscaler-ip-address >/nitro/v1/config/systemuser_nspartition_binding/user1
+**URL:** http://\<netscaler-ip-address >/nitro/v1/config/systemuser_nspartition_binding/user1
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+    "systemuser_nspartition_binding": 
     { 
-        "systemuser_nspartition_binding": 
-        { 
-        "username":"user1",  
-        "partitionname":"partition-dept1" 
-        } 
-    }   
-    ```
-* **Response**
+    "username":"user1",  
+    "partitionname":"partition-dept1" 
+    } 
+}   
+```
 
-    **HTTP Status Code on Success** 201 Created
+**Response**
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
 The following sample code associates "user1" to a partition named "partition-dept1".
 
 **Java - Sample code for associating user with partition**
+
 ```java
 systemuser_nspartition_binding systemuser_nspartition_binding_object = new systemuser_nspartition_binding(); 
 
@@ -837,6 +854,7 @@ base_response result = systemuser_nspartition_binding.add(nitroService, systemus
 
 
 **.NET - Sample code for associating user with partition**
+
 ```csharp
 systemuser_nspartition_binding systemuser_nspartition_binding_object = new systemuser_nspartition_binding(); 
 
@@ -848,6 +866,7 @@ base_response result = systemuser_nspartition_binding.add(nitroService, systemus
 ```
 
 **Python - Sample code for associating user with partition**
+
 ```python
 systemuser_nspartition_binding_object =  systemuser_nspartition_binding()
 
@@ -857,6 +876,7 @@ systemuser_nspartition_binding_object.username = "user1"
 
 result = systemuser_nspartition_binding.add(nitroService, systemuser_nspartition_binding_object)
 ```
+
 ### Specifying Command Policy for Partition Users
 
 Associate an appropriate command policy to the admin partition user.
@@ -865,42 +885,43 @@ Associate an appropriate command policy to the admin partition user.
 
 The following example associates the command policy partition-admin to user1.
 
-* **Request**
+**Request**
 
-    **HTTP Method** PUT
+**HTTP Method:** PUT
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/systemuser_systemcmdpolicy_binding/user1
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/systemuser_systemcmdpolicy_binding/user1
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+    "systemuser_systemcmdpolicy_binding": 
     { 
-        "systemuser_systemcmdpolicy_binding": 
-        { 
-        "username":"user1",  
-        "policyname":"partition-admin", 
-        "priority":"1" 
-        } 
-    }
-    ```
-* **Response**
+    "username":"user1",  
+    "policyname":"partition-admin", 
+    "priority":"1" 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 201 Created
+**Response**
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
 The following sample code associates the command policy "partition-admin" to "user1".
 
 **Java - Sample code to specify command policy for partition user**
+
 ```java
 systemuser_systemcmdpolicy_binding binding_object = new systemuser_systemcmdpolicy_binding();
 
@@ -915,6 +936,7 @@ base_response result = systemuser_systemcmdpolicy_binding.add(nitroService,bindi
 
 
 **.NET - Sample code to specify command policy for partition user**
+
 ```csharp
 systemuser_systemcmdpolicy_binding binding_object = new systemuser_systemcmdpolicy_binding();
 
@@ -929,6 +951,7 @@ base_response result = systemuser_systemcmdpolicy_binding.add(nitroService,bindi
 
 
 **Python - Sample code to specify command policy for partition user**
+
 ```python
 binding_object = systemuser_systemcmdpolicy_binding()
 
@@ -950,41 +973,42 @@ Specify the VLANs or bridgegroups to be associated with the partition. This step
 
 The following example specifies a VLAN for an admin partition.
 
-* **Request**
+**Request**
 
-    **HTTP Method** PUT
+**HTTP Method:** PUT
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/nspartition_vlan_binding/partition-dept1
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/nspartition_vlan_binding/partition-dept1
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+    "nspartition_vlan_binding": 
     { 
-        "nspartition_vlan_binding": 
-        { 
-        "partitionname":"partition-dept1", 
-        "vlan":"2" 
-        } 
-    }    
-    ```
-* **Response**
+    "partitionname":"partition-dept1", 
+    "vlan":"2" 
+    } 
+}    
+```
 
-    **HTTP Status Code on Success** 201 Created
+**Response**
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
 The following sample code specifies a VLAN for an admin partition.
 
 **Java - Sample Code to specify the VLAN**
+
 ```java
 nspartition_vlan_binding nspartition_vlan_binding_object = new nspartition_vlan_binding();
 
@@ -996,6 +1020,7 @@ base_response result = nspartition_vlan_binding.add(nitroService, nspartition_vl
 ```
 
 **.NET - Sample code to specify the VLAN**
+
 ```csharp
 nspartition_vlan_binding nspartition_vlan_binding_object = new nspartition_vlan_binding();
 
@@ -1007,6 +1032,7 @@ base_response result = nspartition_vlan_binding.add(nitroService, nspartition_vl
 ```
 
 **Python - Sample code to specify the VLAN**
+
 ```python
 nspartition_vlan_binding_object = nspartition_vlan_binding()
 
@@ -1025,40 +1051,41 @@ If you are associated with multiple admin partitions, you can switch to the requ
 
 The following  example shows how to switch from current partition to a partition named partition-dept2.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/nspartition?action=Switch
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/nspartition?action=Switch
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+    "nspartition": 
     { 
-        "nspartition": 
-        { 
-        "partitionname":"partition-dept2" 
-        } 
-    }
-    ```
-* **Response**
+    "partitionname":"partition-dept2" 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 201 Created
+**Response**
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 201 Created
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
     
 **Using REST APIs through SDKs**
 
 The following sample code switches from current partition to a partition named "partition-dept2".
 
 **Java - Sample code to switch partitions**
+
 ```java
 nspartition nspartitionObject = new nspartition(); 
 
@@ -1068,6 +1095,7 @@ base_response result = nspartition.Switch(nitroService, nspartitionObject);
 ```
 
 **.NET - Sample code to switch partitions**
+
 ```csharp
 nspartition nspartitionObject = new nspartition(); 
 
@@ -1077,6 +1105,7 @@ base_response result = nspartition.Switch(nitroService, nspartitionObject);
 ```
 
 **Python - Sample code to switch partitions**
+
 ```python
 nspartitionObject = nspartition()
 
@@ -1098,43 +1127,43 @@ To export an AppExpert application, specify the parameters needed for the export
 
 For example, to export an AppExpert application named MyApp1.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=export
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=export
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+    "apptemplateinfo": 
     { 
-        "apptemplateinfo": 
+        "appname":"MyApp1", 
+        "apptemplatefilename":"BizAp.xml", 
+        "template_info": 
         { 
-            "appname":"MyApp1", 
-            "apptemplatefilename":"BizAp.xml", 
-            "template_info": 
-            { 
-                "templateversion_major":"2", 
-                "templateversion_minor":"1", 
-                "author":"XYZ", 
-                "introduction":"Intro", 
-                "summary":"Summary" 
-            } 
+            "templateversion_major":"2", 
+            "templateversion_minor":"1", 
+            "author":"XYZ", 
+            "introduction":"Intro", 
+            "summary":"Summary" 
         } 
-    }
-    ```
-* **Response**
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 200 OK
+**Response**
 
-    **HTTP Status Code on Failure**
+**HTTP Status Code on Success:** 200 OK
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 
 **Using REST APIs through SDKs**
@@ -1152,6 +1181,7 @@ To export an AppExpert application, you must do the following:
 The following samples export an AppExpert application named MyApp1.
 
 **JAVA - sample code to export an AppExpert application**
+
 ```java
 application myapp = new application(); 
 myapp.set_appname("MyApp1"); 
@@ -1160,6 +1190,7 @@ application.export(ns_session,myapp);
 ```
 
 **.NET - sample code to export an AppExpert application**
+
 ```csharp
 application myapp = new application(); 
 myapp.appname = "MyApp1"; 
@@ -1168,6 +1199,7 @@ application.export(ns_session,myapp);
 ```
 
 **Python - sample code to export an AppExpert application**
+
 ```python
 myapp = application()
 myapp.appname = "MyApp1"
@@ -1185,92 +1217,92 @@ To import an AppExpert application, specify the parameters needed for the import
 
 For example, to import an AppExpert application named MyApp1.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=import
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=import
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
-    { 
-    "apptemplateinfo": 
-    { 
-        "apptemplatefilename":"BizAp.xml", 
-        "deploymentfilename":"BizAp_deployment.xml", 
-        "appname":"MyApp1" 
-    } 
-    }
-    ```
-* **Response**
+**Request Payload:**
 
-    **HTTP Status Code on Success** 200 OK
+```json
+{ 
+"apptemplateinfo": 
+{ 
+    "apptemplatefilename":"BizAp.xml", 
+    "deploymentfilename":"BizAp_deployment.xml", 
+    "appname":"MyApp1" 
+} 
+}
+```
 
-    **HTTP Status Code on Failure**
+**Response**
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Success:** 200 OK
+
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 To import an AppExpert application by specifying different deployment settings.
 
-* **Request**
+**Request**
 
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=import
+**URL:** http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=import
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
 
-    Content-Type:application/json
+Content-Type:application/json
 
-    **Request Payload**
-    ```json
+**Request Payload:**
+
+```json
+{ 
+    "apptemplateinfo": 
     { 
-        "apptemplateinfo": 
-        { 
-        "apptemplatefilename":"BizAp.xml", 
-        "appname":"Myapp2", 
-        "deploymentinfo": 
-        { 
-            "appendpoint": 
-            [ 
-                { 
-                    "ipv46":"11.2.3.8", 
-                    "port":80, 
-                    "servicetype":"HTTP" 
-                } 
-            ], 
-            "service": 
-            [ 
-                { 
-                    "ip":"12.3.3.15",   
-                    "port":80, 
-                    "servicetype":"SSL" 
-                }, 
-                { 
-                    "ip":"14.5.5.16",   
-                    "port":443, 
-                    "servicetype":"SSL" 
-                } 
-            ] 
-        } 
-        } 
-    }
-    ```
-* **Response**
+    "apptemplatefilename":"BizAp.xml", 
+    "appname":"Myapp2", 
+    "deploymentinfo": 
+    { 
+        "appendpoint": 
+        [ 
+            { 
+                "ipv46":"11.2.3.8", 
+                "port":80, 
+                "servicetype":"HTTP" 
+            } 
+        ], 
+        "service": 
+        [ 
+            { 
+                "ip":"12.3.3.15",   
+                "port":80, 
+                "servicetype":"SSL" 
+            }, 
+            { 
+                "ip":"14.5.5.16",   
+                "port":443, 
+                "servicetype":"SSL" 
+            } 
+        ] 
+    } 
+    } 
+}
+```
 
-    **HTTP Status Code on Success** 200 OK
+**Response**
 
-    **HTTP Status Code on Failure**
+**HTTP Status Code on Success:** 200 OK
 
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
 **Using REST APIs through SDKs**
 
@@ -1286,6 +1318,7 @@ To import an AppExpert application, you must do the following:
 The following samples import an AppExpert application named MyApp1.
 
 **Java - sample code to import an AppExpert application**
+
 ```java
 application myapp = new application();
 myapp.set_appname("MyApp1");
@@ -1294,6 +1327,7 @@ application.Import(ns_session,myapp);
 ```
 
 **.NET - sample code to import an AppExpert application**
+
 ```csharp
 application myapp = new application(); 
 myapp.appname = "MyApp1"; 
@@ -1303,6 +1337,7 @@ application.Import(ns_session,myapp);
 
 
 **Python - sample code to import an AppExpert application**
+
 ```python
 myapp = application()
 myapp.appname = "MyApp1"
@@ -1318,48 +1353,48 @@ You can use the "install" API to automate not just installation, but also an upg
 
 For example, the following information describes a downgrade to NetScaler release 10.5 build 46, using a local  build file:
 
-* **Request**
+**Request**
     
-    **HTTP Method** POST
+**HTTP Method:** POST
+
+**URL:** http://\<NSIP>/nitro/v1/config/install
+
+**Request Headers:** 
+
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue >
+
+Content-Type: application/json
+
+**Request Payload:**
+
+```json
+{
+
+“install”:
+
+{
+
+        “url”: “file:///var/tagma/build_tagma_46_nc.tgz”
+
+
+    }                           
+
+}     
+```
+
+
+**Response**
     
-    **URL** http://\<NSIP>/nitro/v1/config/install
-    
-    **Request Headers** 
-    
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue >
-    
-    Content-Type: application/json
+**HTTP status Code on Success:**
 
-    **Request Payload**
-    
-    ```json
-    {
+201 Created
 
-   “install”:
+209 Netscaler specific warning
 
-    {
+**Note.** when “y” option is not specified and warning is enabled, API returns “1120 - The configuration must be saved and the system rebooted for these settings to take effect” message in X-NITRO-WARNING.
 
-         “url”: “file:///var/tagma/build_tagma_46_nc.tgz”
+**HTTP Status Code on Failure:** 599 Netscaler specific error
 
-
-      }                           
-
-    }     
-    ```
-
-* **Response**
-    
-    **HTTP status Code on Success**
-
-    201 Created
-
-    209 Netscaler specific warning
-
-    **Note.** when “y” option is not specified and warning is enabled, API returns “1120 - The configuration must be saved and the system rebooted for these settings to take effect” message in X-NITRO-WARNING.
-
-    **HTTP Status Code on Failure**
-    
-    599 Netscaler specific error
 
 **Additional parameters available in the install API request payload**
 
@@ -1411,62 +1446,59 @@ Only homogenous operation is supported in this API. For example, multiple load b
 **Using REST APIs through HTTP**
 
 To add multiple load balancing resources in a single request:
-* **Request**
+
+**Request**
     
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<NSIP>/nitro/v1/config/macroapi
+**URL:** http://\<NSIP>/nitro/v1/config/macroapi
 
-    **Request Headers**
+**Request Headers:**
+
+Content-Type: application/json
+
+Cookie: NITRO_AUTH_TOKEN=\<tokenvalue>
+
+X-NITRO-ONERROR: exit
+
+
+**Request Payload:**
     
-    Content-Type: application/json
+```json
+{
 
-    Cookie: NITRO_AUTH_TOKEN=\<tokenvalue>
+"lbvserver":[  
 
-    X-NITRO-ONERROR: exit
+{"name":"lbv1","servicetype":"http"},
 
+{"name":"lbv2","servicetype":"http"}
 
-    **Request Payload**
+],
 
-    ```json
-    {
+"serviceGroup": [
 
-    "lbvserver":[  
+{ "servicegroupname": "sg1", "servicetype": "HTTP" },
 
-                         {"name":"lbv1","servicetype":"http"},
+{ "servicegroupname": "sg2", "servicetype": "HTTP" }
 
-                         {"name":"lbv2","servicetype":"http"}
+],
 
-           ],
+"lbvserver_servicegroup_binding":[ 
 
-    "serviceGroup": [
+{ "name":"lbv1", "servicegroupname":"sg1" },
 
-                      { "servicegroupname": "sg1", "servicetype": "HTTP" },
+{ "name":"lbv2", "servicegroupname":"sg2" }
 
-                         { "servicegroupname": "sg2", "servicetype": "HTTP" }
+]
 
-                    ],
+}
+```
 
-    "lbvserver_servicegroup_binding":[ 
-
-                     { "name":"lbv1", "servicegroupname":"sg1" },
-
-                       { "name":"lbv2", "servicegroupname":"sg2" }
-
-                            ]
-
-    }
-    ```
- 
-
-
-* **Response**
+**Response**
     
-    **HTTP Status Code on Success**
-         201 Created for the add operation and 200 OK for the update operation.
+**HTTP Status Code on Success:** 201 Created for the add operation and 200 OK for the update operation.
 
-    **HTTP Status Code on Failure**
-         207 Multi Status with error details in the response payload. For more information, see Error Handling.
+**HTTP Status Code on Failure:** 207 Multi Status with error details in the response payload. For more information, see Error Handling.
 
 For deleting multiple resources using macroapi, use POST HTTP method with query parameter “action=remove” in the URI.
 
@@ -1487,36 +1519,35 @@ If a resource is already configured and you try to add the same resource again, 
 
 In the following example, “preferredntpserver” is allowed only in PUT, but when given in POST request with idempotent=yes, NITRO internally adds the ntpserver and updates it with given properties.
 
-* **Request**
+**Request**
     
-    **HTTP Method** POST
+**HTTP Method:** POST
 
-    **URL** http://\<NSIP>/nitro/v1/config/ntpserver?idempotent=yes
+**URL:** http://\<NSIP>/nitro/v1/config/ntpserver?idempotent=yes
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
 
-    Content-Type: application/json
-
-
-    **Request Payload**
-    ```json
-    {
-
-    “ntpserver”:{“servername”:“ntp1”,“minpoll”:“4,  “preferredntpserver”: “yes”}
+Content-Type: application/json
 
 
-    }
-    ```
+**Request Payload:**
 
-* **Response**
+```json
+{
+
+“ntpserver”:{“servername”:“ntp1”,“minpoll”:“4,  “preferredntpserver”: “yes”}
+
+
+}
+```
+
+**Response**
     
-    **HTTP Status Code on Success** 200 OK
+**HTTP Status Code on Success:** 200 OK
 
-    **HTTP Status Code on Failure**
-    
-    4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
     
 ## Retrieve Bindings in Bulk
 This topic covers retrieving bindings information in bulk by using REST APIs through HTTP.
@@ -1536,259 +1567,259 @@ For example, you can fetch bindings of all the load balancing virtual servers in
 * bind lb vserver lbv2 svc1
 * bind lb vserver lbv2 sg1
 
-**Example. To fetch bindings of all lbvservers, in a single NITRO API**
+**Example - To fetch bindings of all lbvservers, in a single NITRO API**
 
-* **Request**
+**Request**
     
-    **HTTP Method** GET
+**HTTP Method:** GET
 
-    **URL** http://\<NSIP>/nitro/v1/config/lbvserver_binding?bulkbindings=yes
+**URL:** http://\<NSIP>/nitro/v1/config/lbvserver_binding?bulkbindings=yes
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue >
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue >
 
-    Accept: application/json
+Accept: application/json
 
-* **Response**
+**Response**
     
-    **HTTP Status Code on Success** 200 OK
+**HTTP Status Code on Success:** 200 OK
 
-    **HTTP Status Code on Failure** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
+**HTTP Status Code on Failure:** 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.
 
-    **Response Header** Content-Type:application/json
+**Response Header:** Content-Type:application/json
 
-    **Response Payload**
-    
-    ```json
+**Response Payload:**
+
+```json
+{
+
+"errorcode":0,
+
+"message":"Done",
+
+"severity":"NONE",
+
+"lbvserver_binding":[
+
+{
+
+    "name":"lbv1",
+
+    "lbvserver_service_binding":[
+
     {
 
-   "errorcode":0,
+        "name":"lbv1",
 
-   "message":"Done",
+        "servicename":"svc1",
 
-   "severity":"NONE",
+        "stateflag":"536936451",
 
-   "lbvserver_binding":[
+        "ipv46":"10.20.30.40",
 
-    {
+        "port":80,
 
-         "name":"lbv1",
+        "servicetype":"HTTP",
 
-         "lbvserver_service_binding":[
+        "curstate":"DOWN",
 
-            {
+        "weight":"1",
 
-               "name":"lbv1",
+        "dynamicweight":"0",
 
-               "servicename":"svc1",
+        "cookieipport":"",
 
-               "stateflag":"536936451",
+        "vserverid":"mcw1",
 
-               "ipv46":"10.20.30.40",
+        "vsvrbindsvcip":"10.20.30.40",
 
-               "port":80,
+        "vsvrbindsvcport":80,
 
-               "servicetype":"HTTP",
-
-               "curstate":"DOWN",
-
-               "weight":"1",
-
-               "dynamicweight":"0",
-
-               "cookieipport":"",
-
-               "vserverid":"mcw1",
-
-               "vsvrbindsvcip":"10.20.30.40",
-
-               "vsvrbindsvcport":80,
-
-               "preferredlocation":""
-
-            }
-
-         ],
-
-         "lbvserver_servicegroup_binding":[
-
-            {
-
-               "name":"lbv1",
-
-               "servicegroupname":"sg1",
-
-               "stateflag":"536936464",
-
-               "servicename":"sg1"
-
-            }
-
-         ]
-
-      },
-
-      {
-
-         "name":"lbv2",
-
-         "lbvserver_service_binding":[
-
-            {
-
-               "name":"lbv2",
-
-               "servicename":"svc1",
-
-               "stateflag":"536936451",
-
-               "ipv46":"10.20.30.40",
-
-               "port":80,
-
-               "servicetype":"HTTP",
-
-               "curstate":"DOWN",
-
-               "weight":"1",
-
-               "dynamicweight":"0",
-
-               "cookieipport":"",
-
-               "vserverid":"mcw2",
-
-               "vsvrbindsvcip":"10.20.30.40",
-
-               "vsvrbindsvcport":80,
-
-               "preferredlocation":""
-
-            }        
-
-
-           ],
-
-         "lbvserver_servicegroup_binding":[
-
-            {
-
-               "name":"lbv2",
-
-               "servicegroupname":"sg1",
-
-               "stateflag":"536936464",
-
-               "servicename":"sg1"
-
-            }        
-
-
-           ]
-
-      }
-
-
-   ]
+        "preferredlocation":""
 
     }
-    ```
 
-**Example. To fetch only “service” bindings of all lbvservers**
+    ],
 
-* **Request**
-    
-    **HTTP Method** GET
-    
-    **URL** http://\<NSIP>/nitro/v1/config/lbvserver_service_binding?bulkbindings=yes
+    "lbvserver_servicegroup_binding":[
 
-    **Request Header** Content-Type:application/json
+    {
 
-* **Response**
+        "name":"lbv1",
+
+        "servicegroupname":"sg1",
+
+        "stateflag":"536936464",
+
+        "servicename":"sg1"
+
+    }
+
+    ]
+
+},
+
+{
+
+    "name":"lbv2",
+
+    "lbvserver_service_binding":[
+
+    {
+
+        "name":"lbv2",
+
+        "servicename":"svc1",
+
+        "stateflag":"536936451",
+
+        "ipv46":"10.20.30.40",
+
+        "port":80,
+
+        "servicetype":"HTTP",
+
+        "curstate":"DOWN",
+
+        "weight":"1",
+
+        "dynamicweight":"0",
+
+        "cookieipport":"",
+
+        "vserverid":"mcw2",
+
+        "vsvrbindsvcip":"10.20.30.40",
+
+        "vsvrbindsvcport":80,
+
+        "preferredlocation":""
+
+    }        
+
+
+    ],
+
+    "lbvserver_servicegroup_binding":[
+
+    {
+
+        "name":"lbv2",
+
+        "servicegroupname":"sg1",
+
+        "stateflag":"536936464",
+
+        "servicename":"sg1"
+
+    }        
+
+
+    ]
+
+}
+
+
+]
+
+}
+```
+
+**Example - To fetch only “service” bindings of all lbvservers**
+
+**Request**
     
-    **Response Payload**
+**HTTP Method:** GET
+
+**URL:** http://\<NSIP>/nitro/v1/config/lbvserver_service_binding?bulkbindings=yes
+
+**Request Header:** Content-Type:application/json
+
+**Response**
     
-    ```json
+**Response Payload:**
+    
+```json
+{ 
+
+"errorcode":0,
+
+"message":"Done",
+
+"severity":"NONE",
+
+"lbvserver_service_binding":[ 
+
     { 
 
-    "errorcode":0,
+        "name":"lbv1",
 
-    "message":"Done",
+        "servicename":"svc1",
 
-    "severity":"NONE",
+        "stateflag":"536936451",
 
-    "lbvserver_service_binding":[ 
+        "ipv46":"10.20.30.40",
 
-       { 
+        "port":80,
 
-          "name":"lbv1",
+        "servicetype":"HTTP",
 
-          "servicename":"svc1",
+        "curstate":"DOWN",
 
-          "stateflag":"536936451",
+        "weight":"1",
 
-          "ipv46":"10.20.30.40",
+        "dynamicweight":"0",
 
-          "port":80,
+        "cookieipport":"",
 
-          "servicetype":"HTTP",
+        "vserverid":"mcw1",
 
-          "curstate":"DOWN",
+        "vsvrbindsvcip":"10.20.30.40",
 
-          "weight":"1",
+        "vsvrbindsvcport":80,
 
-          "dynamicweight":"0",
+        "preferredlocation":""
 
-          "cookieipport":"",
+    },
 
-          "vserverid":"mcw1",
+    { 
 
-          "vsvrbindsvcip":"10.20.30.40",
+        "name":"lbv2",
 
-          "vsvrbindsvcport":80,
+        "servicename":"svc1",
 
-          "preferredlocation":""
+        "stateflag":"536936451",
 
-       },
+        "ipv46":"10.20.30.40",
 
-       { 
+        "port":80,
 
-          "name":"lbv2",
+        "servicetype":"HTTP",
 
-          "servicename":"svc1",
+        "curstate":"DOWN",
 
-          "stateflag":"536936451",
+        "weight":"1",
 
-          "ipv46":"10.20.30.40",
+        "dynamicweight":"0",
 
-          "port":80,
+        "cookieipport":"",
 
-          "servicetype":"HTTP",
+        "vserverid":"mcw2",
 
-          "curstate":"DOWN",
+        "vsvrbindsvcip":"10.20.30.40",
 
-          "weight":"1",
+        "vsvrbindsvcport":80,
 
-          "dynamicweight":"0",
+        "preferredlocation":""
 
-          "cookieipport":"",
-
-          "vserverid":"mcw2",
-
-          "vsvrbindsvcip":"10.20.30.40",
-
-          "vsvrbindsvcport":80,
-
-          "preferredlocation":""
-
-       }   
+    }   
 
 
-     ]
+    ]
 
-    }
-    ```
+}
+```
     
 ## View Individual Counter Information
 This topic viewing individual counter information by using REST APIs through HTTP. 
@@ -1797,7 +1828,7 @@ This topic viewing individual counter information by using REST APIs through HTT
 
 To view global counters that are not otherwise shown by the NetScaler CLI or the GUI, you can now use the following URL format.
 
-URL: http://\<NSIP>/nitro/v1/stat/nsglobalcntr?args=counters:\<counter1>;\<counter2>
+**URL**: http://\<NSIP>/nitro/v1/stat/nsglobalcntr?args=counters:\<counter1>;\<counter2>
 
 Previously, these counter values could be viewed only through the “nsconmsg” Shell command.
 
@@ -1807,28 +1838,29 @@ Previously, these counter values could be viewed only through the “nsconmsg”
 
 This example shows how to view the individual counters http_tot_Requests and http_tot_Responses. Enter the details in the system or tool that you are using to generate HTTP or HTTPS requests.
 
-* **Request**
+**Request**
 
-    **HTTP Method** GET
+**HTTP Method:** GET
 
-    **URL** http://\<NSIP>/nitro/v1/stat/nsglobalcntr?args=counters:http_tot_Requests;http_tot_Responses
+**URL:** http://\<NSIP>/nitro/v1/stat/nsglobalcntr?args=counters:http_tot_Requests;http_tot_Responses
 
-* **Response**
-    ```json
+**Response**
+    
+```json
+{
+"errorcode": 0,
+
+"message": "Done",
+
+"severity": "NONE",
+
+"nsglobalcntr": 
     {
-    "errorcode": 0,
-
-    "message": "Done",
-
-    "severity": "NONE",
-
-    "nsglobalcntr": 
-        {
-        "http_tot_Requests": "5783",
-        "http_tot_Responses": "5783"
-        }
+    "http_tot_Requests": "5783",
+    "http_tot_Responses": "5783"
     }
-    ```
+}
+```
     
 ## Prevent XSS and CSRF Attacks by Disabling Basic Authentication
 
@@ -1840,50 +1872,54 @@ Use the following formats to enter the details in the system or tool that you ar
 
 **Using REST APIs through HTTP**
 
-* **Request**
+**Request**
     
-    **URL** http://\<netscaler-ip-address >/nitro/v1/config/systemparameter
+**URL:** http://\<netscaler-ip-address >/nitro/v1/config/systemparameter
 
-    **HTTP Method** PUT
+**HTTP Method:** PUT
 
-    **Request Headers**
+**Request Headers:**
 
-    Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue>
 
-    Content-Type:application/json
-
-
-    **Request Payload**
-    ```json
-    {
-        "systemparameter":{ "basicauth":"disabled",}
-        
-    }
-    ```
+Content-Type:application/json
 
 
-* **Response**
-    **HTTP Status Code on Success** 200 OK
+**Request Payload:**
 
-    After you disable the basic authentication, access to NetScaler through the one-time password is denied and an error message is displayed.
+```json
+{
+    "systemparameter":{ "basicauth":"disabled",}
+    
+}
+```
+
+
+**Response**
+
+**HTTP Status Code on Success:** 200 OK
+
+After you disable the basic authentication, access to NetScaler through the one-time password is denied and an error message is displayed.
 
 **Example**
 
 This example shows what happens if you make any API call after basic authentication has been disabled. 
 
-* **Request**
-    **URL** http://10.102.201.159/nitro/v1/config/lbvserver
+**Request**
 
-    **HTTP Method** GET
+**URL:** http://10.102.201.159/nitro/v1/config/lbvserver
 
-    After you make a GET call, the a logon screen appears. If you click **Log In** after entering the logon credentials, then you get the following response, which shows an error message. 
+**HTTP Method:** GET
 
-* **Response**
-    
-    ```json
-    {"errorcode": 1244,"message": "Authentication Failed: Use of Basic Authentication is Disabled.","severity": "ERROR"
-    }
-    ```
+After you make a GET call, the a logon screen appears. If you click **Log In** after entering the logon credentials, then you get the following response, which shows an error message. 
+
+**Response**
+
+```json
+{"errorcode": 1244,"message": "Authentication Failed: Use of Basic Authentication is Disabled.","severity": "ERROR"
+}
+```
+
  
 
 

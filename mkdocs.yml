@@ -12,5 +12,6 @@ pages:
 - Overview: index.md
 - Before you begin: before-you-begin.md
 - Performing Basic NetScaler Operations: performing-basic-netscaler-operations.md
+- Performing NetScaler Resource Operations: performing-netscaler-resource-operations.md
 - Use cases: usecases.md
 - Error and Exception Handling: error-and-exception-handling.md
