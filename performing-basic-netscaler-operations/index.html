@@ -117,6 +117,13 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 			  
               
     <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../performing-netscaler-resource-operations/">Performing NetScaler Resource Operations</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
         <a class="toctree-l1-a " href="../usecases/">Use cases</a>
 		
     </li>
@@ -197,35 +204,33 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 </li>
 </ul>
 <p>For example, to connect and create a session with a NetScaler appliance with NSIP address 10.102.29.60 by using the HTTP protocol:</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://10.102.29.60/nitro/v1/config/login</p>
-<p><strong>Request Headers</strong> Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json  
-{ 
-    "login": 
-    { 
-    "username":"admin", 
-    "password":"verysecret" 
-    } 
-}</code></p>
-</li>
-<li>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://10.102.29.60/nitro/v1/config/login</p>
+<p><strong>Request Headers:</strong> Content-Type:application/json</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;login&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="s2">&quot;verysecret&quot;</span>     
+    <span class="p">}</span> 
+<span class="p">}</span>     
+</pre></div>
+
+
 <p><strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-<p><strong>Response Header</strong>
-<code>Set-Cookie: 
-NITRO_AUTH_TOKEN=\&lt;tokenvalue&gt;;  
-path=/nitro/v1</code></p>
-</li>
-</ul>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Response Header:</strong></p>
+<div class="codehilite"><pre><span></span><span class="err">Set-Cookie:NITRO_AUTH_TOKEN=\&lt;tokenvalue&gt;;</span>  
+<span class="err">path=/nitro/v</span><span class="mi">1</span>   
+</pre></div>
+
+
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>You must create an object of the com.citrix.netscaler.nitro.service.nitro_service class by specifying the NetScaler IP (NSIP) address and the protocol to connect to the appliance (HTTP or HTTPS). You then use this object and log on to the appliance by specifying the user name and the password of the NetScaler administrator.</p>
-<p><strong>Note.</strong></p>
+<p><strong>Note:</strong></p>
 <ul>
 <li>For the python SDK, the package path is of the form nssrc.com.citrix.netscaler...</li>
 <li>You must have a user account on that appliance. The configuration operations that you perform are limited by the administrative roles assigned to your account.</li>
@@ -264,153 +269,138 @@ path=/nitro/v1</code></p>
 <p>Disable these validations as shown in the following sample codes.</p>
 <p><strong>Java - Sample code for disabling SSL checks</strong></p>
 <div class="codehilite"><pre><span></span><span class="n">ns_session</span><span class="o">.</span><span class="na">set_certvalidation</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span> 
-
 <span class="n">ns_session</span><span class="o">.</span><span class="na">set_hostnameverification</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
 </pre></div>
 
 
 <p><strong>.NET - Sample code for disabling SSL checks</strong></p>
 <div class="codehilite"><pre><span></span><span class="n">ns_session</span><span class="p">.</span><span class="n">certvalidation</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span> 
-
 <span class="n">ns_session</span><span class="p">.</span><span class="n">hostnameverification</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
 </pre></div>
 
 
 <p><strong>Python - Sample code for disabling SSL checks</strong></p>
 <div class="codehilite"><pre><span></span><span class="n">ns_session</span><span class="o">.</span><span class="n">certvalidation</span> <span class="o">=</span> <span class="n">false</span> 
-
 <span class="n">ns_session</span><span class="o">.</span><span class="n">hostnameverification</span> <span class="o">=</span> <span class="n">false</span>
 </pre></div>
 
 
 <h2 id="enabling-netscaler-features-and-modes">Enabling NetScaler Features and Modes<a class="headerlink" href="#enabling-netscaler-features-and-modes" title="Permanent link">&para;</a></h2>
 <p>Some NetScaler features and modes are disabled by default and therefore must be enabled before they can be configured. To enable a NetScaler feature or mode, specify the action as "enable" in the URL query string, and in the request payload, specify the feature or mode to be enabled.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
 <p>To disable a feature or mode, in the URL query string, specify the action as "disable".</p>
 <p>For example, to enable the load balancing and content switching features:</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/nsfeature?action=enable</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/nsfeature?action=enable</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json    </p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;nsfeature&quot;</span><span class="p">:</span>  
+    <span class="p">{</span> 
+        <span class="nt">&quot;feature&quot;</span><span class="p">:</span>  
+        <span class="p">[</span> 
+            <span class="s2">&quot;LB&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;CS&quot;</span> 
+        <span class="p">]</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p>To enable the L2 and fast ramp modes:</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/nsmode?action=enable</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-        "nsfeature":  
-        { 
-            "feature":  
-            [ 
-                "LB", 
-                "CS" 
-            ] 
-        } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
-<p>For example, to enable the L2 and fast ramp modes.</p>
-<ul>
-<li>
-<p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/nsmode?action=enable</p>
-<p><strong>Request Headers</strong></p>
-<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
-<p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-        "nsmode": 
-        { 
-            "mode": 
-            [ 
-                "L2", 
-                "FR" 
-            ] 
-        } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;nsmode&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+        <span class="nt">&quot;mode&quot;</span><span class="p">:</span> 
+        <span class="p">[</span> 
+            <span class="s2">&quot;L2&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;FR&quot;</span> 
+        <span class="p">]</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <h2 id="saving-netscaler-configurations">Saving NetScaler Configurations<a class="headerlink" href="#saving-netscaler-configurations" title="Permanent link">&para;</a></h2>
 <p>To make sure that the configurations persist on rebooting the appliance, you must save the NetScaler configurations. To save the configurations, specify the action as "save" in the URL query string.</p>
-<p>To save the configurations.</p>
-<ul>
-<li>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To save the configurations:</p>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong></p>
-<p>http://\<netscaler-ip-address>/nitro/v1/config/nsconfig?action=save</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/nsconfig?action=save</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-    "nsconfig": 
-    {} 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;nsconfig&quot;</span><span class="p">:</span> 
+    <span class="p">{}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <h2 id="killing-a-system-session">Killing a System Session<a class="headerlink" href="#killing-a-system-session" title="Permanent link">&para;</a></h2>
 <p>A NetScaler administrator can kill any system session by specifying the action as "kill" in the URL query string and by specifying the required system session ID in the request payload.</p>
-<p>For example, to kill a system session that has ID as 311.</p>
-<ul>
-<li>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>For example, to kill a system session that has ID as 311:</p>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/systemsession?action=kill</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/systemsession?action=kill</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-    "systemsession": 
-        { 
-        "sid":"311" 
-        } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error. </p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;systemsession&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;sid&quot;</span><span class="p">:</span><span class="s2">&quot;311&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error. </p>
 <h2 id="disconnecting-from-the-netscaler-appliance">Disconnecting from the NetScaler Appliance<a class="headerlink" href="#disconnecting-from-the-netscaler-appliance" title="Permanent link">&para;</a></h2>
 <p>Before disconnecting (logging out) from the NetScaler appliance, make sure that you have saved the NetScaler configurations.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
 <p>To logout of the NetScaler appliance:</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/logout</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/logout</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-    "logout":{} 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul> 
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;logout&quot;</span><span class="p">:{}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p> 
 
                 </div>
               </div>
@@ -429,7 +419,7 @@ path=/nitro/v1</code></p>
         <span class="prev"><a href="../before-you-begin/"><i class="fa fa-angle-left"></i> Previous</a></span>
       
       
-        <span class="next"><a href="../usecases/">Next <i class="fa fa-angle-right"></i></a></span>
+        <span class="next"><a href="../performing-netscaler-resource-operations/">Next <i class="fa fa-angle-right"></i></a></span>
       
     </span>
 	<div class="footer-right">

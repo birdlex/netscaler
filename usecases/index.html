@@ -99,6 +99,13 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 
 			  
               
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../performing-netscaler-resource-operations/">Performing NetScaler Resource Operations</a>
+		
+    </li>
+
+			  
+              
     <li class="toctree-l1 current">
         <a class="toctree-l1-a current" href="./">Use cases</a>
 		
@@ -184,29 +191,26 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>All operations on a cluster instance must be performed on the clusterinstance object.</p>
 <p>For example, to create a cluster instance with ID 1, connect to the NetScaler appliance that you are first adding to the cluster.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/clusterinstance</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/clusterinstance</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-    "clusterinstance": 
-    { 
-    "clid":1, 
-    "preemption":"ENABLED" 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;clusterinstance&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;clid&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> 
+    <span class="nt">&quot;preemption&quot;</span><span class="p">:</span><span class="s2">&quot;ENABLED&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span> 
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>The com.citrix.netscaler.nitro.resource.config.cluster.clusterinstance class provides APIs to manage a cluster instance.</p>
 <p>The following sample code creates a cluster instance with ID 1.</p>
@@ -262,31 +266,28 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>This topic covers cluster node operations by using REST APIs through HTTP or SDKs. </p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>All operations on a cluster node must be performed on the clusternode object. For example, to add a NetScaler appliance with NSIP address 10.102.29.60 to the cluster.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/clusternode</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/clusternode</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-"clusternode": 
-    { 
-    "nodeid":1, 
-    "ipaddress":"10.102.29.60", 
-    "state":"ACTIVE", 
-    "backplane":"1/1/2" 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+<span class="nt">&quot;clusternode&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;nodeid&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> 
+    <span class="nt">&quot;ipaddress&quot;</span><span class="p">:</span><span class="s2">&quot;10.102.29.60&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;backplane&quot;</span><span class="p">:</span><span class="s2">&quot;1/1/2&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span> 
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>The com.citrix.netscaler.nitro.resource.config.cluster.clusternode class provides APIs to manage cluster nodes.</p>
 <p>The following sample code adds a cluster node with NSIP address 10.102.29.60.</p>
@@ -357,30 +358,27 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>This topic covers adding a cluster IP address by using REST APIs through HTTP or SDKs. </p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>To define a cluster IP address, specify the required parameters in the nsip object. For example, to configure a cluster IP address.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/nsip</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/nsip</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-"nsip": 
-    { 
-    "ipaddress":"10.102.29.61",  
-    "netmask":"255.255.255.255", 
-    "type":"CLIP" 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+<span class="nt">&quot;nsip&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;ipaddress&quot;</span><span class="p">:</span><span class="s2">&quot;10.102.29.61&quot;</span><span class="p">,</span>  
+    <span class="nt">&quot;netmask&quot;</span><span class="p">:</span><span class="s2">&quot;255.255.255.255&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;CLIP&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span> 
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>The com.citrix.netscaler.nitro.resource.config.ns.nsip class provides the add() API to configure an IP address. To configure the IP address as a cluster IP address, you must specify the type as CLIP.</p>
 <p>The following sample code configures a cluster IP address on NetScaler appliance with IP address 10.102.29.60.</p>
@@ -446,31 +444,28 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>To configure an IP address as spotted, specify the required parameters in the nsip object. This configuration must be done on the cluster IP address.</p>
 <p>For example, to configure a spotted SNIP address on a node with ID 1.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<cluster-ip-address>/nitro/v1/config/nsip</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<cluster-ip-address>/nitro/v1/config/nsip</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-"nsip": 
-    { 
-    "ipaddress":"10.102.29.77",  
-    "netmask":"255.255.255.0", 
-    "type":"SNIP", 
-    "ownernode":1 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+<span class="nt">&quot;nsip&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;ipaddress&quot;</span><span class="p">:</span><span class="s2">&quot;10.102.29.77&quot;</span><span class="p">,</span>  
+    <span class="nt">&quot;netmask&quot;</span><span class="p">:</span><span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;SNIP&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;ownernode&quot;</span><span class="p">:</span><span class="mi">1</span> 
+    <span class="p">}</span> 
+<span class="p">}</span> 
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>The com.citrix.netscaler.nitro.resource.config.ns.nsip class provides the add() API to configure an IP address. To configure the IP address as spotted, you must specify the ID of the node that must own the IP address. This configuration must be done on the cluster IP address.</p>
 <p>The following sample code configures a spotted SNIP address on a node with ID 1.</p>
@@ -542,29 +537,26 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>This topic covers adding a NetScaler appliance to a cluster by using REST APIs through HTTP or SDKs. </p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>To join an appliance to a cluster, specify the required parameters in the cluster object. For example, to join a NetScaler appliance to a cluster.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/cluster</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/cluster</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-"cluster": 
-    { 
-    "clip":"10.102.29.61", 
-    "password":"verysecret" 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+<span class="nt">&quot;cluster&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;clip&quot;</span><span class="p">:</span><span class="s2">&quot;10.102.29.61&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="s2">&quot;verysecret&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span> 
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>The com.citrix.netscaler.nitro.resource.config.cluster.cluster class provides the join() API to join a NetScaler appliance to the cluster. You must specify the cluster IP address and the nsroot password of the configuration coordinator.</p>
 <p>The following sample code joins a NetScaler appliance to a cluster.</p>
@@ -621,64 +613,48 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>This topic covers some linkset operations by using REST APIs through HTTP or SDKs. </p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>To configure a linkset, do the following:</p>
-<ol>
-<li>
 <p>Create a linkset by specifying the required parameters in the linkset object. For example, to add a linkset LS/1:</p>
-<ul>
-<li>
-<p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<cluster-ip-address>/nitro/v1/config/linkset</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>Request:</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<cluster-ip-address>/nitro/v1/config/linkset</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-"linkset": 
-    { 
-    "id":"LS/1" 
-} 
-}</code></p>
-</li>
-<li>
+<p><strong>Request Payload</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+<span class="nt">&quot;linkset&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;LS/1&quot;</span> 
+<span class="p">}</span> 
+<span class="p">}</span> 
+</pre></div>
+
+
 <p><strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
-</li>
-<li>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p>Bind the required interfaces to the linkset by specifying the interfaces in the linkset_interface_binding object.For example, to bind interfaces 1/1/2 and 2/1/2 to linkset LS/1.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> PUT</p>
-<p><strong>URL</strong> http://\<cluster-ip-address>/nitro/v1/config/linkset_interface_binding/LS%2F1?action=bind
+<p><strong>HTTP Method:</strong> PUT</p>
+<p><strong>URL:</strong> http://\<cluster-ip-address>/nitro/v1/config/linkset_interface_binding/LS%2F1?action=bind
 <strong>Note.</strong> The linkset name (LS/1), must be URL encoded as LS%2F1.</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-"linkset_interface_binding": 
-    { 
-    "id":"LS/1", 
-    "ifnum":"1/1/2 2/1/2" 
-    } 
-}</code></p>
-</li>
-<li>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+<span class="nt">&quot;linkset_interface_binding&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;LS/1&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;ifnum&quot;</span><span class="p">:</span><span class="s2">&quot;1/1/2 2/1/2&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span> 
+</pre></div>
+
+
 <p><strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 200 Ok</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
-</li>
-</ol>
+<p><strong>HTTP Status Code on Success:</strong> 200 Ok</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>The com.citrix.netscaler.nitro.resource.config.network.linkset class provides the APIs to manage linksets.</p>
 <p>To configure a linkset, do the following:</p>
@@ -714,7 +690,6 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <span class="n">new_linkset_obj</span><span class="p">.</span><span class="n">id</span> <span class="p">=</span> <span class="s">&quot;LS/1&quot;</span><span class="p">;</span> 
 
 <span class="n">linkset</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">new_linkset_obj</span><span class="p">);</span> 
-
 
 
 <span class="c1">//Bind the interfaces to the linkset </span>
@@ -758,32 +733,29 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>While creating an admin partition, you must also specify the system resources that must be allocated to that partition.</p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>The following example creates an admin partition named partition-dept1.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/nspartition</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/nspartition</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-    "nspartition": 
-    { 
-        "partitionname":"partition-dept1", 
-        "maxbandwidth":"10240",  
-        "minbandwidth":"10240", 
-        "maxconn":"1024", 
-        "maxmemlimit":"10" 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+<span class="nt">&quot;nspartition&quot;</span><span class="p">:</span> 
+<span class="p">{</span> 
+    <span class="nt">&quot;partitionname&quot;</span><span class="p">:</span><span class="s2">&quot;partition-dept1&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;maxbandwidth&quot;</span><span class="p">:</span><span class="s2">&quot;10240&quot;</span><span class="p">,</span>  
+    <span class="nt">&quot;minbandwidth&quot;</span><span class="p">:</span><span class="s2">&quot;10240&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;maxconn&quot;</span><span class="p">:</span><span class="s2">&quot;1024&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;maxmemlimit&quot;</span><span class="p">:</span><span class="s2">&quot;10&quot;</span> 
+<span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>The following sample code creates an admin partition named partition-dept1.</p>
 <p><strong>Java - Sample code to create an admin partition</strong></p>
@@ -841,29 +813,26 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>Associate the appropriate users with the partition.</p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>The following example associates user1 to a partition named partition-dept1.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> PUT</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address >/nitro/v1/config/systemuser_nspartition_binding/user1</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> PUT</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address >/nitro/v1/config/systemuser_nspartition_binding/user1</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-    "systemuser_nspartition_binding": 
-    { 
-    "username":"user1",  
-    "partitionname":"partition-dept1" 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;systemuser_nspartition_binding&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="s2">&quot;user1&quot;</span><span class="p">,</span>  
+    <span class="nt">&quot;partitionname&quot;</span><span class="p">:</span><span class="s2">&quot;partition-dept1&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>   
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>The following sample code associates "user1" to a partition named "partition-dept1".</p>
 <p><strong>Java - Sample code for associating user with partition</strong></p>
@@ -903,30 +872,27 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>Associate an appropriate command policy to the admin partition user.</p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>The following example associates the command policy partition-admin to user1.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> PUT</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/systemuser_systemcmdpolicy_binding/user1</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> PUT</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/systemuser_systemcmdpolicy_binding/user1</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-    "systemuser_systemcmdpolicy_binding": 
-    { 
-    "username":"user1",  
-    "policyname":"partition-admin", 
-    "priority":"1" 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;systemuser_systemcmdpolicy_binding&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="s2">&quot;user1&quot;</span><span class="p">,</span>  
+    <span class="nt">&quot;policyname&quot;</span><span class="p">:</span><span class="s2">&quot;partition-admin&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;priority&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>The following sample code associates the command policy "partition-admin" to "user1".</p>
 <p><strong>Java - Sample code to specify command policy for partition user</strong></p>
@@ -972,29 +938,26 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>Specify the VLANs or bridgegroups to be associated with the partition. This step ensures network isolation of the traffic. Traffic received on the interfaces of the VLAN or bridgegroup is isolated from the traffic of other partitions.</p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>The following example specifies a VLAN for an admin partition.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> PUT</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/nspartition_vlan_binding/partition-dept1</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> PUT</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/nspartition_vlan_binding/partition-dept1</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-    "nspartition_vlan_binding": 
-    { 
-    "partitionname":"partition-dept1", 
-    "vlan":"2" 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;nspartition_vlan_binding&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;partitionname&quot;</span><span class="p">:</span><span class="s2">&quot;partition-dept1&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;vlan&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>    
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>The following sample code specifies a VLAN for an admin partition.</p>
 <p><strong>Java - Sample Code to specify the VLAN</strong></p>
@@ -1034,28 +997,25 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>If you are associated with multiple admin partitions, you can switch to the required partition.</p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>The following  example shows how to switch from current partition to a partition named partition-dept2.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/nspartition?action=Switch</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/nspartition?action=Switch</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-    "nspartition": 
-    { 
-    "partitionname":"partition-dept2" 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 201 Created</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;nspartition&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;partitionname&quot;</span><span class="p">:</span><span class="s2">&quot;partition-dept2&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>The following sample code switches from current partition to a partition named "partition-dept2".</p>
 <p><strong>Java - Sample code to switch partitions</strong></p>
@@ -1092,37 +1052,34 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>To export an AppExpert application, specify the parameters needed for the export operation in the apptemplateinfo object. Optionally, you can specify basic information about the AppExpert application template, such as the author of the configuration, a summary of the template functionality, and the template version number, in the template_info object. This information is stored as part of the template file that is created.</p>
 <p>For example, to export an AppExpert application named MyApp1.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=export</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=export</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-    "apptemplateinfo": 
-    { 
-        "appname":"MyApp1", 
-        "apptemplatefilename":"BizAp.xml", 
-        "template_info": 
-        { 
-            "templateversion_major":"2", 
-            "templateversion_minor":"1", 
-            "author":"XYZ", 
-            "introduction":"Intro", 
-            "summary":"Summary" 
-        } 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;apptemplateinfo&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+        <span class="nt">&quot;appname&quot;</span><span class="p">:</span><span class="s2">&quot;MyApp1&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;apptemplatefilename&quot;</span><span class="p">:</span><span class="s2">&quot;BizAp.xml&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;template_info&quot;</span><span class="p">:</span> 
+        <span class="p">{</span> 
+            <span class="nt">&quot;templateversion_major&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;templateversion_minor&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="s2">&quot;XYZ&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;introduction&quot;</span><span class="p">:</span><span class="s2">&quot;Intro&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;summary&quot;</span><span class="p">:</span><span class="s2">&quot;Summary&quot;</span> 
+        <span class="p">}</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>To export an AppExpert application, you must do the following:</p>
 <ol>
@@ -1165,78 +1122,72 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>To import an AppExpert application, specify the parameters needed for the import operation in the apptemplateinfo object.</p>
 <p>For example, to import an AppExpert application named MyApp1.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=import</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=import</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-"apptemplateinfo": 
-{ 
-    "apptemplatefilename":"BizAp.xml", 
-    "deploymentfilename":"BizAp_deployment.xml", 
-    "appname":"MyApp1" 
-} 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+<span class="nt">&quot;apptemplateinfo&quot;</span><span class="p">:</span> 
+<span class="p">{</span> 
+    <span class="nt">&quot;apptemplatefilename&quot;</span><span class="p">:</span><span class="s2">&quot;BizAp.xml&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;deploymentfilename&quot;</span><span class="p">:</span><span class="s2">&quot;BizAp_deployment.xml&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;appname&quot;</span><span class="p">:</span><span class="s2">&quot;MyApp1&quot;</span> 
+<span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p>To import an AppExpert application by specifying different deployment settings.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=import</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/apptemplateinfo?action=import</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-<code>json
-{ 
-    "apptemplateinfo": 
-    { 
-    "apptemplatefilename":"BizAp.xml", 
-    "appname":"Myapp2", 
-    "deploymentinfo": 
-    { 
-        "appendpoint": 
-        [ 
-            { 
-                "ipv46":"11.2.3.8", 
-                "port":80, 
-                "servicetype":"HTTP" 
-            } 
-        ], 
-        "service": 
-        [ 
-            { 
-                "ip":"12.3.3.15",   
-                "port":80, 
-                "servicetype":"SSL" 
-            }, 
-            { 
-                "ip":"14.5.5.16",   
-                "port":443, 
-                "servicetype":"SSL" 
-            } 
-        ] 
-    } 
-    } 
-}</code>
-* <strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;apptemplateinfo&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;apptemplatefilename&quot;</span><span class="p">:</span><span class="s2">&quot;BizAp.xml&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;appname&quot;</span><span class="p">:</span><span class="s2">&quot;Myapp2&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;deploymentinfo&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+        <span class="nt">&quot;appendpoint&quot;</span><span class="p">:</span> 
+        <span class="p">[</span> 
+            <span class="p">{</span> 
+                <span class="nt">&quot;ipv46&quot;</span><span class="p">:</span><span class="s2">&quot;11.2.3.8&quot;</span><span class="p">,</span> 
+                <span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span> 
+                <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;HTTP&quot;</span> 
+            <span class="p">}</span> 
+        <span class="p">],</span> 
+        <span class="nt">&quot;service&quot;</span><span class="p">:</span> 
+        <span class="p">[</span> 
+            <span class="p">{</span> 
+                <span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="s2">&quot;12.3.3.15&quot;</span><span class="p">,</span>   
+                <span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span> 
+                <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;SSL&quot;</span> 
+            <span class="p">},</span> 
+            <span class="p">{</span> 
+                <span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="s2">&quot;14.5.5.16&quot;</span><span class="p">,</span>   
+                <span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="mi">443</span><span class="p">,</span> 
+                <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;SSL&quot;</span> 
+            <span class="p">}</span> 
+        <span class="p">]</span> 
+    <span class="p">}</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <p><strong>Using REST APIs through SDKs</strong></p>
 <p>To import an AppExpert application, you must do the following:</p>
 <ol>
@@ -1278,43 +1229,34 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>You can use the "install" API to automate not just installation, but also an upgrade or a downgrade of the build on a NetScaler appliance. You can specify a local or remote location for the build file.</p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>For example, the following information describes a downgrade to NetScaler release 10.5 build 46, using a local  build file:</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<NSIP>/nitro/v1/config/install</p>
-<p><strong>Request Headers</strong> </p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<NSIP>/nitro/v1/config/install</p>
+<p><strong>Request Headers:</strong> </p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue ></p>
 <p>Content-Type: application/json</p>
-<p><strong>Request Payload</strong></p>
-<p>```json
-{</p>
-</li>
-</ul>
-<p>“install”:</p>
-<div class="codehilite"><pre><span></span>{
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-     “url”: “file:///var/tagma/build_tagma_46_nc.tgz”
+<span class="err">“install”:</span>
+
+<span class="err">{</span>
+
+        <span class="err">“url”:</span> <span class="err">“file:///var/tagma/build_tagma_46_nc.tgz”</span>
 
 
-  }
+    <span class="p">}</span>                           
 
-}     
-```
+<span class="err">}</span>     
 </pre></div>
 
 
-<ul>
-<li>
 <p><strong>Response</strong></p>
-<p><strong>HTTP status Code on Success</strong></p>
+<p><strong>HTTP status Code on Success:</strong></p>
 <p>201 Created</p>
 <p>209 Netscaler specific warning</p>
 <p><strong>Note.</strong> when “y” option is not specified and warning is enabled, API returns “1120 - The configuration must be saved and the system rebooted for these settings to take effect” message in X-NITRO-WARNING.</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>599 Netscaler specific error</p>
-</li>
-</ul>
+<p><strong>HTTP Status Code on Failure:</strong> 599 Netscaler specific error</p>
 <p><strong>Additional parameters available in the install API request payload</strong></p>
 <ul>
 <li>
@@ -1359,64 +1301,48 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>Only homogenous operation is supported in this API. For example, multiple load balancing virtual servers can be created but cannot be updated or deleted in the same API.
 “rollback” is supported only on “add” and “bind” operations.</p>
 <p><strong>Using REST APIs through HTTP</strong></p>
-<p>To add multiple load balancing resources in a single request:
-* <strong>Request</strong></p>
-<div class="codehilite"><pre><span></span>**HTTP Method** POST
+<p>To add multiple load balancing resources in a single request:</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<NSIP>/nitro/v1/config/macroapi</p>
+<p><strong>Request Headers:</strong></p>
+<p>Content-Type: application/json</p>
+<p>Cookie: NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p>X-NITRO-ONERROR: exit</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-**URL** http://\&lt;NSIP&gt;/nitro/v1/config/macroapi
+<span class="nt">&quot;lbvserver&quot;</span><span class="p">:[</span>  
 
-**Request Headers**
+<span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv1&quot;</span><span class="p">,</span><span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;http&quot;</span><span class="p">},</span>
 
-Content-Type: application/json
+<span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv2&quot;</span><span class="p">,</span><span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;http&quot;</span><span class="p">}</span>
 
-Cookie: NITRO_AUTH_TOKEN=\&lt;tokenvalue&gt;
+<span class="p">],</span>
 
-X-NITRO-ONERROR: exit
+<span class="nt">&quot;serviceGroup&quot;</span><span class="p">:</span> <span class="p">[</span>
 
+<span class="p">{</span> <span class="nt">&quot;servicegroupname&quot;</span><span class="p">:</span> <span class="s2">&quot;sg1&quot;</span><span class="p">,</span> <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span> <span class="s2">&quot;HTTP&quot;</span> <span class="p">},</span>
 
-**Request Payload**
+<span class="p">{</span> <span class="nt">&quot;servicegroupname&quot;</span><span class="p">:</span> <span class="s2">&quot;sg2&quot;</span><span class="p">,</span> <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span> <span class="s2">&quot;HTTP&quot;</span> <span class="p">}</span>
 
-```json
-{
+<span class="p">],</span>
 
-&quot;lbvserver&quot;:[
+<span class="nt">&quot;lbvserver_servicegroup_binding&quot;</span><span class="p">:[</span> 
 
-                     {&quot;name&quot;:&quot;lbv1&quot;,&quot;servicetype&quot;:&quot;http&quot;},
+<span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv1&quot;</span><span class="p">,</span> <span class="nt">&quot;servicegroupname&quot;</span><span class="p">:</span><span class="s2">&quot;sg1&quot;</span> <span class="p">},</span>
 
-                     {&quot;name&quot;:&quot;lbv2&quot;,&quot;servicetype&quot;:&quot;http&quot;}
+<span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv2&quot;</span><span class="p">,</span> <span class="nt">&quot;servicegroupname&quot;</span><span class="p">:</span><span class="s2">&quot;sg2&quot;</span> <span class="p">}</span>
 
-       ],
+<span class="p">]</span>
 
-&quot;serviceGroup&quot;: [
-
-                  { &quot;servicegroupname&quot;: &quot;sg1&quot;, &quot;servicetype&quot;: &quot;HTTP&quot; },
-
-                     { &quot;servicegroupname&quot;: &quot;sg2&quot;, &quot;servicetype&quot;: &quot;HTTP&quot; }
-
-                ],
-
-&quot;lbvserver_servicegroup_binding&quot;:[
-
-                 { &quot;name&quot;:&quot;lbv1&quot;, &quot;servicegroupname&quot;:&quot;sg1&quot; },
-
-                   { &quot;name&quot;:&quot;lbv2&quot;, &quot;servicegroupname&quot;:&quot;sg2&quot; }
-
-                        ]
-
-}
-```
+<span class="p">}</span>
 </pre></div>
 
 
-<ul>
-<li>
 <p><strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong>
-     201 Created for the add operation and 200 OK for the update operation.</p>
-<p><strong>HTTP Status Code on Failure</strong>
-     207 Multi Status with error details in the response payload. For more information, see Error Handling.</p>
-</li>
-</ul>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created for the add operation and 200 OK for the update operation.</p>
+<p><strong>HTTP Status Code on Failure:</strong> 207 Multi Status with error details in the response payload. For more information, see Error Handling.</p>
 <p>For deleting multiple resources using macroapi, use POST HTTP method with query parameter “action=remove” in the URI.</p>
 <h2 id="simplify-management-operations-with-an-idempotent-api">Simplify Management Operations with an Idempotent API<a class="headerlink" href="#simplify-management-operations-with-an-idempotent-api" title="Permanent link">&para;</a></h2>
 <p>You can add or update NetScaler resources seamlessly, with a single API. Previously, an attempt to add a resource that was already configured, or to update a resource that was not yet configured, caused an error.</p>
@@ -1427,28 +1353,25 @@ X-NITRO-ONERROR: exit
 <p>If a resource is already configured and you try to add the same resource again, the resource is  "updated," but the arguments already present are not unset. For example, if a  load balancing virtual server named  "V1" is configured to use the round robin load balancing method, and you try to ADD an lbvserver named "V1" without specifying a value for "lbmethod" in the request, the NetScaler appliance does not  unset "lbmethod" to its default value of "leastconnection."</p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>In the following example, “preferredntpserver” is allowed only in PUT, but when given in POST request with idempotent=yes, NITRO internally adds the ntpserver and updates it with given properties.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> POST</p>
-<p><strong>URL</strong> http://\<NSIP>/nitro/v1/config/ntpserver?idempotent=yes</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<NSIP>/nitro/v1/config/ntpserver?idempotent=yes</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
 <p>Content-Type: application/json</p>
-<p><strong>Request Payload</strong>
-```json
-{</p>
-<p>“ntpserver”:{“servername”:“ntp1”,“minpoll”:“4,  “preferredntpserver”: “yes”}</p>
-<p>}
-```</p>
-</li>
-<li>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+
+<span class="err">“ntpserver”:{“servername”:“ntp1”,“minpoll”:“4,</span>  <span class="err">“preferredntpserver”:</span> <span class="err">“yes”</span><span class="p">}</span>
+
+
+<span class="err">}</span>
+</pre></div>
+
+
 <p><strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
-<p><strong>HTTP Status Code on Failure</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-</li>
-</ul>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
 <h2 id="retrieve-bindings-in-bulk">Retrieve Bindings in Bulk<a class="headerlink" href="#retrieve-bindings-in-bulk" title="Permanent link">&para;</a></h2>
 <p>This topic covers retrieving bindings information in bulk by using REST APIs through HTTP.</p>
 <p><strong>Using REST APIs through HTTP</strong></p>
@@ -1464,315 +1387,302 @@ X-NITRO-ONERROR: exit
 <li>bind lb vserver lbv2 svc1</li>
 <li>bind lb vserver lbv2 sg1</li>
 </ul>
-<p><strong>Example. To fetch bindings of all lbvservers, in a single NITRO API</strong></p>
-<ul>
-<li>
+<p><strong>Example - To fetch bindings of all lbvservers, in a single NITRO API</strong></p>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> GET</p>
-<p><strong>URL</strong> http://\<NSIP>/nitro/v1/config/lbvserver_binding?bulkbindings=yes</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>HTTP Method:</strong> GET</p>
+<p><strong>URL:</strong> http://\<NSIP>/nitro/v1/config/lbvserver_binding?bulkbindings=yes</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue ></p>
 <p>Accept: application/json</p>
-</li>
-<li>
 <p><strong>Response</strong></p>
-<p><strong>HTTP Status Code on Success</strong> 200 OK</p>
-<p><strong>HTTP Status Code on Failure</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
-<p><strong>Response Header</strong> Content-Type:application/json</p>
-<p><strong>Response Payload</strong></p>
-<p>```json
-{</p>
-</li>
-</ul>
-<p>"errorcode":0,</p>
-<p>"message":"Done",</p>
-<p>"severity":"NONE",</p>
-<p>"lbvserver_binding":[</p>
-<div class="codehilite"><pre><span></span>{
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Response Header:</strong> Content-Type:application/json</p>
+<p><strong>Response Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-     &quot;name&quot;:&quot;lbv1&quot;,
+<span class="nt">&quot;errorcode&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
 
-     &quot;lbvserver_service_binding&quot;:[
+<span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Done&quot;</span><span class="p">,</span>
 
-        {
+<span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="s2">&quot;NONE&quot;</span><span class="p">,</span>
 
-           &quot;name&quot;:&quot;lbv1&quot;,
+<span class="nt">&quot;lbvserver_binding&quot;</span><span class="p">:[</span>
 
-           &quot;servicename&quot;:&quot;svc1&quot;,
+<span class="p">{</span>
 
-           &quot;stateflag&quot;:&quot;536936451&quot;,
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv1&quot;</span><span class="p">,</span>
 
-           &quot;ipv46&quot;:&quot;10.20.30.40&quot;,
+    <span class="nt">&quot;lbvserver_service_binding&quot;</span><span class="p">:[</span>
 
-           &quot;port&quot;:80,
+    <span class="p">{</span>
 
-           &quot;servicetype&quot;:&quot;HTTP&quot;,
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv1&quot;</span><span class="p">,</span>
 
-           &quot;curstate&quot;:&quot;DOWN&quot;,
+        <span class="nt">&quot;servicename&quot;</span><span class="p">:</span><span class="s2">&quot;svc1&quot;</span><span class="p">,</span>
 
-           &quot;weight&quot;:&quot;1&quot;,
+        <span class="nt">&quot;stateflag&quot;</span><span class="p">:</span><span class="s2">&quot;536936451&quot;</span><span class="p">,</span>
 
-           &quot;dynamicweight&quot;:&quot;0&quot;,
+        <span class="nt">&quot;ipv46&quot;</span><span class="p">:</span><span class="s2">&quot;10.20.30.40&quot;</span><span class="p">,</span>
 
-           &quot;cookieipport&quot;:&quot;&quot;,
+        <span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span>
 
-           &quot;vserverid&quot;:&quot;mcw1&quot;,
+        <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;HTTP&quot;</span><span class="p">,</span>
 
-           &quot;vsvrbindsvcip&quot;:&quot;10.20.30.40&quot;,
+        <span class="nt">&quot;curstate&quot;</span><span class="p">:</span><span class="s2">&quot;DOWN&quot;</span><span class="p">,</span>
 
-           &quot;vsvrbindsvcport&quot;:80,
+        <span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
 
-           &quot;preferredlocation&quot;:&quot;&quot;
+        <span class="nt">&quot;dynamicweight&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
 
-        }
+        <span class="nt">&quot;cookieipport&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
 
-     ],
+        <span class="nt">&quot;vserverid&quot;</span><span class="p">:</span><span class="s2">&quot;mcw1&quot;</span><span class="p">,</span>
 
-     &quot;lbvserver_servicegroup_binding&quot;:[
+        <span class="nt">&quot;vsvrbindsvcip&quot;</span><span class="p">:</span><span class="s2">&quot;10.20.30.40&quot;</span><span class="p">,</span>
 
-        {
+        <span class="nt">&quot;vsvrbindsvcport&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span>
 
-           &quot;name&quot;:&quot;lbv1&quot;,
+        <span class="nt">&quot;preferredlocation&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
 
-           &quot;servicegroupname&quot;:&quot;sg1&quot;,
+    <span class="p">}</span>
 
-           &quot;stateflag&quot;:&quot;536936464&quot;,
+    <span class="p">],</span>
 
-           &quot;servicename&quot;:&quot;sg1&quot;
+    <span class="nt">&quot;lbvserver_servicegroup_binding&quot;</span><span class="p">:[</span>
 
-        }
+    <span class="p">{</span>
 
-     ]
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv1&quot;</span><span class="p">,</span>
 
-  },
+        <span class="nt">&quot;servicegroupname&quot;</span><span class="p">:</span><span class="s2">&quot;sg1&quot;</span><span class="p">,</span>
 
-  {
+        <span class="nt">&quot;stateflag&quot;</span><span class="p">:</span><span class="s2">&quot;536936464&quot;</span><span class="p">,</span>
 
-     &quot;name&quot;:&quot;lbv2&quot;,
+        <span class="nt">&quot;servicename&quot;</span><span class="p">:</span><span class="s2">&quot;sg1&quot;</span>
 
-     &quot;lbvserver_service_binding&quot;:[
+    <span class="p">}</span>
 
-        {
+    <span class="p">]</span>
 
-           &quot;name&quot;:&quot;lbv2&quot;,
+<span class="p">},</span>
 
-           &quot;servicename&quot;:&quot;svc1&quot;,
+<span class="p">{</span>
 
-           &quot;stateflag&quot;:&quot;536936451&quot;,
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv2&quot;</span><span class="p">,</span>
 
-           &quot;ipv46&quot;:&quot;10.20.30.40&quot;,
+    <span class="nt">&quot;lbvserver_service_binding&quot;</span><span class="p">:[</span>
 
-           &quot;port&quot;:80,
+    <span class="p">{</span>
 
-           &quot;servicetype&quot;:&quot;HTTP&quot;,
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv2&quot;</span><span class="p">,</span>
 
-           &quot;curstate&quot;:&quot;DOWN&quot;,
+        <span class="nt">&quot;servicename&quot;</span><span class="p">:</span><span class="s2">&quot;svc1&quot;</span><span class="p">,</span>
 
-           &quot;weight&quot;:&quot;1&quot;,
+        <span class="nt">&quot;stateflag&quot;</span><span class="p">:</span><span class="s2">&quot;536936451&quot;</span><span class="p">,</span>
 
-           &quot;dynamicweight&quot;:&quot;0&quot;,
+        <span class="nt">&quot;ipv46&quot;</span><span class="p">:</span><span class="s2">&quot;10.20.30.40&quot;</span><span class="p">,</span>
 
-           &quot;cookieipport&quot;:&quot;&quot;,
+        <span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span>
 
-           &quot;vserverid&quot;:&quot;mcw2&quot;,
+        <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;HTTP&quot;</span><span class="p">,</span>
 
-           &quot;vsvrbindsvcip&quot;:&quot;10.20.30.40&quot;,
+        <span class="nt">&quot;curstate&quot;</span><span class="p">:</span><span class="s2">&quot;DOWN&quot;</span><span class="p">,</span>
 
-           &quot;vsvrbindsvcport&quot;:80,
+        <span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
 
-           &quot;preferredlocation&quot;:&quot;&quot;
+        <span class="nt">&quot;dynamicweight&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
 
-        }
+        <span class="nt">&quot;cookieipport&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
 
+        <span class="nt">&quot;vserverid&quot;</span><span class="p">:</span><span class="s2">&quot;mcw2&quot;</span><span class="p">,</span>
 
-       ],
+        <span class="nt">&quot;vsvrbindsvcip&quot;</span><span class="p">:</span><span class="s2">&quot;10.20.30.40&quot;</span><span class="p">,</span>
 
-     &quot;lbvserver_servicegroup_binding&quot;:[
+        <span class="nt">&quot;vsvrbindsvcport&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span>
 
-        {
+        <span class="nt">&quot;preferredlocation&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
 
-           &quot;name&quot;:&quot;lbv2&quot;,
-
-           &quot;servicegroupname&quot;:&quot;sg1&quot;,
-
-           &quot;stateflag&quot;:&quot;536936464&quot;,
-
-           &quot;servicename&quot;:&quot;sg1&quot;
-
-        }
+    <span class="p">}</span>        
 
 
-       ]
+    <span class="p">],</span>
 
-  }
+    <span class="nt">&quot;lbvserver_servicegroup_binding&quot;</span><span class="p">:[</span>
+
+    <span class="p">{</span>
+
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv2&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;servicegroupname&quot;</span><span class="p">:</span><span class="s2">&quot;sg1&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;stateflag&quot;</span><span class="p">:</span><span class="s2">&quot;536936464&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;servicename&quot;</span><span class="p">:</span><span class="s2">&quot;sg1&quot;</span>
+
+    <span class="p">}</span>        
+
+
+    <span class="p">]</span>
+
+<span class="p">}</span>
+
+
+<span class="p">]</span>
+
+<span class="p">}</span>
 </pre></div>
 
 
-<p>]</p>
-<div class="codehilite"><pre><span></span>}
-```
-</pre></div>
-
-
-<p><strong>Example. To fetch only “service” bindings of all lbvservers</strong></p>
-<ul>
-<li>
+<p><strong>Example - To fetch only “service” bindings of all lbvservers</strong></p>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> GET</p>
-<p><strong>URL</strong> http://\<NSIP>/nitro/v1/config/lbvserver_service_binding?bulkbindings=yes</p>
-<p><strong>Request Header</strong> Content-Type:application/json</p>
-</li>
-<li>
+<p><strong>HTTP Method:</strong> GET</p>
+<p><strong>URL:</strong> http://\<NSIP>/nitro/v1/config/lbvserver_service_binding?bulkbindings=yes</p>
+<p><strong>Request Header:</strong> Content-Type:application/json</p>
 <p><strong>Response</strong></p>
-<p><strong>Response Payload</strong></p>
-<p>```json
-{ </p>
-<p>"errorcode":0,</p>
-<p>"message":"Done",</p>
-<p>"severity":"NONE",</p>
-<p>"lbvserver_service_binding":[ </p>
-<p>{ </p>
-<div class="codehilite"><pre><span></span>  &quot;name&quot;:&quot;lbv1&quot;,
+<p><strong>Response Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
 
-  &quot;servicename&quot;:&quot;svc1&quot;,
+<span class="nt">&quot;errorcode&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
 
-  &quot;stateflag&quot;:&quot;536936451&quot;,
+<span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Done&quot;</span><span class="p">,</span>
 
-  &quot;ipv46&quot;:&quot;10.20.30.40&quot;,
+<span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="s2">&quot;NONE&quot;</span><span class="p">,</span>
 
-  &quot;port&quot;:80,
+<span class="nt">&quot;lbvserver_service_binding&quot;</span><span class="p">:[</span> 
 
-  &quot;servicetype&quot;:&quot;HTTP&quot;,
+    <span class="p">{</span> 
 
-  &quot;curstate&quot;:&quot;DOWN&quot;,
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv1&quot;</span><span class="p">,</span>
 
-  &quot;weight&quot;:&quot;1&quot;,
+        <span class="nt">&quot;servicename&quot;</span><span class="p">:</span><span class="s2">&quot;svc1&quot;</span><span class="p">,</span>
 
-  &quot;dynamicweight&quot;:&quot;0&quot;,
+        <span class="nt">&quot;stateflag&quot;</span><span class="p">:</span><span class="s2">&quot;536936451&quot;</span><span class="p">,</span>
 
-  &quot;cookieipport&quot;:&quot;&quot;,
+        <span class="nt">&quot;ipv46&quot;</span><span class="p">:</span><span class="s2">&quot;10.20.30.40&quot;</span><span class="p">,</span>
 
-  &quot;vserverid&quot;:&quot;mcw1&quot;,
+        <span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span>
 
-  &quot;vsvrbindsvcip&quot;:&quot;10.20.30.40&quot;,
+        <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;HTTP&quot;</span><span class="p">,</span>
 
-  &quot;vsvrbindsvcport&quot;:80,
+        <span class="nt">&quot;curstate&quot;</span><span class="p">:</span><span class="s2">&quot;DOWN&quot;</span><span class="p">,</span>
 
-  &quot;preferredlocation&quot;:&quot;&quot;
+        <span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;dynamicweight&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;cookieipport&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;vserverid&quot;</span><span class="p">:</span><span class="s2">&quot;mcw1&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;vsvrbindsvcip&quot;</span><span class="p">:</span><span class="s2">&quot;10.20.30.40&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;vsvrbindsvcport&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span>
+
+        <span class="nt">&quot;preferredlocation&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+
+    <span class="p">},</span>
+
+    <span class="p">{</span> 
+
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;lbv2&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;servicename&quot;</span><span class="p">:</span><span class="s2">&quot;svc1&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;stateflag&quot;</span><span class="p">:</span><span class="s2">&quot;536936451&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;ipv46&quot;</span><span class="p">:</span><span class="s2">&quot;10.20.30.40&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span>
+
+        <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;HTTP&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;curstate&quot;</span><span class="p">:</span><span class="s2">&quot;DOWN&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;dynamicweight&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;cookieipport&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;vserverid&quot;</span><span class="p">:</span><span class="s2">&quot;mcw2&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;vsvrbindsvcip&quot;</span><span class="p">:</span><span class="s2">&quot;10.20.30.40&quot;</span><span class="p">,</span>
+
+        <span class="nt">&quot;vsvrbindsvcport&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span>
+
+        <span class="nt">&quot;preferredlocation&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+
+    <span class="p">}</span>   
+
+
+    <span class="p">]</span>
+
+<span class="p">}</span>
 </pre></div>
 
 
-<p>},</p>
-<p>{ </p>
-<div class="codehilite"><pre><span></span>  &quot;name&quot;:&quot;lbv2&quot;,
-
-  &quot;servicename&quot;:&quot;svc1&quot;,
-
-  &quot;stateflag&quot;:&quot;536936451&quot;,
-
-  &quot;ipv46&quot;:&quot;10.20.30.40&quot;,
-
-  &quot;port&quot;:80,
-
-  &quot;servicetype&quot;:&quot;HTTP&quot;,
-
-  &quot;curstate&quot;:&quot;DOWN&quot;,
-
-  &quot;weight&quot;:&quot;1&quot;,
-
-  &quot;dynamicweight&quot;:&quot;0&quot;,
-
-  &quot;cookieipport&quot;:&quot;&quot;,
-
-  &quot;vserverid&quot;:&quot;mcw2&quot;,
-
-  &quot;vsvrbindsvcip&quot;:&quot;10.20.30.40&quot;,
-
-  &quot;vsvrbindsvcport&quot;:80,
-
-  &quot;preferredlocation&quot;:&quot;&quot;
-</pre></div>
-
-
-<p>}   </p>
-<p>]</p>
-<p>}
-```</p>
-</li>
-</ul>
 <h2 id="view-individual-counter-information">View Individual Counter Information<a class="headerlink" href="#view-individual-counter-information" title="Permanent link">&para;</a></h2>
 <p>This topic viewing individual counter information by using REST APIs through HTTP. </p>
 <p><strong>Using REST APIs through HTTP</strong></p>
 <p>To view global counters that are not otherwise shown by the NetScaler CLI or the GUI, you can now use the following URL format.</p>
-<p>URL: http://\<NSIP>/nitro/v1/stat/nsglobalcntr?args=counters:\<counter1>;\<counter2></p>
+<p><strong>URL</strong>: http://\<NSIP>/nitro/v1/stat/nsglobalcntr?args=counters:\<counter1>;\<counter2></p>
 <p>Previously, these counter values could be viewed only through the “nsconmsg” Shell command.</p>
 <p><strong>Note.</strong> You can view only global counters of type ULONG and only up to 12 counters in a single request.</p>
 <p><strong>Example</strong></p>
 <p>This example shows how to view the individual counters http_tot_Requests and http_tot_Responses. Enter the details in the system or tool that you are using to generate HTTP or HTTPS requests.</p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>HTTP Method</strong> GET</p>
-<p><strong>URL</strong> http://\<NSIP>/nitro/v1/stat/nsglobalcntr?args=counters:http_tot_Requests;http_tot_Responses</p>
-</li>
-<li>
-<p><strong>Response</strong>
-    ```json
-    {
-    "errorcode": 0,</p>
-<p>"message": "Done",</p>
-<p>"severity": "NONE",</p>
-<p>"nsglobalcntr": 
-    {
-    "http_tot_Requests": "5783",
-    "http_tot_Responses": "5783"
-    }
-}
-```</p>
-</li>
-</ul>
+<p><strong>HTTP Method:</strong> GET</p>
+<p><strong>URL:</strong> http://\<NSIP>/nitro/v1/stat/nsglobalcntr?args=counters:http_tot_Requests;http_tot_Responses</p>
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;errorcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+
+<span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Done&quot;</span><span class="p">,</span>
+
+<span class="nt">&quot;severity&quot;</span><span class="p">:</span> <span class="s2">&quot;NONE&quot;</span><span class="p">,</span>
+
+<span class="nt">&quot;nsglobalcntr&quot;</span><span class="p">:</span> 
+    <span class="p">{</span>
+    <span class="nt">&quot;http_tot_Requests&quot;</span><span class="p">:</span> <span class="s2">&quot;5783&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;http_tot_Responses&quot;</span><span class="p">:</span> <span class="s2">&quot;5783&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
 <h2 id="prevent-xss-and-csrf-attacks-by-disabling-basic-authentication">Prevent XSS and CSRF Attacks by Disabling Basic Authentication<a class="headerlink" href="#prevent-xss-and-csrf-attacks-by-disabling-basic-authentication" title="Permanent link">&para;</a></h2>
 <p>As an administrator or a root user, you can now prevent users from making API calls after using basic authentication (such as one-time credentials) to log on. You can use this feature to prevent Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), and other types of attacks.</p>
 <p><strong>Procedure for Disabling Basic Authentication</strong></p>
 <p>Use the following formats to enter the details in the system or tool that you are using to generate HTTP or HTTPS requests.</p>
 <p><strong>Using REST APIs through HTTP</strong></p>
-<ul>
-<li>
 <p><strong>Request</strong></p>
-<p><strong>URL</strong> http://\<netscaler-ip-address >/nitro/v1/config/systemparameter</p>
-<p><strong>HTTP Method</strong> PUT</p>
-<p><strong>Request Headers</strong></p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address >/nitro/v1/config/systemparameter</p>
+<p><strong>HTTP Method:</strong> PUT</p>
+<p><strong>Request Headers:</strong></p>
 <p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
 <p>Content-Type:application/json</p>
-<p><strong>Request Payload</strong>
-```json
-{
-    "systemparameter":{ "basicauth":"disabled",}</p>
-<p>}
-```</p>
-</li>
-<li>
-<p><strong>Response</strong>
-    <strong>HTTP Status Code on Success</strong> 200 OK</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;systemparameter&quot;</span><span class="p">:{</span> <span class="nt">&quot;basicauth&quot;</span><span class="p">:</span><span class="s2">&quot;disabled&quot;</span><span class="p">,}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
 <p>After you disable the basic authentication, access to NetScaler through the one-time password is denied and an error message is displayed.</p>
-</li>
-</ul>
 <p><strong>Example</strong></p>
 <p>This example shows what happens if you make any API call after basic authentication has been disabled. </p>
-<ul>
-<li>
-<p><strong>Request</strong>
-    <strong>URL</strong> http://10.102.201.159/nitro/v1/config/lbvserver</p>
-<p><strong>HTTP Method</strong> GET</p>
+<p><strong>Request</strong></p>
+<p><strong>URL:</strong> http://10.102.201.159/nitro/v1/config/lbvserver</p>
+<p><strong>HTTP Method:</strong> GET</p>
 <p>After you make a GET call, the a logon screen appears. If you click <strong>Log In</strong> after entering the logon credentials, then you get the following response, which shows an error message. </p>
-</li>
-<li>
 <p><strong>Response</strong></p>
-<p><code>json
-{"errorcode": 1244,"message": "Authentication Failed: Use of Basic Authentication is Disabled.","severity": "ERROR"
-}</code></p>
-</li>
-</ul> 
+<div class="codehilite"><pre><span></span><span class="p">{</span><span class="nt">&quot;errorcode&quot;</span><span class="p">:</span> <span class="mi">1244</span><span class="p">,</span><span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Authentication Failed: Use of Basic Authentication is Disabled.&quot;</span><span class="p">,</span><span class="nt">&quot;severity&quot;</span><span class="p">:</span> <span class="s2">&quot;ERROR&quot;</span>
+<span class="p">}</span>
+</pre></div> 
 
                 </div>
               </div>
@@ -1788,7 +1698,7 @@ X-NITRO-ONERROR: exit
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span class="prev"><a href="../performing-basic-netscaler-operations/"><i class="fa fa-angle-left"></i> Previous</a></span>
+        <span class="prev"><a href="../performing-netscaler-resource-operations/"><i class="fa fa-angle-left"></i> Previous</a></span>
       
       
         <span class="next"><a href="../error-and-exception-handling/">Next <i class="fa fa-angle-right"></i></a></span>

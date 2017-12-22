@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Performing NetScaler Resource Operations - Citrix NetScaler 12.0 NITRO API Documentation</title>
+     
+    <link rel="shortcut icon" href="
+https://www.citrix.com/etc/designs/citrix/icon-favicon.png"> 
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link rel="stylesheet" href="../css/override.css" type="text/css" />
+    <link rel="stylesheet" href="../css/font-awesome.css" type="text/css" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Performing NetScaler Resource Operations";
+      var mkdocs_page_input_path = "performing-netscaler-resource-operations.md";
+      var mkdocs_page_url = "/performing-netscaler-resource-operations/";
+
+    </script>
+    
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/modernizr-2.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/highlight.pack.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/custom.js"></script>  
+  </head>
+
+  <body class="wy-body-for-nav" role="document">
+
+    <div class="header-top">
+
+        <div class="header-top-left">
+          <a href="http://developer-docs.citrix.com" class="logo-position"><img height="60" src="../img/citrixlogoblack.png" target="_blank" class="logo-citrix"><span style="color:#000;font-size: 20px;position: relative;top:4px;left:20px;">Developer Documentation</span></a>
+        </div>
+        <div class="header-top-right">
+          <ul>
+
+            <form id="rtd-search-form-alt" class="wy-form" action="../search.html" method="get">
+             <ul class="header-elements">
+              <li class="list-inline support">
+                <input name="q" id="txtName" type="text" placeholder="Search SDKs" class="searchdocs">
+                <a class="fa fa-search errspan"></a>
+<!---
+              </li>
+             <li> <a href="javascript:void(0);" style="font-size: 22px;position: relative;left: -10px;top: 3px"><i class="fa fa-globe"></i></a></li>
+             </ul>
+             --->
+            </form>
+
+          </ul>
+
+        </div>
+
+    </div>
+    <div class="body">
+      <div class="wy-grid-for-nav">
+
+        
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+          <div class="wy-side-nav-search">
+            <div role="search">
+  <form id ="rtd-search-form-alt" class="wy-form" action="../search.html" method="get">
+	<i class="fa fa-search"></i>
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+          </div>
+
+          <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+            <ul class="current">
+              
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="..">Overview</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../before-you-begin/">Before you begin</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../performing-basic-netscaler-operations/">Performing Basic NetScaler Operations</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 current">
+        <a class="toctree-l1-a current" href="./">Performing NetScaler Resource Operations</a>
+		
+            <ul style="margin-left: 0px;padding-left:15px;border-left: 1px solid #b2b2b2;">
+            
+                <li class="toctree-l3"><a href="#performing-netscaler-resource-operations" style="padding:0px;position: relative;">&nbsp;Performing NetScaler Resource Operations</a></li>
+                
+                    <li><a class="toctree-l4" href="#adding-a-netscaler-resource" style="padding:0px;position: relative;">Adding a NetScaler Resource</a></li>
+                
+                    <li><a class="toctree-l4" href="#enabling-a-netscaler-resource" style="padding:0px;position: relative;">Enabling a NetScaler Resource</a></li>
+                
+                    <li><a class="toctree-l4" href="#retrieving-properties-of-netscaler-resources" style="padding:0px;position: relative;">Retrieving Properties of NetScaler Resources</a></li>
+                
+                    <li><a class="toctree-l4" href="#retrieving-statistics-of-netscaler-resources" style="padding:0px;position: relative;">Retrieving Statistics of NetScaler Resources</a></li>
+                
+                    <li><a class="toctree-l4" href="#retrieving-statistics-of-netscaler-resources_1" style="padding:0px;position: relative;">Retrieving Statistics of NetScaler Resources</a></li>
+                
+                    <li><a class="toctree-l4" href="#updating-a-netscaler-resource" style="padding:0px;position: relative;">Updating a NetScaler Resource</a></li>
+                
+                    <li><a class="toctree-l4" href="#binding-netscaler-resources" style="padding:0px;position: relative;">Binding NetScaler Resources</a></li>
+                
+                    <li><a class="toctree-l4" href="#globally-binding-netscaler-resources" style="padding:0px;position: relative;">Globally Binding NetScaler Resources</a></li>
+                
+                    <li><a class="toctree-l4" href="#deleting-a-netscaler-resource" style="padding:0px;position: relative;">Deleting a NetScaler Resource</a></li>
+                
+                    <li><a class="toctree-l4" href="#performing-bulk-operations" style="padding:0px;position: relative;">Performing Bulk Operations</a></li>
+                
+                    <li><a class="toctree-l4" href="#getting-the-count-of-netscaler-resources" style="padding:0px;position: relative;">Getting the Count of NetScaler Resources</a></li>
+                
+                    <li><a class="toctree-l4" href="#renaming-a-netscaler-resource" style="padding:0px;position: relative;">Renaming a NetScaler Resource</a></li>
+                
+                    <li><a class="toctree-l4" href="#performing-file-operations" style="padding:0px;position: relative;">Performing File Operations</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../usecases/">Use cases</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../error-and-exception-handling/">Error and Exception Handling</a>
+		
+    </li>
+
+			  
+            </ul>
+          </div>
+          &nbsp;
+        </nav>
+
+        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+           
+          <div class="wy-nav-content">
+            <div class="rst-content">
+              <!-- <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Performing NetScaler Resource Operations</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div> -->
+              <div role="main">
+                <div class="section">
+                <div class="file-format">
+                 <div class="leftAlign" style="float: left;visibility: hidden;">
+                  </div>
+                  <div class="rightAlign" style="float: right;">
+                      <span>Download full document:</span>
+                      <ul class="file-types">
+                        <li><a style="border: 1px solid #EE3D24;padding: 5px;font-size: 11px;color: #EE3D24;border-radius: 5px;font-weight: 700">PDF</a></li>
+                        <li><a style="border: 1px solid #2A579A;padding: 5px;font-size: 11px;color: #2A579A;border-radius: 5px;font-weight: 700">DOCX</a></li>
+                        <li><a style="border: 1px solid #495164;padding: 5px;font-size: 11px;color: #495164;border-radius: 5px;font-weight: 700">EMAIL</a></li>
+                        <li><a style="border: 1px solid #495164;padding: 5px;font-size: 11px;color: #495164;border-radius: 5px;font-weight: 700">PRINT</a></li>
+                      </ul>
+                  </div>
+                  </div>
+                   <h1 id="performing-netscaler-resource-operations">Performing NetScaler Resource Operations<a class="headerlink" href="#performing-netscaler-resource-operations" title="Permanent link">&para;</a></h1>
+<p>NetScaler resources are organized into a set of packages or namespaces. Each package or namespace corresponds to a NetScaler feature. For example, all load-balancing related resources, such as load balancing virtual server, load balancing group, and load balancing monitor are available in com.citrix.netscaler.nitro.resource.config.lb.</p>
+<p>Similarly, all application firewall related resources, such as application firewall policy and application firewall archive are available in com.citrix.netscaler.nitro.resource.config.appfw.</p>
+<p>Each NetScaler resource is represented by a class. For example, the class that represents a load balancing virtual server is called lbvserver (in com.citrix.netscaler.nitro.resource.config.lb). The state of a resource is represented by properties of a class. You can get and set the properties of the class.</p>
+<p>The setter and getter properties are always executed locally on the client. They do not involve any network interaction with the NITRO web service. All properties have basic simple types: integer, long, boolean, and string.</p>
+<h2 id="adding-a-netscaler-resource">Adding a NetScaler Resource<a class="headerlink" href="#adding-a-netscaler-resource" title="Permanent link">&para;</a></h2>
+<p>This topic covers adding a NetScaler resource by using REST APIs through HTTP or SDKs. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To create a new resource (for example, an lbvserver) on the appliance, specify the resource name and other related arguments in the specific resource object.</p>
+<p>For example, to create an load balancing virtual server named MyFirstLbVServer:</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/lbvserver</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;lbvserver&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;MyFirstLbVServer&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;http&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>To create a new resource, instantiate the resource class, configure the resource by setting its properties locally, and then upload the new resource instance to the NetScaler appliance.</p>
+<p>The following sample code creates a load balancing virtual server.</p>
+<p><strong>Java - Sample code to add a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">//Create an instance of the lbvserver class </span>
+
+<span class="n">lbvserver</span> <span class="n">new_lbvserver_obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="o">();</span> 
+
+<span class="c1">//Set the properties of the resource locally </span>
+
+<span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="na">set_name</span><span class="o">(</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="o">);</span> 
+<span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="na">set_ipv46</span><span class="o">(</span><span class="s">&quot;10.102.29.88&quot;</span><span class="o">);</span> 
+<span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="na">set_port</span><span class="o">(</span><span class="mi">88</span><span class="o">);</span> 
+<span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="na">set_servicetype</span><span class="o">(</span><span class="s">&quot;HTTP&quot;</span><span class="o">);</span> 
+<span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="na">set_lbmethod</span><span class="o">(</span><span class="s">&quot;ROUNDROBIN&quot;</span><span class="o">);</span> 
+
+<span class="c1">//Upload the resource to NetScaler </span>
+
+<span class="n">lbvserver</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">new_lbvserver_obj</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to add a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">//Create an instance of the lbvserver class </span>
+
+<span class="n">lbvserver</span> <span class="n">new_lbvserver_obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="p">();</span>  
+
+<span class="c1">//Set the properties of the resource locally </span>
+
+<span class="n">new_lbvserver_obj</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;MyFirstLbVServer&quot;</span><span class="p">;</span> 
+<span class="n">new_lbvserver_obj</span><span class="p">.</span><span class="n">ipv46</span> <span class="p">=</span> <span class="s">&quot;10.102.29.88&quot;</span><span class="p">;</span> 
+<span class="n">new_lbvserver_obj</span><span class="p">.</span><span class="n">port</span> <span class="p">=</span> <span class="m">88</span><span class="p">;</span> 
+<span class="n">new_lbvserver_obj</span><span class="p">.</span><span class="n">servicetype</span> <span class="p">=</span> <span class="s">&quot;HTTP&quot;</span><span class="p">;</span> 
+<span class="n">new_lbvserver_obj</span><span class="p">.</span><span class="n">lbmethod</span> <span class="p">=</span> <span class="s">&quot;ROUNDROBIN&quot;</span><span class="p">;</span> 
+
+<span class="c1">//Upload the resource to NetScaler </span>
+
+<span class="n">lbvserver</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">new_lbvserver_obj</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to add a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">#Create an instance of the lbvserver class</span>
+
+<span class="n">new_lbvserver_obj</span> <span class="o">=</span> <span class="n">lbvserver</span><span class="p">()</span>
+
+<span class="c1">#Set the properties of the resource locally</span>
+
+<span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;MyFirstLbVServer&quot;</span>
+<span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="n">ipv46</span> <span class="o">=</span> <span class="s2">&quot;10.102.29.88&quot;</span>
+<span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">88</span>
+<span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="n">servicetype</span> <span class="o">=</span> <span class="s2">&quot;HTTP&quot;</span>
+<span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="n">lbmethod</span> <span class="o">=</span> <span class="s2">&quot;ROUNDROBIN&quot;</span>
+
+<span class="c1">#Upload the resource to NetScaler</span>
+
+<span class="n">lbvserver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">new_lbvserver_obj</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="enabling-a-netscaler-resource">Enabling a NetScaler Resource<a class="headerlink" href="#enabling-a-netscaler-resource" title="Permanent link">&para;</a></h2>
+<p>This topic covers enabling a NetScaler resource by using REST APIs through HTTP or SDKs. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To enable a resource on the NetScaler appliance, specify the action as "enable" in the URL query string, and in the request payload, specify the resource to be enabled. To disable a resource, in the URL query string, specify the action as "disable".</p>
+<p>For example, to enable a load balancing virtual server named MyFirstLbVServer.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?action=enable</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;lbvserver&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;MyFirstLbVServer&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>To enable a resource, invoke the enable() method and to disable, invoke the disable() method.</p>
+<p>The following sample code enables a load balancing virtual server named lb_vip.</p>
+<p><strong>Java - Sample code to enable a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="o">();</span>
+
+<span class="n">obj</span><span class="o">.</span><span class="na">set_name</span><span class="o">(</span><span class="s">&quot;lb_vip&quot;</span><span class="o">);</span>
+
+<span class="n">lbvserver</span><span class="o">.</span><span class="na">enable</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span> <span class="n">obj</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to enable a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver</span> <span class="n">obj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="p">();</span> 
+
+<span class="n">obj</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;lb_vip&quot;</span><span class="p">;</span> 
+
+<span class="n">lbvserver</span><span class="p">.</span><span class="n">enable</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">obj</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to enable a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">lbvserver</span><span class="p">()</span>
+
+<span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;lb_vip&quot;</span>
+
+<span class="n">lbvserver</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="retrieving-properties-of-netscaler-resources">Retrieving Properties of NetScaler Resources<a class="headerlink" href="#retrieving-properties-of-netscaler-resources" title="Permanent link">&para;</a></h2>
+<p>This topic covers retrieving properties of a NetScaler resource by using REST APIs through HTTP or SDKs. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>NITRO provides multiple approaches using which you can retrieve resources and their relevant details. The following table explains each of these approaches with the required URL.</p>
+<table cellspacing="0" cellpadding="4" border="1" class="table">
+    <tbody class="tbody"><tr class="row"><td width="25%" valign="top" class="entry"><p class="p"><b>Retrieving all details of all resources of a specific type</b></p>
+    </td>
+    <td width="75%" valign="top" class="entry"><p class="p">In the URL, specify the type of resource for which you want to retrieve the details.</p>
+    <p class="p">For example, to retrieve all details of load balancing virtual servers available on a NetScaler appliance.</p>
+    <p class="p">http://&lt;netscaler-ip-address&gt;/nitro/v1/config/lbvserver</p>
+    </td>
+    </tr><tr class="row"><td width="25%" valign="top" class="entry"><p class="p"><b>Retrieving all details of a specific resource</b></p>
+    </td>
+    <td width="75%" valign="top" class="entry"><p class="p">In the URL, specify the name of resource for which you want to retrieve the details.</p>
+    <p class="p">For example, to retrieve all details of a load balancing virtual server named MyFirstLbVServer:</p>
+    <p class="p">http://&lt;netscaler-ip-address&gt;/nitro/v1/config/lbvserver/MyFirstLbVServer</p>
+    </td>
+    </tr><tr class="row"><td width="25%" valign="top" class="entry"><p class="p"><b>Retrieving summary or detailed view of resources</b></p>
+    </td>
+    <td width="75%" valign="top" class="entry"><p class="p">In the URL, use the "<span class="keyword apiname">view</span>" query parameter to specify whether you want to view the summary (mandatory parameters) or detail (all parameters).</p>
+    <p class="p">For example, to view the mandatory parameters for all load balancing virtual servers:</p>
+    <div class="p">http://&lt;netscaler-ip-address&gt;/nitro/v1/config/lbvserver?view=summary<div class="note note"><span class="notetitle">Note:</span> By default, the retrieved results are displayed in detail view (?view=detail).</div>
+    </div>
+    </td>
+    </tr><tr class="row"><td width="25%" valign="top" class="entry"><p class="p"><b>Retrieving all details of resources that have multiple unique identifiers</b></p>
+    </td>
+    <td width="75%" valign="top" class="entry"><p class="p">In the URL, specify the type of resource and use the "<span class="keyword apiname">args</span>" query parameter to specify the unique attributes and the values for those attributes.</p>
+    <p class="p">For example, to get the application firewall profiles that have unique identifiers "name" and "starturl" as appfw1 and aa respectively.</p>
+    <p class="p">http://&lt;netscaler-ip-address&gt;/nitro/v1/config/appfwprofile?args=name:appfw1,starturl:aa</p>
+    </td>
+    </tr><tr class="row"><td width="25%" valign="top" class="entry"><p class="p"><b>Retrieving specific details of all resources of a specific type</b></p>
+    </td>
+    <td width="75%" valign="top" class="entry"><p class="p">In the URL, specify the type of the resource and use the "<span class="keyword apiname">attrs</span>" query parameter to specify the resource details that you want to retrieve.</p>
+    <p class="p">For example, to retrieve the "name" and "lbmethod" of all load balancing virtual servers:</p>
+    <p class="p">http://&lt;netscaler-ip-address&gt;/nitro/v1/config/lbvserver?attrs=name,lbmethod</p>
+    </td>
+    </tr><tr class="row"><td width="25%" valign="top" class="entry"><p class="p"><b>Retrieving specific details of a specific resource</b></p>
+    </td>
+    <td width="75%" valign="top" class="entry"><p class="p">In the URL, specify the type and name of the resource and use the "<span class="keyword apiname">attrs</span>" query parameter to specify the resource details that you want to retrieve.</p>
+    <p class="p">For example, to retrieve the "name" and "lbmethod" of a load balancing virtual server named "MyFirstLbVServer":</p>
+    <p class="p">http://&lt;netscaler-ip-address&gt;/nitro/v1/config/lbvserver/MyFirstLbVServer?attrs=name,lbmethod</p>
+    </td>
+    </tr><tr class="row"><td width="25%" valign="top" class="entry"><p class="p"><b>Filtering the retrieved resources</b></p>
+    </td>
+    <td width="75%" valign="top" class="entry"><p class="p">In the URL, specify the type of resource and use the "<span class="keyword apiname">filter</span>" query parameter to specify the attribute(s) and the value(s) of the attributes. The resources fetched will be filtered based on the filter criteria.</p>
+    <div class="p"><div class="note note"><span class="notetitle">Note:</span> The filter query parameter supports the use of PCRE regular expressions.</div>
+    </div>
+    <p class="p">For example, to filter the load balancing virtual servers where the "lbmethod" is ROUNDROBIN.</p>
+    <p class="p">http://&lt;netscaler-ip-address&gt;/nitro/v1/config/lbvserver?filter=lbmethod:ROUNDROBIN</p>
+    </td>
+    </tr><tr class="row"><td width="25%" valign="top" class="entry"><p class="p"><b>Retrieving resources in paginated manner</b></p>
+    </td>
+    <td width="75%" valign="top" class="entry"><p class="p">If the request is likely to result in a large number of resources, you can divide the results into pages and retrieve them page by page (paginated). For example, if you are retrieving all the 53 load balancing virtual servers of a NetScaler appliance, instead of retrieving all 53 in one response, you can configure the results to be divided into 6 pages each having 10 results.</p>
+    <div class="p">In the URL, specify the name of the resource and use the following query parameters:<ul class="ul">
+    <li class="li">"<span class="keyword apiname">pageno</span>" - The page number to be displayed.</li>
+    <li class="li">"<span class="keyword apiname">pagesize</span>" - The number of resources to be displayed in each page.</li>
+    </ul>
+    </div>
+    <p class="p">For example, to retrieve the load balancing virtual servers in a paginated form, first get a count (using the "count" query parameter shown in below row) of the load balancing virtual servers. Then, accordingly specify the number of results for each page and then specify the page number to be displayed.</p>
+    <p class="p">http://&lt;netscaler-ip-address&gt;/nitro/v1/config/lbvserver?pagesize=10&amp;pageno=3</p>
+    </td>
+    </tr></tbody>
+    </table>
+
+<p>For example, to retrieve only the name and load balancing method of all load balancing virtual servers on a NetScaler.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> GET</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?attrs=name,lbmethod</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Accept:application/json</p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Response Header:</strong></p>
+<p>Content-Type:application/json</p>
+<p><strong>Response Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="err">lbvserver:</span> 
+    <span class="err">{</span> 
+        <span class="err">name:</span> <span class="nt">&quot;test&quot;</span><span class="p">,</span> 
+        <span class="err">lbmethod:</span> <span class="nt">&quot;LEASTCONNECTION&quot;</span> 
+    <span class="p">}</span> 
+    <span class="p">{</span> 
+        <span class="err">name:</span> <span class="nt">&quot;test1&quot;</span><span class="p">,</span> 
+        <span class="err">lbmethod:</span> <span class="nt">&quot;LEASTCONNECTION&quot;</span> 
+    <span class="p">}</span> 
+<span class="err">}</span>
+</pre></div>
+
+
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>To retrieve the properties of a resource, you retrieve the resource object from the NetScaler appliance. Once the object is retrieved, you can extract the required properties of the resource locally, without further network traffic.</p>
+<p>The following sample code retrieves the details of a load balancing virtual server.</p>
+<p><strong>Java - Sample code to get details of resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">//Retrieve the resource object from the NetScaler </span>
+
+<span class="n">new_lbvserver_obj</span> <span class="o">=</span> <span class="n">lbvserver</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="o">);</span> 
+
+<span class="c1">//Extract the properties of the resource from the object locally </span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="na">get_name</span><span class="o">());</span> 
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="na">get_servicetype</span><span class="o">());</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to get details of resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">//Retrieve the resource object from the NetScaler </span>
+
+<span class="n">new_lbvserver_obj</span> <span class="p">=</span> <span class="n">lbvserver</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="p">);</span> 
+
+<span class="c1">//Extract the properties of the resource from the object locally </span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">new_lbvserver_obj</span><span class="p">.</span><span class="n">name</span><span class="p">);</span> 
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">new_lbvserver_obj</span><span class="p">.</span><span class="n">servicetype</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to get details of resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">#Retrieve the resource object from the NetScaler</span>
+
+<span class="n">new_lbvserver_obj</span> <span class="o">=</span> <span class="n">lbvserver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="s2">&quot;MyFirstLbVServer&quot;</span><span class="p">)</span>
+
+<span class="c1">#Extract the properties of the resource from the object locally</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">new_lbvserver_obj</span><span class="o">.</span><span class="n">servicetype</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="filtering-results">Filtering Results<a class="headerlink" href="#filtering-results" title="Permanent link">&para;</a></h3>
+<p>This topic covers retrieving filtered information of a resource by using REST APIs through SDKs. </p>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>You can also retrieve resources by specifying a filter on the value of their properties by using the com.citrix.netscaler.nitro.util.filtervalue class.</p>
+<p>For example, you can retrieve all the load balancing virtual servers that have their port set to 80 and servicetype to HTTP.</p>
+<p><strong>Java - Sample code to get filtered results</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">filtervalue</span><span class="o">[]</span> <span class="n">filter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">filtervalue</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+<span class="n">filter</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">filtervalue</span><span class="o">(</span><span class="s">&quot;port&quot;</span><span class="o">,</span><span class="s">&quot;80&quot;</span><span class="o">);</span>
+<span class="n">filter</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">filtervalue</span><span class="o">(</span><span class="s">&quot;servicetype&quot;</span><span class="o">,</span><span class="s">&quot;HTTP&quot;</span><span class="o">);</span>
+<span class="n">lbvserver</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="n">lbvserver</span><span class="o">.</span><span class="na">get_filtered</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">filter</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to get filtered results</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">filtervalue</span><span class="p">[]</span> <span class="n">filter</span> <span class="p">=</span> <span class="k">new</span> <span class="n">filtervalue</span><span class="p">[</span><span class="m">2</span><span class="p">];</span> 
+<span class="n">filter</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">filtervalue</span><span class="p">(</span><span class="s">&quot;port&quot;</span><span class="p">,</span><span class="s">&quot;80&quot;</span><span class="p">);</span> 
+<span class="n">filter</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">filtervalue</span><span class="p">(</span><span class="s">&quot;servicetype&quot;</span><span class="p">,</span><span class="s">&quot;HTTP&quot;</span><span class="p">);</span> 
+<span class="n">lbvserver</span><span class="p">[]</span> <span class="n">result</span> <span class="p">=</span> <span class="n">lbvserver</span><span class="p">.</span><span class="n">get_filtered</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">filter</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to get filtered results</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">filter_params</span> <span class="o">=</span> <span class="p">[]</span>
+
+      <span class="n">filter_params</span> <span class="o">=</span> <span class="p">[</span> <span class="n">filtervalue</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+
+      <span class="n">filter_params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtervalue</span><span class="p">(</span><span class="s2">&quot;servicetype&quot;</span><span class="p">,</span><span class="s2">&quot;HTTP&quot;</span><span class="p">)</span>
+
+      <span class="n">filter_params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtervalue</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">,</span><span class="s2">&quot;80&quot;</span><span class="p">)</span>
+
+      <span class="n">result</span> <span class="o">=</span> <span class="n">lbvserver</span><span class="o">.</span><span class="n">get_filtered</span><span class="p">(</span><span class="n">ns_session1</span><span class="p">,</span> <span class="n">filter_params</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="retrieving-statistics-of-netscaler-resources">Retrieving Statistics of NetScaler Resources<a class="headerlink" href="#retrieving-statistics-of-netscaler-resources" title="Permanent link">&para;</a></h2>
+<p>The NetScaler appliance collects statistics about the usage of its features and the corresponding resources. NITRO can retrieve these statistics. Not all NetScaler features and resources have statistic objects associated with them.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To get statistics of a feature, the URL format must be: http://\<netscaler-ip-address>/nitro/v1/stat/\<feature_name>.</p>
+<p>To get statistics of a resource, the URL format must be: http://\<netscaler-ip-address>/nitro/v1/stat/\<resource_type>/\<resource_name>.</p>
+<p>To get statistics of the services and service groups that are bound to a load balancing virtual server, the URL format must be: http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/\<name>?statbindings=yes*.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> GET</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p>Accept:application/json</p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Response Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+
+    <span class="nt">&quot;lbvserver&quot;</span><span class="p">:</span>
+
+    <span class="p">[</span>
+
+        <span class="p">{</span>
+
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;MyFirstLbVServer&quot;</span><span class="p">,</span>
+
+            <span class="nt">&quot;establishedconn&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+
+            <span class="nt">&quot;vslbhealth&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+
+            <span class="nt">&quot;primaryipaddress&quot;</span><span class="p">:</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+
+            <span class="err">...</span>
+
+        <span class="p">}</span>
+
+    <span class="p">]</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>To get statistics of the bound entities, use statbindings=yes.
+For example, to get the statistics of the services that are bound to a load balancing virtual server named MyFirstLbVServer.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> GET</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer?statbindings=yes</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p>Accept:application/json</p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status code on success:</strong> 200 OK  </p>
+<p><strong>HTTP Status code on failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.   </p>
+<p><strong>Response Header:</strong></p>
+<p>Content-Type:application/json</p>
+<p><strong>Response Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+
+
+<span class="nt">&quot;lbvserver&quot;</span><span class="p">:</span> <span class="p">[{</span>
+
+
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MyFirstLbVServer&quot;</span><span class="p">,</span>
+
+
+    <span class="nt">&quot;sortorder&quot;</span><span class="p">:</span> <span class="s2">&quot;descending&quot;</span><span class="p">,</span>
+
+
+    <span class="nt">&quot;vsvrsurgecount&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+
+
+    <span class="nt">&quot;establishedconn&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+
+    <span class="err">...</span>
+
+    <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="p">[{</span>
+
+
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;s1&quot;</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;throughput&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;throughputrate&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;avgsvrttfb&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>  
+
+
+        <span class="nt">&quot;primaryipaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.3.5&quot;</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;primaryport&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span> <span class="s2">&quot;HTTP&quot;</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;DOWN&quot;</span><span class="p">,</span>
+
+
+            <span class="nt">&quot;totalrequests&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+
+
+            <span class="nt">&quot;requestsrate&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+
+            <span class="err">...</span>
+
+            <span class="p">}]</span>
+    <span class="p">}]</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The NetScaler appliance collects statistics about the usage of its features and the corresponding resources. You can retrieve these statistics by using NITRO API. The statistics APIs are available in different packages from the configuration APIs.</p>
+<p>For example, the API to retrieve statistics of the load balancing virtual server are available in 
+com.citrix.netscaler.nitro.resource.stat.lb.</p>
+<p><strong>Note.</strong>
+<em> For the python SDK, the package path is of the form nssrc.com.citrix.netscaler......
+</em> Not all NetScaler features and resources have statistic objects associated with them.</p>
+<p>The following sample code retrieves the statistics of a load balancing virtual server and displays some of the statistics returned.</p>
+<p><strong>Java - Sample code to get feature statistics</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver_stats</span> <span class="n">stats</span> <span class="o">=</span> <span class="n">lbvserver_stats</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="o">);</span> 
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">stats</span><span class="o">.</span><span class="na">get_curclntconnections</span><span class="o">());</span> 
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">stats</span><span class="o">.</span><span class="na">get_deferredreqrate</span><span class="o">());</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to get feature statistics</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver_stats</span> <span class="n">stats</span> <span class="p">=</span> <span class="n">lbvserver_stats</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">stats</span><span class="p">.</span><span class="n">curclntconnections</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">stats</span><span class="p">.</span><span class="n">deferredreqrate</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to get feature statistics</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">stats</span> <span class="o">=</span> <span class="n">lbvserver_stats</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="s2">&quot;MyFirstLbVServer&quot;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">curclntconnections</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">deferredreqrate</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="retrieving-statistics-of-netscaler-resources_1">Retrieving Statistics of NetScaler Resources<a class="headerlink" href="#retrieving-statistics-of-netscaler-resources_1" title="Permanent link">&para;</a></h2>
+<p>The NetScaler appliance collects statistics about the usage of its features and the corresponding resources. NITRO can retrieve these statistics. Not all NetScaler features and resources have statistic objects associated with them.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To get statistics of a feature, the URL format must be: http://\<netscaler-ip-address>/nitro/v1/stat/\<feature_name>.</p>
+<p>To get statistics of a resource, the URL format must be: http://\<netscaler-ip-address>/nitro/v1/stat/\<resource_type>/\<resource_name>.</p>
+<p>To get statistics of the services and service groups that are bound to a load balancing virtual server, the URL format must be: http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/\<name>?statbindings=yes*.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> GET</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p>Accept:application/json</p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Response Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+
+    <span class="nt">&quot;lbvserver&quot;</span><span class="p">:</span>
+
+    <span class="p">[</span>
+
+        <span class="p">{</span>
+
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;MyFirstLbVServer&quot;</span><span class="p">,</span>
+
+            <span class="nt">&quot;establishedconn&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+
+            <span class="nt">&quot;vslbhealth&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+
+            <span class="nt">&quot;primaryipaddress&quot;</span><span class="p">:</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+
+            <span class="err">...</span>
+
+        <span class="p">}</span>
+
+    <span class="p">]</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>To get statistics of the bound entities, use statbindings=yes.
+For example, to get the statistics of the services that are bound to a load balancing virtual server named MyFirstLbVServer.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> GET</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/stat/lbvserver/MyFirstLbVServer?statbindings=yes</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p>Accept:application/json</p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status code on success:</strong> 200 OK  </p>
+<p><strong>HTTP Status code on failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.   </p>
+<p><strong>Response Header:</strong></p>
+<p>Content-Type:application/json</p>
+<p><strong>Response Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+
+
+<span class="nt">&quot;lbvserver&quot;</span><span class="p">:</span> <span class="p">[{</span>
+
+
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MyFirstLbVServer&quot;</span><span class="p">,</span>
+
+
+    <span class="nt">&quot;sortorder&quot;</span><span class="p">:</span> <span class="s2">&quot;descending&quot;</span><span class="p">,</span>
+
+
+    <span class="nt">&quot;vsvrsurgecount&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+
+
+    <span class="nt">&quot;establishedconn&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+
+    <span class="err">...</span>
+
+    <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="p">[{</span>
+
+
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;s1&quot;</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;throughput&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;throughputrate&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;avgsvrttfb&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>  
+
+
+        <span class="nt">&quot;primaryipaddress&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.3.5&quot;</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;primaryport&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span> <span class="s2">&quot;HTTP&quot;</span><span class="p">,</span>
+
+
+        <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;DOWN&quot;</span><span class="p">,</span>
+
+
+            <span class="nt">&quot;totalrequests&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+
+
+            <span class="nt">&quot;requestsrate&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+
+            <span class="err">...</span>
+
+            <span class="p">}]</span>
+    <span class="p">}]</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The NetScaler appliance collects statistics about the usage of its features and the corresponding resources. You can retrieve these statistics by using NITRO API. The statistics APIs are available in different packages from the configuration APIs.</p>
+<p>For example, the API to retrieve statistics of the load balancing virtual server are available in 
+com.citrix.netscaler.nitro.resource.stat.lb.</p>
+<p><strong>Note:</strong>
+<em> For the python SDK, the package path is of the form nssrc.com.citrix.netscaler......
+</em> Not all NetScaler features and resources have statistic objects associated with them.</p>
+<p>The following sample code retrieves the statistics of a load balancing virtual server and displays some of the statistics returned.</p>
+<p><strong>Java - Sample code to get feature statistics</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver_stats</span> <span class="n">stats</span> <span class="o">=</span> <span class="n">lbvserver_stats</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="o">);</span> 
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">stats</span><span class="o">.</span><span class="na">get_curclntconnections</span><span class="o">());</span> 
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">stats</span><span class="o">.</span><span class="na">get_deferredreqrate</span><span class="o">());</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to get feature statistics</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver_stats</span> <span class="n">stats</span> <span class="p">=</span> <span class="n">lbvserver_stats</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">stats</span><span class="p">.</span><span class="n">curclntconnections</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">stats</span><span class="p">.</span><span class="n">deferredreqrate</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to get feature statistics</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">stats</span> <span class="o">=</span> <span class="n">lbvserver_stats</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="s2">&quot;MyFirstLbVServer&quot;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">curclntconnections</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">deferredreqrate</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="updating-a-netscaler-resource">Updating a NetScaler Resource<a class="headerlink" href="#updating-a-netscaler-resource" title="Permanent link">&para;</a></h2>
+<p>You can modify the properties of a resource after creating it.</p>
+<p>Some properties in some NetScaler resources are not allowed to be modified after creation. The port number or the service type (protocol) of a load balancing virtual server or a service, are examples of such properties. Even though the update method appears to succeed, these properties retain their original values on the appliance.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To update the details of an existing resource on the NetScaler appliance, specify the name of the resource in the URL, and in the request payload,within the specific resource object, specify the name and the updated details of the resource.</p>
+<p>For example, to change the load balancing method to ROUNDROBIN and update the comment property for a load balancing virtual server named MyFirstLbVServer:</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> PUT</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/lbvserver/MyFirstLbVServer</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;lbvserver&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;MyFirstLbVServer&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;lbmethod&quot;</span><span class="p">:</span><span class="s2">&quot;ROUNDROBIN&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="s2">&quot;Updated comments&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>To update the properties of a resource, instantiate the resource class, specify the name of the resource to be updated, configure the resource by updating its properties locally, and then upload the updated resource instance to the NetScaler appliance.</p>
+<p>The following sample code updates the service type and load balancing method of a load balancing virtual server.</p>
+<p><strong>Java - Sample code to update a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">//Create an instance of the lbvserver class </span>
+
+<span class="n">lbvserver</span> <span class="n">update_lb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="o">();</span> 
+
+<span class="c1">//Specify the name of the lbvserver to be updated </span>
+
+<span class="n">update_lb</span><span class="o">.</span><span class="na">set_name</span><span class="o">(</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="o">);</span> 
+
+<span class="c1">//Specify the updated service type and lb method </span>
+
+<span class="n">update_lb</span><span class="o">.</span><span class="na">set_servicetype</span><span class="o">(</span><span class="s">&quot;https&quot;</span><span class="o">);</span> 
+<span class="n">update_lb</span><span class="o">.</span><span class="na">set_lbmethod</span><span class="o">(</span><span class="s">&quot;LEASTRESPONSETIME&quot;</span><span class="o">);</span> 
+
+<span class="c1">//Upload the resource to NetScaler </span>
+
+<span class="n">lbvserver</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">update_lb</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to update a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">//Create an instance of the lbvserver class </span>
+
+<span class="n">lbvserver</span> <span class="n">update_lb</span> <span class="p">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="p">();</span> 
+
+<span class="c1">//Specify the name of the lbvserver to be updated </span>
+
+<span class="n">update_lb</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;MyFirstLbVServer&quot;</span><span class="p">;</span> 
+
+<span class="c1">//Specify the updated service type and lb method </span>
+
+<span class="n">update_lb</span><span class="p">.</span><span class="n">servicetype</span> <span class="p">=</span> <span class="s">&quot;https&quot;</span><span class="p">;</span> 
+<span class="n">update_lb</span><span class="p">.</span><span class="n">lbmethod</span> <span class="p">=</span> <span class="s">&quot;LEASTRESPONSETIME&quot;</span><span class="p">;</span> 
+
+<span class="c1">//Upload the resource to NetScaler </span>
+
+<span class="n">lbvserver</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">update_lb</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to update a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">#Create an instance of the lbvserver class</span>
+
+<span class="n">update_lb</span> <span class="o">=</span> <span class="n">lbvserver</span><span class="p">()</span>
+
+<span class="c1">#Specify the name of the lbvserver to be updated</span>
+
+<span class="n">update_lb</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;MyFirstLbVServer&quot;</span>
+
+<span class="c1">#Specify the updated service type and lb method</span>
+
+<span class="n">update_lb</span><span class="o">.</span><span class="n">servicetype</span> <span class="o">=</span> <span class="s2">&quot;https&quot;</span>
+<span class="n">update_lb</span><span class="o">.</span><span class="n">lbmethod</span> <span class="o">=</span> <span class="s2">&quot;LEASTRESPONSETIME&quot;</span>
+
+<span class="c1">#Upload the resource to the NetScaler</span>
+
+<span class="n">lbvserver</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">update_lb</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="binding-netscaler-resources">Binding NetScaler Resources<a class="headerlink" href="#binding-netscaler-resources" title="Permanent link">&para;</a></h2>
+<p>NetScaler resources form relationships with each other through the process of binding. This is how services are associated with a load balancing virtual server, or how policies are bound to a load balancing virtual server. Each binding relationship is represented by its own object.</p>
+<p>A binding resource has properties representing the name of each NetScaler resource in the binding relationship. It can also have other properties related to that relationship (for example, the weight of the binding between an lbvserver resource and a service resource).</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To bind one NetScaler resource to another, you must instantiate the appropriate binding class (for example, to bind a service to a load balancing virtual server, you must instantiate the lbvserver_service_binding class) and add it to the NetScaler configuration (by using the static add() method on this class).</p>
+<p>To unbind a resource, use the DELETE method and specify an "args" query string parameter in the URL that contains the attribute name and value in the relationship resource that designates the secondary resource.</p>
+<p>The following example binds a service named svc_prod to a load balancing virtual server named MyFirstLbVServer and specify a weight for the binding.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address >/nitro/v1/config/lbvserver_service_binding</p>
+<p><strong>Request Headers:</strong>
+Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> 
+Content-Type:application/json</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+<span class="nt">&quot;lbvserver_service_binding&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;servicename&quot;</span><span class="p">:</span><span class="s2">&quot;svc_prod&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="s2">&quot;20&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;MyFirstLbVServer&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong>  4xx \<string > (for general HTTP errors) or 5xx \<string > (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p>The following example binds a policy to a policy label.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address >/nitro/v1/config/authenticationpolicylabel_authenticationpolicy_binding</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+<span class="nt">&quot;authenticationpolicylabel_authenticationpolicy_binding&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;policyname&quot;</span><span class="p">:</span><span class="s2">&quot;p1&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;priority&quot;</span><span class="p">:</span><span class="s2">&quot;100&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;gotopriorityexpression&quot;</span><span class="p">:</span><span class="s2">&quot;END&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;labelname&quot;</span><span class="p">:</span><span class="s2">&quot;pl1&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p>The following example unbinds the service svc_prod from the load balancing virtual server MyFirstLbVServer.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> DELETE</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/lbvserver_service_binding/MyFirstLbVServer?args=servicename:svc_prod</p>
+<p><strong>Request Header:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>To bind one NetScaler resource to another, you must instantiate the appropriate binding class (for example, to bind a service to a load balancing virtual server, you must instantiate the lbvserver_service_binding class) and add it to the NetScaler configuration (by using the static add() method on this class).</p>
+<p>To unbind a resource from another, invoke the delete() method from the resource binding class, by passing the name of the two resources.</p>
+<p>The following sample code binds a service to a load balancing virtual server, by specifying a certain weight for the binding.</p>
+<p><strong>Java - Sample code for binding</strong> </p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver_service_binding</span> <span class="n">bindObj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">lbvserver_service_binding</span><span class="o">();</span> 
+<span class="n">bindObj</span><span class="o">.</span><span class="na">set_name</span><span class="o">(</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="o">);</span> 
+<span class="n">bindObj</span><span class="o">.</span><span class="na">set_servicename</span><span class="o">(</span><span class="s">&quot;svc_prod&quot;</span><span class="o">);</span> 
+<span class="n">bindObj</span><span class="o">.</span><span class="na">set_weight</span><span class="o">(</span><span class="mi">20</span><span class="o">);</span> 
+<span class="n">lbvserver_service_binding</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">bindObj</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code for binding</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver_service_binding</span> <span class="n">bindObj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">lbvserver_service_binding</span><span class="p">();</span> 
+<span class="n">bindObj</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;MyFirstLbVServer&quot;</span><span class="p">;</span> 
+<span class="n">bindObj</span><span class="p">.</span><span class="n">servicename</span> <span class="p">=</span> <span class="s">&quot;svc_prod&quot;</span><span class="p">;</span> 
+<span class="n">bindObj</span><span class="p">.</span><span class="n">weight</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span> 
+<span class="n">lbvserver_service_binding</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">bindObj</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code for binding</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">bindObj</span> <span class="o">=</span> <span class="n">lbvserver_service_binding</span><span class="p">()</span>
+<span class="n">bindObj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;MyFirstLbVServer&quot;</span>
+<span class="n">bindObj</span><span class="o">.</span><span class="n">servicename</span> <span class="o">=</span> <span class="s2">&quot;svc_prod&quot;</span>
+<span class="n">bindObj</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">lbvserver_service_binding</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">bindObj</span><span class="p">)</span>
+</pre></div>
+
+
+<p>The following code sample unbinds a service from a server.</p>
+<p><strong>Java - Sample Code for unbinding</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver_service_binding</span> <span class="n">bindObj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">lbvserver_service_binding</span><span class="o">();</span> 
+<span class="n">bindObj</span><span class="o">.</span><span class="na">set_name</span><span class="o">(</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="o">);</span> 
+<span class="n">bindObj</span><span class="o">.</span><span class="na">set_servicename</span><span class="o">(</span><span class="s">&quot;svc_prod&quot;</span><span class="o">);</span> 
+<span class="n">lbvserver_service_binding</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">bindObj</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code for unbinding</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver_service_binding</span> <span class="n">bindObj</span> <span class="p">=</span> <span class="k">new</span> <span class="n">lbvserver_service_binding</span><span class="p">();</span> 
+<span class="n">bindObj</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="p">);</span> 
+<span class="n">bindObj</span><span class="p">.</span><span class="n">servicename</span><span class="p">(</span><span class="s">&quot;svc_prod&quot;</span><span class="p">);</span> 
+<span class="n">lbvserver_service_binding</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">bindObj</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code for unbinding</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">bindObj</span> <span class="o">=</span> <span class="n">lbvserver_service_binding</span><span class="p">()</span>
+<span class="n">bindObj</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;MyFirstLbVServer&quot;</span>
+<span class="n">bindObj</span><span class="o">.</span><span class="n">servicename</span> <span class="o">=</span> <span class="s2">&quot;svc_prod&quot;</span>
+<span class="n">lbvserver_service_binding</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">bindObj</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="globally-binding-netscaler-resources">Globally Binding NetScaler Resources<a class="headerlink" href="#globally-binding-netscaler-resources" title="Permanent link">&para;</a></h2>
+<p>Some NetScaler resources can be bound globally to affect the whole system. For example, a compression policy can be bound to an load balancing virtual server, in which case the policy affects only the traffic on that load balancing virtual server. However, if bound globally, it can affect any traffic on the appliance, regardless of which virtual servers handle the traffic.</p>
+<p>The names of NITRO resources that can be used to bind resources globally have the pattern <em>\<featurename >global_\<resourcetype >_binding</em>. For example, the object <em>aaaglobal_aaapreauthenticationpolicy_binding</em> is used to bind preauthentication policies globally.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>The following example binds the policy named preautpol1 globally at priority 200.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> </p>
+<p>http://\<netscaler-ip-address >/nitro/v1/config/aaaglobal_aaapreauthenticationpolicy_binding/preautpol1</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+<span class="nt">&quot;aaaglobal_aaapreauthenticationpolicy_binding&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+    <span class="nt">&quot;policy&quot;</span><span class="p">:</span><span class="s2">&quot;preautpol1&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;priority&quot;</span><span class="p">:</span><span class="s2">&quot;200&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p>The following example unbinds the policy named preautpol1.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> DELETE</p>
+<p><strong>URL:</strong> </p>
+<p>http://\<netscaler-ip-address >/nitro/v1/config/aaaglobal_aaapreauthenticationpolicy_binding?args=policy:preautpol1</p>
+<p><strong>Request Header:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>The following sample code creates a preauthentication action and a preauthentication policy that uses that action, and then binds the policy globally at priority 200.</p>
+<p><strong>Java - Sample code</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">aaapreauthenticationaction</span> <span class="n">preauth_act1</span><span class="o">;</span> 
+
+<span class="n">aaapreauthenticationpolicy</span> <span class="n">preauth_pol1</span><span class="o">;</span> 
+
+<span class="n">aaaglobal_aaapreauthenticationpolicy_binding</span> <span class="n">glob_binding</span><span class="o">;</span> 
+
+<span class="n">preauth_act1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">aaapreauthenticationaction</span><span class="o">();</span> 
+
+<span class="n">preauth_act1</span><span class="o">.</span><span class="na">set_name</span><span class="o">(</span><span class="s">&quot;preauth_act1&quot;</span><span class="o">);</span> 
+
+<span class="n">preauth_act1</span><span class="o">.</span><span class="na">set_preauthenticationaction</span><span class="o">(</span><span class="s">&quot;ALLOW&quot;</span><span class="o">);</span> 
+
+<span class="n">aaapreauthenticationaction</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">preauth_act1</span><span class="o">);</span> 
+
+<span class="n">preauth_pol1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">aaapreauthenticationpolicy</span><span class="o">();</span> 
+
+<span class="n">preauth_pol1</span><span class="o">.</span><span class="na">set_name</span><span class="o">(</span><span class="s">&quot;preauth_pol1&quot;</span><span class="o">);</span> 
+
+<span class="n">preauth_pol1</span><span class="o">.</span><span class="na">set_rule</span><span class="o">(</span><span class="s">&quot;CLIENT.APPLICATION.PROCESS(antivirus.exe) EXISTS&quot;</span><span class="o">);</span> 
+
+<span class="n">preauth_pol1</span><span class="o">.</span><span class="na">set_reqaction</span><span class="o">(</span><span class="s">&quot;preauth_act1&quot;</span><span class="o">);</span> 
+
+<span class="n">aaapreauthenticationpolicy</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">preauth_pol1</span><span class="o">);</span> 
+
+
+ <span class="n">glob_binding</span> <span class="o">=</span> <span class="k">new</span> <span class="n">aaaglobal_aaapreauthenticationpolicy_binding</span><span class="o">();</span> 
+
+<span class="n">glob_binding</span><span class="o">.</span><span class="na">set_policy</span><span class="o">(</span><span class="s">&quot;preauth_pol1&quot;</span><span class="o">);</span> 
+
+<span class="n">glob_binding</span><span class="o">.</span><span class="na">set_priority</span><span class="o">(</span><span class="mi">200</span><span class="o">);</span> 
+
+<span class="n">aaaglobal_aaapreauthenticationpolicy_binding</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">glob_binding</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">aaapreauthenticationaction</span> <span class="n">preauth_act1</span><span class="p">;</span> 
+
+<span class="n">aaapreauthenticationpolicy</span> <span class="n">preauth_pol1</span><span class="p">;</span> 
+
+<span class="n">aaaglobal_aaapreauthenticationpolicy_binding</span> <span class="n">glob_binding</span><span class="p">;</span> 
+
+<span class="n">preauth_act1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">aaapreauthenticationaction</span><span class="p">();</span> 
+
+<span class="n">preauth_act1</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;preauth_act1&quot;</span><span class="p">;</span> 
+
+<span class="n">preauth_act1</span><span class="p">.</span><span class="n">preauthenticationaction</span> <span class="p">=</span> <span class="s">&quot;ALLOW&quot;</span><span class="p">;</span> 
+
+<span class="n">aaapreauthenticationaction</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">preauth_act1</span><span class="p">);</span> 
+
+
+
+<span class="n">preauth_pol1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">aaapreauthenticationpolicy</span><span class="p">();</span> 
+
+<span class="n">preauth_pol1</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;preauth_pol1&quot;</span><span class="p">;</span> 
+
+<span class="n">preauth_pol1</span><span class="p">.</span><span class="n">rule</span> <span class="p">=</span> <span class="s">&quot;CLIENT.APPLICATION.PROCESS(antivirus.exe) EXISTS&quot;</span><span class="p">;</span> 
+
+<span class="n">preauth_pol1</span><span class="p">.</span><span class="n">reqaction</span> <span class="p">=</span> <span class="s">&quot;preauth_act1&quot;</span><span class="p">;</span> 
+
+<span class="n">aaapreauthenticationpolicy</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">preauth_pol1</span><span class="p">);</span> 
+
+
+
+<span class="n">glob_binding</span> <span class="p">=</span> <span class="k">new</span> <span class="n">aaaglobal_aaapreauthenticationpolicy_binding</span><span class="p">();</span> 
+
+<span class="n">glob_binding</span><span class="p">.</span><span class="n">policy</span> <span class="p">=</span> <span class="s">&quot;preauth_pol1&quot;</span><span class="p">;</span>  
+
+<span class="n">glob_binding</span><span class="p">.</span><span class="n">priority</span> <span class="p">=</span> <span class="m">200</span><span class="p">;</span> 
+
+<span class="n">aaaglobal_aaapreauthenticationpolicy_binding</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">glob_binding</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">preauth_act1</span> <span class="o">=</span> <span class="n">aaapreauthenticationaction</span><span class="p">()</span>
+
+<span class="n">preauth_act1</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;preauth_act1&quot;</span>
+
+<span class="n">preauth_act1</span><span class="o">.</span><span class="n">preauthenticationaction</span> <span class="o">=</span> <span class="s2">&quot;ALLOW&quot;</span>
+
+<span class="n">aaapreauthenticationaction</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">preauth_act1</span><span class="p">)</span>
+
+
+<span class="n">preauth_pol1</span> <span class="o">=</span> <span class="n">aaapreauthenticationpolicy</span><span class="p">()</span>
+
+<span class="n">preauth_pol1</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;preauth_pol1&quot;</span>
+
+<span class="n">preauth_pol1</span><span class="o">.</span><span class="n">rule</span> <span class="o">=</span> <span class="s2">&quot;CLIENT.APPLICATION.PROCESS(antivirus.exe) EXISTS&quot;</span>
+
+<span class="n">preauth_pol1</span><span class="o">.</span><span class="n">reqaction</span> <span class="o">=</span> <span class="s2">&quot;preauth_act1&quot;</span>
+
+<span class="n">aaapreauthenticationpolicy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">preauth_pol1</span><span class="p">)</span>
+
+
+<span class="n">glob_binding</span> <span class="o">=</span> <span class="n">aaaglobal_aaapreauthenticationpolicy_binding</span><span class="p">()</span>
+
+<span class="n">glob_binding</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="s2">&quot;preauth_pol1&quot;</span>
+
+<span class="n">glob_binding</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="n">aaaglobal_aaapreauthenticationpolicy_binding</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">glob_binding</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="deleting-a-netscaler-resource">Deleting a NetScaler Resource<a class="headerlink" href="#deleting-a-netscaler-resource" title="Permanent link">&para;</a></h2>
+<p>The usage of the delete operation depends on the unique identifiers (UIDs) of the resource being deleted.</p>
+<p>Deleting Resource with Single UID. To delete a NetScaler resource that can be identified by a single identifier, specify the resource name.
+Deleting Resource with Multiple UIDs. To delete a NetScaler resource that is identified using multiple identifiers, use the "args" query parameter to specify the unique attributes along with their values.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>The following example deletes a load balancing virtual server named MyFirstLbVServer.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> DELETE</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/lbvserver/MyFirstLbVServer</p>
+<p><strong>Request Header:</strong> Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p>The following example deletes a resource with multiple UIDs. Consider a SNIP (10.102.29.71) that belongs to two traffic domains (TDs) 123 and 110. To delete the SNIP from one of the traffic domains, specify the IP address and the relevant TD in the URL as follows:</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> DELETE</p>
+<p><strong>URL:</strong> </p>
+<p>http://\<netscaler-ip-address>/nitro/v1/config/nsip?args=ipaddress:10.102.29.71,td:123</p>
+<p><strong>Request Header:</strong> Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>To delete an existing resource, invoke the static method delete() on the resource class, by passing the name of the resource.</p>
+<p>The following sample code deletes a load balancing virtual server with name MyFirstLbVServer.</p>
+<p><strong>Java - Sample code to delete a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver</span> <span class="n">remove_lb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="o">();</span> 
+<span class="n">remove_lb</span><span class="o">.</span><span class="na">set_name</span><span class="o">(</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="o">);</span> 
+<span class="n">lbvserver</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span> <span class="n">remove_lb</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to delete a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">lbvserver</span> <span class="n">remove_lb</span> <span class="p">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="p">();</span> 
+<span class="n">remove_lb</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;MyFirstLbVServer&quot;</span><span class="p">);</span> 
+<span class="n">lbvserver</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">remove_lb</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to delete a NetScaler resource</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">remove_lb</span> <span class="o">=</span> <span class="n">lbvserver</span><span class="p">()</span>
+<span class="n">remove_lb</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;MyFirstLbVServer&quot;</span>
+<span class="n">lbvserver</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">remove_lb</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="performing-bulk-operations">Performing Bulk Operations<a class="headerlink" href="#performing-bulk-operations" title="Permanent link">&para;</a></h2>
+<p>You can create, retrieve, update, and delete multiple resources simultaneously and thus minimize network traffic. For example, you can add multiple load balancing virtual servers in the same operation. </p>
+<p>To account for the failure of some operations within the bulk operation, NITRO allows you to configure one of the following behaviors while establishing a connection with the appliance.</p>
+<ul>
+<li><strong>Exit</strong>. When the first error is encountered, the execution stops. The commands that were executed before the error are committed.</li>
+<li><strong>Rollback</strong>. When the first error is encountered, the execution stops. The commands that were executed before the error are rolled back. Rollback is only supported for add and bind commands.</li>
+<li><strong>Continue</strong>. All the commands in the list are executed even if some commands fail.</li>
+</ul>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To perform a bulk operation, specify the required parameters in the same request payload. You must specify the behavior of the bulk operation in the request header using the X-NITRO-ONERROR parameter.</p>
+<p>The following example adds two load balancing virtual servers in one operation. The operation continues even if one of the add operation fails.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/lbvserver</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;lbvserver&quot;</span><span class="p">:</span> 
+    <span class="p">[</span> 
+        <span class="p">{</span> 
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;new_lbvserver1&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;http&quot;</span> 
+        <span class="p">},</span> 
+
+        <span class="p">{</span> 
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;new_lbvserver2&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;servicetype&quot;</span><span class="p">:</span><span class="s2">&quot;http&quot;</span> 
+        <span class="p">}</span> 
+    <span class="p">]</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong>
+201 Created for the add operation and 200 OK for the update operation.</p>
+<p><strong>HTTP Status Code on Failure:</strong>
+207 Multi Status with error details in the response payload.</p>
+<p>The following example enables multiple load balancing virtual servers in the same operation.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?action=enable</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+            <span class="nt">&quot;lbvserver&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;v2&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 201 Created for the add operation and 200 OK for the update operation.</p>
+<p><strong>HTTP Status Code on Failure:</strong> 207 Multi Status with error details in the response payload. </p>
+<p><strong>Using REST APIs through SDKs</strong></p>
+<p>To perform a bulk operation, you instantiate an array of the resource class, configure the properties of all the instances locally, and then upload all the instances to the NetScaler with one command.</p>
+<p>The following sample code specifies bulk operation behavior.</p>
+<p><strong>Java - Sample code to specify bulk operation behavior</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nitro_service</span> <span class="n">ns_session</span> <span class="o">=</span> <span class="k">new</span> <span class="n">nitro_service</span><span class="o">(</span><span class="s">&quot;10.102.29.60&quot;</span><span class="o">,</span><span class="s">&quot;http&quot;</span><span class="o">);</span> 
+<span class="n">ns_session</span><span class="o">.</span><span class="na">set_onerror</span><span class="o">(</span><span class="n">OnerrorEnum</span><span class="o">.</span><span class="na">CONTINUE</span><span class="o">);</span> 
+<span class="n">ns_session</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="s">&quot;admin&quot;</span><span class="o">,</span><span class="s">&quot;verysecret&quot;</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code to specify bulk operation behavior</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">nitro_service</span> <span class="n">ns_session</span> <span class="p">=</span> <span class="k">new</span> <span class="n">nitro_service</span><span class="p">(</span><span class="s">&quot;10.102.29.60&quot;</span><span class="p">,</span><span class="s">&quot;http&quot;</span><span class="p">);</span> 
+<span class="n">ns_session</span><span class="p">.</span><span class="n">onerror</span> <span class="p">=</span> <span class="n">OnerrorEnum</span><span class="p">.</span><span class="n">CONTINUE</span><span class="p">;</span> 
+<span class="n">ns_session</span><span class="p">.</span><span class="n">login</span><span class="p">(</span><span class="s">&quot;admin&quot;</span><span class="p">,</span><span class="s">&quot;verysecret&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code to specify bulk operation behavior</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">ns_session</span> <span class="o">=</span> <span class="n">nitro_service</span><span class="p">(</span><span class="s2">&quot;10.102.29.60&quot;</span><span class="p">,</span><span class="s2">&quot;http&quot;</span><span class="p">)</span>
+<span class="n">ns_session</span><span class="o">.</span><span class="n">onerror</span> <span class="o">=</span> <span class="n">OnerrorEnum</span><span class="o">.</span><span class="n">CONTINUE</span>
+<span class="n">ns_session</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="s2">&quot;verysecret&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>The following sample code creates two load balancing virtual servers.</p>
+<p><strong>Java - Sample code for bulk creation</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">//Create an array of lbvserver instances </span>
+
+<span class="n">lbvserver</span><span class="o">[]</span> <span class="n">lbs</span> <span class="o">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span> 
+
+<span class="c1">//Specify properties of the first lbvserver </span>
+
+<span class="n">lbs</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="o">();</span> 
+<span class="n">lbs</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">set_name</span><span class="o">(</span><span class="s">&quot;lbvserv1&quot;</span><span class="o">);</span> 
+<span class="n">lbs</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">set_servicetype</span><span class="o">(</span><span class="s">&quot;http&quot;</span><span class="o">);</span> 
+<span class="n">lbs</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">set_ipv46</span><span class="o">(</span><span class="s">&quot;10.70.136.5&quot;</span><span class="o">);</span> 
+<span class="n">lbs</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">set_port</span><span class="o">(</span><span class="mi">80</span><span class="o">);</span> 
+
+<span class="c1">//Specify properties of the second lbvserver </span>
+
+<span class="n">lbs</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="o">();</span> 
+<span class="n">lbs</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">set_name</span><span class="o">(</span><span class="s">&quot;lbvserv2&quot;</span><span class="o">);</span> 
+<span class="n">lbs</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">set_servicetype</span><span class="o">(</span><span class="s">&quot;https&quot;</span><span class="o">);</span> 
+<span class="n">lbs</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">set_ipv46</span><span class="o">(</span><span class="s">&quot;10.70.136.5&quot;</span><span class="o">);</span> 
+<span class="n">lbs</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">set_port</span><span class="o">(</span><span class="mi">443</span><span class="o">);</span> 
+
+<span class="c1">//Upload the properties of the two lbvservers to the NetScaler </span>
+
+<span class="n">lbvserver</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ns_session</span><span class="o">,</span><span class="n">lbs</span><span class="o">);</span>
+</pre></div>
+
+
+<p><strong>.NET - Sample code for bulk creation</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">//Create an array of lbvserver instances </span>
+<span class="n">lbvserver</span><span class="p">[]</span> <span class="n">lbs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="p">[</span><span class="m">2</span><span class="p">];</span> 
+
+<span class="c1">//Specify details of first lbvserver </span>
+
+<span class="n">lbs</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="p">();</span> 
+<span class="n">lbs</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;lbvserv1&quot;</span><span class="p">;</span> 
+<span class="n">lbs</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">servicetype</span> <span class="p">=</span> <span class="s">&quot;http&quot;</span><span class="p">;</span> 
+<span class="n">lbs</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">ipv46</span> <span class="p">=</span> <span class="s">&quot;10.70.136.5&quot;</span><span class="p">;</span> 
+<span class="n">lbs</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">port</span> <span class="p">=</span> <span class="m">80</span><span class="p">;</span> 
+
+<span class="c1">//Specify details of second lbvserver </span>
+
+<span class="n">lbs</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">lbvserver</span><span class="p">();</span> 
+<span class="n">lbs</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;lbvserv2&quot;</span><span class="p">;</span> 
+<span class="n">lbs</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">servicetype</span> <span class="p">=</span> <span class="s">&quot;https&quot;</span><span class="p">;</span> 
+<span class="n">lbs</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">ipv46</span> <span class="p">=</span> <span class="s">&quot;10.70.136.5&quot;</span><span class="p">;</span> 
+<span class="n">lbs</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">port</span> <span class="p">=</span> <span class="m">443</span><span class="p">;</span> 
+
+<span class="c1">//upload the details of the lbvservers to the NITRO server </span>
+
+<span class="n">lbvserver</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span><span class="n">lbs</span><span class="p">);</span>
+</pre></div>
+
+
+<p><strong>Python - Sample code for bulk creation</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">#Create an array of lbvserver instances</span>
+
+<span class="n">lbs</span> <span class="o">=</span> <span class="n">lbvserver</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1">#Specify properties of the first lbvserver</span>
+
+<span class="n">lbs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">lbvserver</span><span class="p">()</span>
+<span class="n">lbs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;lbvserv1&quot;</span>
+<span class="n">lbs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">servicetype</span> <span class="o">=</span> <span class="s2">&quot;http&quot;</span>
+<span class="n">lbs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ipv46</span> <span class="o">=</span> <span class="s2">&quot;10.70.136.5&quot;</span>
+<span class="n">lbs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">80</span>
+
+<span class="c1">#Specify properties of the second lbvserver</span>
+
+<span class="n">lbs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lbvserver</span><span class="p">()</span>
+<span class="n">lbs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;lbvserv2&quot;</span>
+<span class="n">lbs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">servicetype</span> <span class="o">=</span> <span class="s2">&quot;https&quot;</span>
+<span class="n">lbs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ipv46</span> <span class="o">=</span> <span class="s2">&quot;10.70.136.5&quot;</span>
+<span class="n">lbs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">443</span>
+
+<span class="c1">#Upload the properties of the two lbvservers to the NetScaler</span>
+
+<span class="n">lbvserver</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ns_session</span><span class="p">,</span> <span class="n">lbs</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="getting-the-count-of-netscaler-resources">Getting the Count of NetScaler Resources<a class="headerlink" href="#getting-the-count-of-netscaler-resources" title="Permanent link">&para;</a></h2>
+<p>This topic covers getting the count of a type of NetScaler resource present in a NetScaler appliance by using REST APIs through HTTP. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To get a count of a specific resource type, in the URL specify the count query parameter as "yes".</p>
+<p>For example, to get a count of all the load balancing virtual servers.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> GET</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/lbvserver?count=yes</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Accept:application/json</p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Response Header:</strong></p>
+<p>Content-Type:application/json</p>
+<p><strong>Response Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;lbvserver&quot;</span><span class="p">:</span> 
+    <span class="p">[</span> 
+        <span class="p">{</span> 
+            <span class="nt">&quot;__count&quot;</span><span class="p">:</span> <span class="mi">4</span> 
+        <span class="p">}</span> 
+    <span class="p">]</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="renaming-a-netscaler-resource">Renaming a NetScaler Resource<a class="headerlink" href="#renaming-a-netscaler-resource" title="Permanent link">&para;</a></h2>
+<p>This topic covers renaming a NetScaler resource by using REST APIs through HTTP. </p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>To change the name of an existing resource, specify the action as "rename" in the URL query string, and in the request payload, specify the existing name and the new name.</p>
+<p>For example, to change the name of a load balancing virtual server from MyFirstLbVServer to MyServer:</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address >/nitro/v1/config/lbvserver?action=rename</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;lbvserver&quot;</span><span class="p">:</span> 
+    <span class="p">{</span> 
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;MyFirstLbVServer&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;newname&quot;</span><span class="p">:</span><span class="s2">&quot;MyServer&quot;</span> 
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<h2 id="performing-file-operations">Performing File Operations<a class="headerlink" href="#performing-file-operations" title="Permanent link">&para;</a></h2>
+<p>NetScaler operations such as configuring SSL certificates requires the input files to be available locally on the NetScaler appliance. NITRO allows you to perform file operations such as uploading files, retrieving files, retrieving file content, and deleting files of types: txt, cert, req, xml, lic, and key.</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li>File size must be less than or equal to 2 MB.</li>
+<li>Use the "BASE64" value for the fileencoding attribute in the request payload. This is the only valid encoding currently supported.</li>
+<li>The filelocation path must be URL encoded. For example, if the path is /nsconfig/ssl, encode the / and use the file location as %2Fnsconfig%2Fssl.</li>
+<li>When uploading a file, make sure that each directory of the file path has the 755 (read, write, execute) permission. For example, to upload a file to the "/nsconfig/ssl/" directory, the following directories must have the 755 permission:
+flash (because the "/nsconfig" folder is actually a link to "/flash/nsconfig/" directory)<ul>
+<li>nsconfig</li>
+<li>ssl</li>
+</ul>
+</li>
+</ul>
+<h3 id="uploading-a-file">Uploading a File<a class="headerlink" href="#uploading-a-file" title="Permanent link">&para;</a></h3>
+<p>To upload a file to the NetScaler, specify a name for the file, the location where the file must be created on the NetScaler, and the content of the file.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>For example, to upload a file named cert1.crt in the /nsconfig/ssl/ directory:</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> POST</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/systemfile</p>
+<p><strong>Request Headers:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue> </p>
+<p>Content-Type:application/json</p>
+<p><strong>Request Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+        <span class="nt">&quot;systemfile&quot;</span><span class="p">:</span> 
+        <span class="p">{</span> 
+            <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;cert1.crt&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;filelocation&quot;</span><span class="p">:</span> <span class="s2">&quot;/nsconfig/ssl/&quot;</span><span class="p">,</span>        
+            <span class="nt">&quot;filecontent&quot;</span><span class="p">:</span><span class="s2">&quot;VGhpcyBpcyBteSBmaWxl&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;fileencoding&quot;</span><span class="p">:</span> <span class="s2">&quot;BASE64&quot;</span> 
+        <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<h3 id="retrieving-the-files">Retrieving the Files<a class="headerlink" href="#retrieving-the-files" title="Permanent link">&para;</a></h3>
+<p>To retrieve the files from a specific NetScaler directory, specify the directory path in the URL.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>For example, to retrieve the files from the /nsconfig/ssl directory.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> GET</p>
+<p><strong>URL:</strong></p>
+<p>http://\<netscaler-ip-address>/nitro/v1/config/systemfile?args=filelocation:%2Fnsconfig%2Fssl</p>
+<p><strong>Request Header:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p>Accept:application/json</p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Response Header:</strong></p>
+<p>Content-Type:application/json</p>
+<p><strong>Response Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;systemfile&quot;</span><span class="p">:</span>  
+    <span class="p">[</span>  
+            <span class="s2">&quot;filename&quot;</span><span class="err">:</span> <span class="s2">&quot;ns-root.key&quot;</span><span class="p">,</span>  
+            <span class="s2">&quot;filelocation&quot;</span><span class="err">:</span> <span class="s2">&quot;/nsconfig/ssl&quot;</span><span class="p">,</span>  
+            <span class="s2">&quot;fileaccesstime&quot;</span><span class="err">:</span> <span class="s2">&quot;Tue Jan 14 19:27:01 2014&quot;</span><span class="p">,</span>  
+            <span class="s2">&quot;filemodifiedtime&quot;</span><span class="err">:</span> <span class="s2">&quot;Tue Nov  5 17:16:00 2013&quot;</span> 
+        <span class="err">}</span><span class="p">,</span>  
+        <span class="p">{</span> 
+        <span class="err">{</span>  
+            <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;ns-root.req&quot;</span><span class="p">,</span>  
+            <span class="nt">&quot;filelocation&quot;</span><span class="p">:</span> <span class="s2">&quot;/nsconfig/ssl&quot;</span><span class="p">,</span>  
+            <span class="nt">&quot;fileaccesstime&quot;</span><span class="p">:</span> <span class="s2">&quot;Tue Jan 14 19:27:01 2014&quot;</span><span class="p">,</span>  
+            <span class="nt">&quot;filemodifiedtime&quot;</span><span class="p">:</span> <span class="s2">&quot;Tue Nov  5 17:16:00 2013&quot;</span>  
+        <span class="p">}</span> 
+    <span class="p">]</span> 
+<span class="p">}</span> 
+</pre></div>
+
+
+<h3 id="retrieving-contents-of-a-specific-file">Retrieving Contents of a Specific File<a class="headerlink" href="#retrieving-contents-of-a-specific-file" title="Permanent link">&para;</a></h3>
+<p>To retrieve the contents of a file, specify the filename and its directory path in the URL.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>For example, to retrieve the contents of the ns-root.key file from the /nsconfig/ssl directory.</p>
+<p><strong>Request</strong></p>
+<p><strong>HTTP Method:</strong> GET</p>
+<p><strong>URL:</strong> http://\<netscaler-ip-address>/nitro/v1/config/systemfile/ns-root.key?args=filelocation:%2Fnsconfig%2Fssl</p>
+<p><strong>Request Header:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p>Accept:application/json</p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong></p>
+<p>200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong></p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for 
+NetScaler-specific errors). The response payload provides details of the error.</p>
+<p><strong>Response Header:</strong></p>
+<p>Content-Type:application/json</p>
+<p><strong>Response Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="nt">&quot;systemfile&quot;</span><span class="p">:</span>  
+    <span class="p">[</span>  
+        <span class="p">{</span>  
+            <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;ns-root.key&quot;</span><span class="p">,</span>  
+            <span class="nt">&quot;filelocation&quot;</span><span class="p">:</span> <span class="s2">&quot;/nsconfig/ssl&quot;</span><span class="p">,</span>  
+            <span class="nt">&quot;filecontent&quot;</span><span class="p">:</span> <span class="s2">&quot;LS0tLS1CRUdJTiBSU0EgUFJJVkFU0tLQo=&quot;</span><span class="p">,</span>  
+            <span class="nt">&quot;fileencoding&quot;</span><span class="p">:</span> <span class="s2">&quot;BASE64&quot;</span><span class="p">,</span>  
+            <span class="nt">&quot;fileaccesstime&quot;</span><span class="p">:</span> <span class="s2">&quot;Tue Jan 14 19:27:01 2014&quot;</span><span class="p">,</span>  
+            <span class="nt">&quot;filemodifiedtime&quot;</span><span class="p">:</span> <span class="s2">&quot;Tue Nov  5 17:16:00 2013&quot;</span>  
+        <span class="p">}</span>  
+    <span class="p">]</span>  
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="deleting-a-file">Deleting a File<a class="headerlink" href="#deleting-a-file" title="Permanent link">&para;</a></h3>
+<p>To delete a file from the NetScaler appliance, specify the filename and the directory path in the URL.</p>
+<p><strong>Using REST APIs through HTTP</strong></p>
+<p>For example, to delete the ns-root.key file from the /nsconfig/ssl directory.</p>
+<p><strong>Request:</strong></p>
+<p><strong>HTTP Method:</strong> DELETE</p>
+<p><strong>URL:</strong> https://\<netscaler-ip-address>/nitro/v1/config/systemfile/ns-root.key?args=filelocation:%2Fnsconfig%2Fssl</p>
+<p><strong>Request Header:</strong></p>
+<p>Cookie:NITRO_AUTH_TOKEN=\<tokenvalue></p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code on Success:</strong> 200 OK</p>
+<p><strong>HTTP Status Code on Failure:</strong> </p>
+<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors). The response payload provides details of the error.</p> 
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+    <!--<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span class="prev"><a href="../performing-basic-netscaler-operations/"><i class="fa fa-angle-left"></i> Previous</a></span>
+      
+      
+        <span class="next"><a href="../usecases/">Next <i class="fa fa-angle-right"></i></a></span>
+      
+    </span>
+	<div class="footer-right">
+		<ul class="social-links">
+			<li class="list-inline"><a href="https://twitter.com/citrix"><i class="fa fa-twitter"></i>@citrix</a></li>
+			<li class="list-inline"><a href="mailto:support@citrix.com"><i class="fa fa-envelope-o"></i>support@citrix.com</a></li>
+		</ul>
+		<ul class="inner-pages">
+			<li class="list-inline"><a href="http://citrix.com/about/legal">Privacy and Terms</li>
+		</ul>
+	</div>
+</div>-->
+
+  </body>
+
+</html>

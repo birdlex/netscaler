@@ -92,6 +92,8 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
             
                 <li class="toctree-l3"><a href="#before-you-begin" style="padding:0px;position: relative;">&nbsp;Before you Begin</a></li>
                 
+                    <li><a class="toctree-l4" href="#prerequisites" style="padding:0px;position: relative;">Prerequisites</a></li>
+                
                     <li><a class="toctree-l4" href="#nitro-changes-across-releases" style="padding:0px;position: relative;">NITRO Changes Across Releases</a></li>
                 
                     <li><a class="toctree-l4" href="#changes-made-from-105-57x-110" style="padding:0px;position: relative;">Changes Made from 10.5 57.x -&gt; 11.0</a></li>
@@ -105,6 +107,13 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
               
     <li class="toctree-l1 ">
         <a class="toctree-l1-a " href="../performing-basic-netscaler-operations/">Performing Basic NetScaler Operations</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../performing-netscaler-resource-operations/">Performing NetScaler Resource Operations</a>
 		
     </li>
 
@@ -163,6 +172,31 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
                   </div>
                    <h1 id="before-you-begin">Before you Begin<a class="headerlink" href="#before-you-begin" title="Permanent link">&para;</a></h1>
 <p>This section covers the prerequisites for using the NITRO APIs, NITRO changes across releases, and limitations.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>To use NITRO, you must have a basic understanding of the NetScaler appliance and you must make sure that the client application has one of the following:</p>
+<ul>
+<li>
+<p>Access to a NetScaler appliance.</p>
+</li>
+<li>
+<p>To use REST APIs through HTTP, you must have a system to generate HTTP or HTTPS requests (payload in JSON format) to the NetScaler appliance. You can use any programming language or tool.</p>
+</li>
+<li>
+<p>For Java clients, you must have a system where Java Development Kit (JDK) 1.5 or later is available. The JDK can be downloaded from http://www.oracle.com/technetwork/java/javase/downloads/index.html.</p>
+<p>The NITRO library (available in \<NITRO_SDK_HOME>/lib) must be installed on the client path. For installation instructions, read the \<NITRO_SDK_HOME>/README.txt file.</p>
+</li>
+<li>
+<p>For .NET clients, you must have a system with .NET framework 3.5 or later installed. The .NET framework can be downloaded from http://www.microsoft.com/downloads/en/default.aspx. </p>
+<p>The NITRO library (available in \<NITRO_SDK_HOME>/lib) must be installed on the client path. For installation instructions, read the \<NITRO_SDK_HOME>/README.txt file.</p>
+</li>
+<li>
+<p>For Python clients, you must have a system with Python 2.7 or above version.</p>
+<p>The Python SDK is available from NetScaler 10.5 onwards. The NITRO library (available in \<NITRO_SDK_HOME>/lib) must be installed on the client path. For installation instructions, read the \<NITRO_SDK_HOME>/README.txt file.</p>
+</li>
+</ul>
+<p><strong>Obtaining the NITRO SDK Package</strong></p>
+<p>The NITRO package is available as a tar file on the Downloads page of the configuration utility of the NetScaler appliance. You must download and untar the file to a folder on your local system. This folder is referred to as \<NITRO_SDK_HOME> in this documentation.</p>
+<p>The folder contains the NITRO libraries in the lib subfolder. The libraries must be added to the client application classpath to access NITRO functionality. The \<NITRO_SDK_HOME> folder also provides samples and documentation that can help you understand the NITRO SDK.</p>
 <h2 id="nitro-changes-across-releases">NITRO Changes Across Releases<a class="headerlink" href="#nitro-changes-across-releases" title="Permanent link">&para;</a></h2>
 <p>Some NITRO API have changed across releases. This topic details information which can help you avoid compatibility issues in your application. The changes are categorized as:</p>
 <h3 id="changes-made-from-111-533-120-48x">Changes Made from 11.1-53.3 -&gt; 12.0-48.x<a class="headerlink" href="#changes-made-from-111-533-120-48x" title="Permanent link">&para;</a></h3>

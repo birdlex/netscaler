@@ -100,6 +100,13 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 			  
               
     <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../performing-netscaler-resource-operations/">Performing NetScaler Resource Operations</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
         <a class="toctree-l1-a " href="../usecases/">Use cases</a>
 		
     </li>
@@ -170,23 +177,24 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 * Warnings</p>
 <p><strong>Error in a Single Resource Operation</strong></p>
 <p>The response of a single erroneous operation is as follows:</p>
-<p><strong>HTTP Status Code</strong></p>
-<p>4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors)</p>
-<p><strong>Response Header</strong></p>
-<p>Content-Type:application/json</p>
-<p><strong>Response Payload</strong></p>
-<p>{ 
-    errorcode: \<Error code>, 
-    message: "\<Error message>", 
-    severity: "ERROR" 
-}</p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code:</strong> 4xx \<string> (for general HTTP errors) or 5xx \<string> (for NetScaler-specific errors)</p>
+<p><strong>Response Header:</strong> Content-Type:application/json</p>
+<p><strong>Response Payload:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span> 
+    <span class="err">errorcode:</span> <span class="err">\&lt;Error</span> <span class="err">code&gt;,</span> 
+    <span class="err">message:</span> <span class="nt">&quot;\&lt;Error message&gt;&quot;</span><span class="p">,</span> 
+    <span class="err">severity:</span> <span class="nt">&quot;ERROR&quot;</span> 
+<span class="p">}</span>
+</pre></div>
+
+
 <p><strong>Error in a Bulk Operation</strong></p>
 <p>When there is a failure in one of the bulk operations, the response payload gives a combination of success and failure (depends on the value set for X-NITRO-ONERROR in the request header).</p>
-<p><strong>HTTP Status Code</strong></p>
-<p>207 Multi Status</p>
-<p><strong>Response Header</strong></p>
-<p>Content-Type:application/json</p>
-<p><strong>Response Payload when X-NITRO-ONERROR is set to continue</strong></p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code:</strong> 207 Multi Status</p>
+<p><strong>Response Header:</strong> Content-Type:application/json</p>
+<p><strong>Response Payload when X-NITRO-ONERROR is set to continue:</strong></p>
 <p>When the first operation fails, the request is not terminated. The response payload shows the error details of the failed operation and the success status of the other operations.</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span> 
     <span class="nt">&quot;errorcode&quot;</span><span class="p">:</span> <span class="mi">1243</span><span class="p">,</span> 
@@ -209,7 +217,7 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 </pre></div>
 
 
-<p><strong>Response Payload when X-NITRO-ONERROR is set to exit</strong></p>
+<p><strong>Response Payload when X-NITRO-ONERROR is set to exit:</strong></p>
 <p>When the first operation fails, the request is terminated. The response payload only shows the error details of the failed operation.</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span> 
     <span class="nt">&quot;errorcode&quot;</span><span class="p">:</span> <span class="mi">1243</span><span class="p">,</span> 
@@ -231,17 +239,16 @@ https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
 <p>Warnings can be captured by specifying the "warning" query parameter as "yes" when performing any NITRO operation. For example, to get warnings while connecting to the NetScaler appliance, the URL is as follows:</p>
 <p>http://\<netscaler-ip-address>/nitro/v1/config/llbvserver?warning=yes</p>
 <p>If there are any warnings, the response is as follows:</p>
-<p><strong>HTTP Status Code</strong></p>
-<p>209 X-NITRO-WARNING</p>
-<p><strong>Response Header</strong></p>
-<p>X-NITRO-WARNING →1067 - Feature(s) not enabled [LB]</p>
+<p><strong>Response</strong></p>
+<p><strong>HTTP Status Code:</strong> 209 X-NITRO-WARNING</p>
+<p><strong>Response Header:</strong> X-NITRO-WARNING →1067 - Feature(s) not enabled [LB]</p>
 <h2 id="exception-handling-support-for-sdks">Exception Handling Support for SDKs<a class="headerlink" href="#exception-handling-support-for-sdks" title="Permanent link">&para;</a></h2>
 <p>The status of a NITRO request is captured in the com.citrix.netscaler.nitro.exception.nitro_exception class. This class provides the following details of the exception:</p>
 <ul>
-<li>Session ID. The session in which the exception occurred.</li>
-<li>Severity. The severity of the exception: error or warning. By default, only errors are captured. To capture warnings, you must set the warning flag to true, while connecting to the appliance.</li>
-<li>Error code. The status of the NITRO request. An error code of 0 indicates that the NITRO request is successful. A non-zero error code indicates an error in processing the NITRO request.</li>
-<li>Error message. Provides a brief description of the exception.</li>
+<li><strong>Session ID</strong>. The session in which the exception occurred.</li>
+<li><strong>Severity</strong>. The severity of the exception: error or warning. By default, only errors are captured. To capture warnings, you must set the warning flag to true, while connecting to the appliance.</li>
+<li><strong>Error code</strong>. The status of the NITRO request. An error code of 0 indicates that the NITRO request is successful. A non-zero error code indicates an error in processing the NITRO request.</li>
+<li><strong>Error message</strong>. Provides a brief description of the exception.</li>
 </ul>
 <p>For a list of error codes, see the errorlisting.html file available in the \<NITRO_SDK_HOME>/doc/api_reference folder.</p> 
 
